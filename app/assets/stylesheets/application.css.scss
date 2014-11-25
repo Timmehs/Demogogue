@@ -16,3 +16,23 @@
 
  @import "bootstrap-sprockets";
  @import "bootstrap";
+
+header {
+  width: 100%;
+  background-color: slategray;
+  text-align: center;
+}
+nav[role=navigation] {
+  width: 80%;
+  margin: 0 auto;
+}
+
+
+#navsearch {
+  // margin-left: 400px;
+  input {
+    width: 375px;
+    // background-image: url(https://a-v2.sndcdn.com/assets/images/header/header-icons-1afa05.png) -359px no-repeat;
+
+  }
+}
