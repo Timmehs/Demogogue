@@ -5,11 +5,11 @@ class SessionsController < ApplicationController
     if @user
       sign_in!(@user)
       puts "LOGGED IN! #{current_user.email}"
-      redirect_to root_url
     else
       flash.now[:errors] = ["Invalid username or password"];
-      render :new
     end
+
+    redirect_to root_url
   end
 
   def destroy

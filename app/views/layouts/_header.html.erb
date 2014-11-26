@@ -1,69 +1,73 @@
 <header>
-<nav class="navbar navbar-inverse" style="border-radius: 0px;" role="navigation">
+  <nav class="navbar navbar-inverse"
+      style="border-radius: 0px;" role="navigation">
 
-  <div class="container-fluid">
-    <div class="navbar-header">
-      <a class="navbar-brand" href="#" style="color: #DCDCDC;">
-        <b style="color: white;">Demo</b>gogue
-      </a>
-    </div>
-    <ul class="nav navbar-nav navbar-left">
-      <li><a href="#home">Home</a></li>
-      <li><a href="#explore">Explore</a></li>
-      <li>
-        <div id="navsearch">
-          <form class="navbar-form navbar-left" role="search">
-            <div class="form-group">
-              <input type="text" class="form-control" placeholder="Search">
-            </div>
-          </form>
-        </div>
-      </li>
-      <li><a href="#">Upload</a></li>
-    </ul>
-
-    <ul class="nav navbar-nav navbar-right">
-
-      <% if !signed_in? %>
-        <!-- Logged out menu -->
+    <div class="container-fluid">
+      <div class="navbar-header">
+        <a class="navbar-brand" href="#" style="color: #DCDCDC;">
+          <b style="color: white;">Demo</b>gogue
+        </a>
+      </div>
+      <ul class="nav navbar-nav navbar-left">
+        <li><a href="#home">Home</a></li>
+        <li><a href="#explore">Explore</a></li>
         <li>
-          <form action="../users/new">
-            <button type="button"
-                    class="btn btn-success navbar-btn"
-                    data-toggle="modal" data-target="#signup-modal">
-              Sign Up
-            </button>
-          </form>
+          <div id="navsearch">
+            <form class="navbar-form navbar-left" role="search">
+              <div class="form-group">
+                <input type="text" class="form-control" placeholder="Search">
+              </div>
+            </form>
+          </div>
         </li>
-        <li class="dropdown">
-          <a class="dropdown-toggle" data-toggle="dropdown"
-              role="button" aria-expanded="false" href="#">Sign In</a>
-          <ul class="dropdown-menu" role="menu">
-            <li>
-              <%= render "layouts/users/form_signin" %>
-            </li>
-          </ul>
-        </li>
-      <% else %>
-        <!-- Logged in menu -->
-        <li><a href="#"><%= current_user.username %></a></li>
-        <li class="dropdown">
-          <a href="#" class="dropdown-toggle" data-toggle="dropdown"
-             role="button" aria-expanded="false">
-             <span class="glyphicon glyphicon-cog"></span>
-             <span class="caret"></span>
-          </a>
-          <ul class="dropdown-menu" role="menu">
-            <li><a href="#">Action</a></li>
-            <li><a href="#">Another action</a></li>
-            <li><a href="#">Something else here</a></li>
-            <li class="divider"></li>
-            <li><%= link_to "Logout", session_url, method: :delete %></li>
-          </ul>
-        </li>
-      <% end %>
-    </ul>
+        <li><a href="#">Upload</a></li>
+      </ul>
 
-  </div>
-</nav>
+      <ul class="nav navbar-nav navbar-right">
+
+        <% if !signed_in? %>
+          <!-- Logged out menu -->
+          <li>
+            <form action="../users/new">
+              <button type="button"
+                      class="btn btn-success navbar-btn"
+                      onclick="disableNavButtons()"
+                      data-toggle="modal" data-target="#signup-modal">
+                Sign Up
+              </button>
+            </form>
+          </li>
+          <li id="signin-dropdown" class="dropdown">
+            <a class="dropdown-toggle" data-toggle="dropdown"
+                role="button" aria-expanded="false" href="#">Sign In</a>
+            <ul id="drp-toggle" class="dropdown-menu" role="menu">
+              <li>
+                <%= render "layouts/users/form_signin" %>
+              </li>
+            </ul>
+          </li>
+        <% else %>
+          <!-- Logged in menu -->
+          <li><a href="#"><%= current_user.username %></a></li>
+          <li class="dropdown">
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown"
+               role="button" aria-expanded="false">
+               <span class="glyphicon glyphicon-cog"></span>
+               <span class="caret"></span>
+            </a>
+            <ul class="dropdown-menu" role="menu">
+              <li><a href="#">Action</a></li>
+              <li><a href="#">Another action</a></li>
+              <li><a href="#">Something else here</a></li>
+              <li class="divider"></li>
+              <li><%= link_to "Logout", session_url, method: :delete %></li>
+            </ul>
+          </li>
+        <% end %>
+      </ul>
+
+    </div>
+  </nav>
 </header>
+
+<%= render "layouts/users/signup_modal" %>

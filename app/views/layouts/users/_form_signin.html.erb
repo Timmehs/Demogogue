@@ -1,5 +1,5 @@
 <div id="signin-form">
-  <form class="form-group" action="/session" method="POST">
+  <form class="form-group " action="/session" method="POST">
     <input type="hidden" name="authenticity_token"
     value="<%= form_authenticity_token %>" >
     <div class="form-group">
@@ -17,6 +17,9 @@
       class="form-control">
     </div>
     <button type="submit" class="btn btn-primary">Sign In</button>
-    <a class= href="../users/new">Register</a>
+    <button type="button"
+      class="btn btn-link"
+      id="btn-register"
+      data-toggle="modal" data-target="#signup-modal">Register</button>
   </form>
 </div>
