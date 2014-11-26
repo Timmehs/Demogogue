@@ -1,0 +1,6 @@
+
+<div id="flash_box">
+  <% if flash[:errors] %>
+    <%= flash[:errors].join("<br>").html_safe %>
+  <% end %>
+</div>
