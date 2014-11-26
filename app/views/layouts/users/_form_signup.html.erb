@@ -1,0 +1,36 @@
+<div id="signup-form">
+  <form id="signup-form-form" class="form-group" action="/users" method="POST">
+    <input type="hidden" name="authenticity_token"
+    value="<%= form_authenticity_token %>" >
+
+    <div class="form-group" id="username-field">
+      <label for="username-field">Username</label>
+      <input type="text"
+      class="form-control"
+      title="The name that other users will see"
+      name="user[username]" placeholder="Username">
+    </div>
+
+    <div class="form-group">
+      <label for="email-field">Email</label>
+      <input id="email-field" type="text"
+      class="form-control"
+      name="user[email]" placeholder="Email">
+    </div>
+
+    <div class="form-group">
+      <label for="password-field">Password</label>
+      <input id="password-field" type="password"
+      name="user[password]"
+      placeholder="Password"
+      class="form-control">
+    </div>
+</div>
+
+
+<script>
+$('#username-field').tooltip({'trigger':'hover', 'placement': 'top',
+    'title': 'The name other users will see'});
+    
+
+</script>
