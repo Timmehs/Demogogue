@@ -10,11 +10,13 @@ class SessionsController < ApplicationController
       puts "LOGGED IN! #{current_user.email}"
       redirect_to root_url
     else
-      flash[:errors] = ["Invalid username or password"];
+      flash.now[:errors] = ["Invalid username or password"];
       render :new
     end
   end
 
   def destroy
+    log_out!(current_user) if current_user
+    redirect_to root_url
   end
 end
