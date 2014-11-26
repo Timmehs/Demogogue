@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141126222613) do
+ActiveRecord::Schema.define(version: 20141126232134) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -29,12 +29,13 @@ ActiveRecord::Schema.define(version: 20141126222613) do
   add_index "submissions", ["artist_id"], name: "index_submissions_on_artist_id", using: :btree
 
   create_table "users", force: true do |t|
-    t.string   "email",           null: false
-    t.string   "password_digest", null: false
-    t.string   "session_token",   null: false
+    t.string   "email",                                          null: false
+    t.string   "password_digest",                                null: false
+    t.string   "session_token",                                  null: false
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "username"
+    t.string   "avatar_url",      default: "default_avatar.png"
   end
 
 end
