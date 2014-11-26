@@ -21,16 +21,6 @@
       </li>
       <li><a href="#">Upload</a></li>
     </ul>
-<!--
-    <div id="navsearch">
-      <form class="navbar-form navbar-left" role="search">
-        <div class="form-group">
-          <input type="text" class="form-control" placeholder="Search">
-        </div>
-      </form>
-    </div> -->
-
-
 
     <ul class="nav navbar-nav navbar-right">
 
@@ -38,7 +28,9 @@
         <!-- Logged out menu -->
         <li>
           <form action="../users/new">
-            <button type="submit" class="btn btn-success navbar-btn">
+            <button type="button"
+                    class="btn btn-success navbar-btn"
+                    data-toggle="modal" data-target="#signup-modal">
               Sign Up
             </button>
           </form>

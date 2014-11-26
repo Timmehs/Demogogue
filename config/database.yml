@@ -77,9 +77,3 @@ test:
 #
 #   production:
 #     url: <%= ENV['DATABASE_URL'] %>
-#
-production:
-  <<: *default
-  database: Demogogue_production
-  username: Demogogue
-  password: <%= ENV['DEMOGOGUE_DATABASE_PASSWORD'] %>
