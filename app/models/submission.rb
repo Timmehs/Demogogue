@@ -14,12 +14,16 @@
 
 class Submission < ActiveRecord::Base
   validate :artist_id, :title, presence: true
-
+  after_validation :ensure_avatar
   belongs_to(
     :artist,
     class_name: "User",
-    foreign_key: :author_id,
+    foreign_key: :artist_id,
     primary_key: :id
   )
-  
+
+  def ensure_avatar
+    self.thumb_url = artist.avatar_url unless self.thumb_url
+  end
+
 end
