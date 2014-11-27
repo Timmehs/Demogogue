@@ -3,3 +3,6 @@ Demogogue.Collections.Demos = Backbone.Collection.extend({
   url: 'api/demos'
 
 });
+
+
+Demogogue.Collections.demos = new Demogogue.Collections.Demos();

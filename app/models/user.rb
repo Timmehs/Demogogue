@@ -26,8 +26,19 @@ class User < ActiveRecord::Base
   )
 
   def self.find_by_credentials(user_params)
-    user = User.find_by_email(user_params[:email])
+    user = nil
+    
+    if (is_email?(user_params[:email]))
+      user = User.find_by_email(user_params[:email])
+    else
+      user = User.find_by_username(user_params[:email])
+    end
+
     user.try(:is_password?, user_params[:password]) ? user : nil
+  end
+
+  def self.is_email?(str)
+    !!str.match(/\A([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{2,})\z/i)
   end
 
   def password=(raw_password)
@@ -45,6 +56,8 @@ class User < ActiveRecord::Base
   def ensure_session_token
     self.session_token ||= generate_session_token
   end
+
+
 
   def generate_session_token
     new_token = SecureRandom.urlsafe_base64

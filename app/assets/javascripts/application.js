@@ -14,7 +14,7 @@
 //= require jquery_ujs
 //= require turbolinks
 //= require bootstrap
-//= require underscore-min
+//= require underscore
 //= require backbone
 //= require demogogue
 //= require_tree ../templates

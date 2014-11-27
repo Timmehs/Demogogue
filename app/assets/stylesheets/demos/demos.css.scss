@@ -1,0 +1,23 @@
+#index-sidebar {
+  top: 0px;
+  left: 0px;
+  width: 200px;
+  height: 100%;
+  position: absolute;
+  overflow: scroll;
+  padding: 10px;
+}
+
+#index-sidebar-header {
+  padding: 10px;
+  border-bottom: 3px solid gainsboro;
+  background-image: url("header_item_bg.png");
+}
+
+
+#index-sidebar-list {
+  background-color: yellow;
+  overflow: scroll;
+  padding: 10px;
+  margin-top: 10px;
+}
