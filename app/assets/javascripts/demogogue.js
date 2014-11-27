@@ -7,7 +7,3 @@ window.Demogogue = {
     alert('Hello from Backbone!');
   }
 };
-
-$(document).ready(function(){
-  Demogogue.initialize();
-});

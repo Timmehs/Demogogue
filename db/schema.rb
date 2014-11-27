@@ -11,12 +11,12 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141126232134) do
+ActiveRecord::Schema.define(version: 20141127000415) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
-  create_table "submissions", force: true do |t|
+  create_table "demos", force: true do |t|
     t.integer  "artist_id",  null: false
     t.string   "title",      null: false
     t.text     "track_info"
@@ -26,7 +26,7 @@ ActiveRecord::Schema.define(version: 20141126232134) do
     t.datetime "updated_at"
   end
 
-  add_index "submissions", ["artist_id"], name: "index_submissions_on_artist_id", using: :btree
+  add_index "demos", ["artist_id"], name: "index_demos_on_artist_id", using: :btree
 
   create_table "users", force: true do |t|
     t.string   "email",                                          null: false
