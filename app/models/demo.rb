@@ -12,7 +12,7 @@
 #  updated_at :datetime
 #
 
-class Submission < ActiveRecord::Base
+class Demo < ActiveRecord::Base
   validate :artist_id, :title, presence: true
   after_validation :ensure_avatar
   belongs_to(

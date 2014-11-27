@@ -19,8 +19,8 @@ class User < ActiveRecord::Base
   after_initialize :ensure_session_token
 
   has_many(
-    :submissions,
-    class_name: "Submission",
+    :demos,
+    class_name: "Demo",
     foreign_key: :artist_id,
     primary_key: :id
   )
