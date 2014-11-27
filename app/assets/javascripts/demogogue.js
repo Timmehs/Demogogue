@@ -4,6 +4,8 @@ window.Demogogue = {
   Views: {},
   Routers: {},
   initialize: function() {
-    alert('Hello from Backbone!');
+    
+    new Demogogue.Routers.Router();
+    Backbone.history.start();
   }
 };

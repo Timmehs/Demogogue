@@ -25,5 +25,4 @@ class Demo < ActiveRecord::Base
   def ensure_avatar
     self.thumb_url = artist.avatar_url unless self.thumb_url
   end
-
 end

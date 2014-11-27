@@ -1,7 +1,7 @@
 class Api::DemosController < ApplicationController
 
   def index
-    render json: Demos.all
+    render json: Demo.all
   end
 
 end
