@@ -16,8 +16,25 @@
 
 
 #index-sidebar-list {
-  background-color: yellow;
   overflow: scroll;
   padding: 10px;
   margin-top: 10px;
+  .item {
+    margin-left: 10px;
+    padding: 3px;
+    font-size: 25;
+    font-style: bold;
+    color: darkgray;
+  }
+}
+
+#demo-list {
+  background-color: gray;
+  position: absolute;
+  left: 200px;
+  top: 0px;
+  margin: 0px;
+  height: 100%;
+  width: 100%;
+  overflow: scroll;
 }

@@ -1,5 +1,6 @@
-Demogogue.Views.DemosIndex = Backbone.View.extend({
-  template: JST['demos/index'],
+Demogogue.Views.SplashPage = Backbone.View.extend({
+  template: JST['splash/splash'],
+  className: "splash-page",
 
   render: function() {
     var content = this.template({demos: this.collection});
@@ -10,11 +11,9 @@ Demogogue.Views.DemosIndex = Backbone.View.extend({
 
   renderDemos: function() {
     _.each(this.collection, function(demo) {
-      var content = new Demogogue.Views.DemosIndexItem({ model: demo });
+      var content = new Demogogue.Views.DemoShow({ model: demo });
     });
 
   }
-
-
 
 });

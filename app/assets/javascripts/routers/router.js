@@ -1,6 +1,6 @@
 Demogogue.Routers.Router = Backbone.Router.extend({
   routes: {
-    "" : "index",
+    "explore" : "index",
     "home" : "splashPage",
     "user/:id" : "userShow",
     "demo/:id" : "demoShow",
