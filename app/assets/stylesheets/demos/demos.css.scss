@@ -10,7 +10,7 @@
 
 #index-sidebar-header {
   padding: 10px;
-  border-bottom: 3px solid gainsboro;
+  border-bottom: 1px solid gainsboro;
 }
 
 
@@ -28,12 +28,38 @@
 }
 
 #demo-list {
-  background-color: gray;
+  display: inline-block;
   position: absolute;
   left: 200px;
   top: 0px;
-  margin: 0px;
   height: 100%;
-  width: 100%;
+  width: auto;
   overflow: scroll;
+  .idx-header {
+    font-size: 25px;
+    padding: 25px;
+    padding-bottom: 5px;
+    color: darkgray;
+    border-bottom: 2px solid gainsboro;
+    width: 400px;
+  }
+}
+
+.demos-index-item {
+  width: 680px;
+  table td {
+    padding: 5px;
+  }
+  .artist_text {
+    color: gray;
+    font-size: 14px;
+  }
+  .title_text {
+    font-size: 20px;
+  }
+
+  .artwork {
+    width: 140px;
+    height: 140px;
+  }
 }

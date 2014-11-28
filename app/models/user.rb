@@ -9,6 +9,7 @@
 #  created_at      :datetime
 #  updated_at      :datetime
 #  username        :string(255)
+#  avatar_url      :string(255)      default("default_avatar.png")
 #
 
 class User < ActiveRecord::Base

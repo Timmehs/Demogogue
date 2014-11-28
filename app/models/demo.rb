@@ -1,6 +1,6 @@
 # == Schema Information
 #
-# Table name: submissions
+# Table name: demos
 #
 #  id         :integer          not null, primary key
 #  artist_id  :integer          not null
@@ -23,6 +23,53 @@ class Demo < ActiveRecord::Base
   )
 
   def ensure_avatar
-    self.thumb_url = artist.avatar_url unless self.thumb_url
+    self.thumb_url = "assets/cassette.jpg" unless self.thumb_url
   end
+  GENRES =
+  "Alternative Rock
+  Ambient
+  Classical
+  Country
+  Dance
+  Deep House
+  Disco
+  Drum & Bass
+  Dubstep
+  Electronic
+  Folk
+  Hardcore Techno
+  Hip Hop
+  House
+  Indie Rock
+  Jazz
+  Latin
+  Metal
+  Minimal Techno
+  Piano
+  Pop
+  Progressive House
+  Punk
+  R&B
+  Rap
+  Reggae
+  Rock
+  Singer-Songwriter
+  Soul
+  Tech House
+  Techno
+  Trance
+  Trap
+  Trip Hop
+  World
+  Audiobooks
+  Business
+  Comedy
+  Entertainment
+  Learning
+  News & Politics
+  Religion & Spirituality
+  Science
+  Sports
+  Storytelling
+  Technology".split("\n")
 end

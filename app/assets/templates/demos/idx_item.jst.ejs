@@ -1,2 +1,19 @@
-<h3><%= demo.get('title') %></h3>
-<h4><%= demo.get('artist_name') %></h4>
+<table>
+  <tr>
+    <td class="artwork" rowspan="4">
+      <img style="float: left; display: inline-block;"
+          src="<%= demo.escape('thumb_url') %>">
+    </td>
+    <td rowspan="2">
+      <span class="artist_text"><%= demo.get('artist_name') %></span><br>
+      <b><span class="title_text"><%= demo.get('title') %></span></b>
+    </td>
+  </tr>
+
+  <tr>
+    <td></td>
+  </tr>
+  <tr>
+    <td rowspan="2">Waveform View</td>
+  </tr>
+</table>

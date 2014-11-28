@@ -17,6 +17,7 @@ Demogogue.Views.DemosIndex = Backbone.View.extend({
   renderDemos: function() {
     var thisIndex = this;
     this.clearDemoViews();
+    this.$("#demo-list").html("<div class='idx-header'>Explore local sounds</div>");
     this.collection.each(function(demo) {
       var demoView = new Demogogue.Views.DemosIndexItem({ model: demo });
       thisIndex.demoViews.push(demoView);
