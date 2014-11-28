@@ -1,7 +1,8 @@
 class Api::DemosController < ApplicationController
 
   def index
-    render json: Demo.all
+    @demos = Demo.includes(:artist).all
+    render :index
   end
 
   def show
@@ -12,9 +13,10 @@ class Api::DemosController < ApplicationController
   def update
     @demo = Demo.find(demo_params[:id])
     if @demo.update_attributes(demo_params)
-      puts "yeah boy SAVE SUCCESSFUL"
+      render :show
+    else
+      flash.now[:errors] = @demo.errors.full_messages
     end
-    render :show
   end
 
 

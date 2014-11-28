@@ -1,6 +1,12 @@
 Demogogue.Views.DemosIndex = Backbone.View.extend({
   template: JST['demos/index'],
 
+  initialize: function() {
+    this.$demoList = this.$('#demo-list');
+    this.demoViews = [];
+    this.listenTo(this.collection, "sync change", this.renderDemos);
+  },
+
   render: function() {
     var content = this.template({demos: this.collection});
     this.$el.html(content);
@@ -9,10 +15,22 @@ Demogogue.Views.DemosIndex = Backbone.View.extend({
   },
 
   renderDemos: function() {
-    _.each(this.collection, function(demo) {
-      var content = new Demogogue.Views.DemosIndexItem({ model: demo });
+    var thisIndex = this;
+    this.clearDemoViews();
+    this.collection.each(function(demo) {
+      var demoView = new Demogogue.Views.DemosIndexItem({ model: demo });
+      thisIndex.demoViews.push(demoView);
+      thisIndex.$('#demo-list').append(demoView.render().$el);
+    });
+  },
+
+  clearDemoViews: function() {
+    this.$demoList.empty();
+    _.each(this.demoViews, function(view) {
+      view.remove();
     });
 
+    this.demoViews = [];
   }
 
 
