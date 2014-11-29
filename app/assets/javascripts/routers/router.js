@@ -1,7 +1,7 @@
 Demogogue.Routers.Router = Backbone.Router.extend({
   routes: {
+    "" : "home",
     "explore" : "index",
-    "home" : "splashPage",
     "user/:id" : "userShow",
     "demo/:id" : "demoShow",
   },
@@ -11,17 +11,26 @@ Demogogue.Routers.Router = Backbone.Router.extend({
     this.demos = Demogogue.Collections.demos;
   },
 
+
   index: function() {
     this.demos.fetch();
-    if (CURRENT_USER === 0) {
-      console.log("signed out");
-      Backbone.history.navigate("home", true);
-    } else {
-      console.log("signed in");
-    }
-    console.log("Firing DemosIndex");
     var view = new Demogogue.Views.DemosIndex({ collection: this.demos });
     this._swapView(view);
+  },
+
+  home: function() {
+    var $homeLink = $('#home-stream-link')
+    if (CURRENT_USER === 0) {
+      $homeLink.text("Home");
+      this.splashPage();
+    } else {
+      $homeLink.text("Stream");
+      this.streamPage();
+    }
+  },
+  
+  streamPage: function() {
+    this.splashPage();
   },
 
   splashPage: function() {
