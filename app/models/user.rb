@@ -26,9 +26,14 @@ class User < ActiveRecord::Base
     primary_key: :id
   )
 
+  has_many :artist_follows
+  has_many :artists, through: :artist_follows, source: :artist
+  has_many :followers, through: :artist_follows, source: :user
+
+
   def self.find_by_credentials(user_params)
     user = nil
-    
+
     if (is_email?(user_params[:email]))
       user = User.find_by_email(user_params[:email])
     else
@@ -37,6 +42,17 @@ class User < ActiveRecord::Base
 
     user.try(:is_password?, user_params[:password]) ? user : nil
   end
+
+  def stream
+    @stream = []
+    self.artists.each do |artist|
+      artist.demos.each do |demo|
+        @stream << demo
+      end
+    end
+    @stream.sort_by! { |demo| demo.updated_at }.reverse
+  end
+
 
   def self.is_email?(str)
     !!str.match(/\A([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{2,})\z/i)

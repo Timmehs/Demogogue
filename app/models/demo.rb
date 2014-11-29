@@ -15,6 +15,7 @@
 class Demo < ActiveRecord::Base
   validate :artist_id, :title, presence: true
   after_validation :ensure_avatar
+  attr_reader :created_at
   belongs_to(
     :artist,
     class_name: "User",
