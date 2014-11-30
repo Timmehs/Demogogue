@@ -9,6 +9,7 @@ Demogogue.Routers.Router = Backbone.Router.extend({
   initialize: function() {
     this.$rootEl = $("#main-container");
     this.demos = Demogogue.Collections.demos;
+    this.user = new Demogogue.Models.User({ id: CURRENT_USER });
   },
 
 
@@ -16,6 +17,20 @@ Demogogue.Routers.Router = Backbone.Router.extend({
     this.demos.fetch();
     var view = new Demogogue.Views.DemosIndex({ collection: this.demos });
     this._swapView(view);
+  },
+
+  streamPage: function() {
+    this.user.fetch();
+    var streamView = new Demogogue.Views.StreamView({
+      model: this.user,
+      collection: this.user.stream()
+    });
+    this._swapView(streamView);
+  },
+
+  splashPage: function() {
+    var splashPage = new Demogogue.Views.SplashPage();
+    this._swapView(splashPage);
   },
 
   home: function() {
@@ -27,15 +42,6 @@ Demogogue.Routers.Router = Backbone.Router.extend({
       $homeLink.text("Stream");
       this.streamPage();
     }
-  },
-  
-  streamPage: function() {
-    this.splashPage();
-  },
-
-  splashPage: function() {
-    var splashPage = new Demogogue.Views.SplashPage();
-    this._swapView(splashPage);
   },
 
   _swapView: function(view) {

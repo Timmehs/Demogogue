@@ -13,6 +13,8 @@ json.stream_demos @user.stream_demos do |demo|
   json.title demo.title
   json.artist_id demo.artist_id
   json.artist_name demo.artist.username
+  json.created_at demo.created_at
+  json.updated_at demo.updated_at
   json.thumb_url demo.thumb_url
 end
 
