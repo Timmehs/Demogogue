@@ -1,5 +1,3 @@
-Demogogue.Models.User = Backbone.Model.extend({
+Demogogue.Models.ArtistFollow = Backbone.Model.extend({
   urlRoot: "api/artist_follows"
-
-
 });

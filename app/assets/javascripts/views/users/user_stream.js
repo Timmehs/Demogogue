@@ -3,22 +3,33 @@ Demogogue.Views.StreamView = Backbone.View.extend({
   className: "user-stream",
 
   initialize: function() {
+    this.collection = this.model.following();
+    this.listenTo(this.collection, "sync destroy", this.refresh);
     this.listenTo(this.model, "sync", this.render);
-    this.listenTo(this.collection, "sync add remove", this.render);
     this._demoViews = [];
   },
 
   render: function() {
+    user = this.model;
+    collection = this.collection;
+    // debugger
+    console.log('render');
     var content = this.template({ user: this.model });
     this.$el.html(content);
     this.renderDemos();
     return this;
   },
 
+  refresh: function() {
+    console.log('frefres');
+    this.model.fetch();
+  },
+
   renderDemos: function() {
+    console.log("render demos");
     var thisIndex = this;
     this.clearDemoViews();
-    this.collection.each(function(demo) {
+    this.model.stream().each(function(demo) {
       var demoView = new Demogogue.Views.DemosIndexItem({ model: demo });
       thisIndex._demoViews.push(demoView);
       thisIndex.$('#stream-list').append(demoView.render().$el);
