@@ -32,6 +32,10 @@ GEM
       thread_safe (~> 0.1)
       tzinfo (~> 1.1)
     arel (5.0.1.20140414130214)
+    aws-s3 (0.6.3)
+      builder
+      mime-types
+      xml-simple
     backbone-on-rails (1.1.2.0)
       actionmailer
       actionpack
@@ -144,11 +148,13 @@ GEM
     uglifier (2.5.3)
       execjs (>= 0.3.0)
       json (>= 1.8.0)
+    xml-simple (1.1.4)
 
 PLATFORMS
   ruby
 
 DEPENDENCIES
+  aws-s3
   backbone-on-rails
   bcrypt (~> 3.1.7)
   better_errors
