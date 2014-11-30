@@ -28,6 +28,7 @@ class User < ActiveRecord::Base
 
   has_many :artist_follows
   has_many :artists, through: :artist_follows, source: :artist
+  has_many :stream_demos, through: :artists, source: :demos
   has_many :followers, through: :artist_follows, source: :user
 
 
@@ -42,17 +43,6 @@ class User < ActiveRecord::Base
 
     user.try(:is_password?, user_params[:password]) ? user : nil
   end
-
-  def stream
-    @stream = []
-    self.artists.each do |artist|
-      artist.demos.each do |demo|
-        @stream << demo
-      end
-    end
-    @stream.sort_by! { |demo| demo.updated_at }.reverse
-  end
-
 
   def self.is_email?(str)
     !!str.match(/\A([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{2,})\z/i)

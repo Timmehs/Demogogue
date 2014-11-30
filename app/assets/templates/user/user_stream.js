@@ -9,7 +9,7 @@ Demogogue.Views.StreamView = Backbone.View.extend({
   },
 
   renderDemos: function() {
-
+    
   }
 
 });
