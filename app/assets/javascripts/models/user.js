@@ -7,5 +7,15 @@ Demogogue.Models.User = Backbone.Model.extend({
     }
 
     return this._stream;
+  },
+
+  parse: function (response) {
+    if (response.stream_demos) {
+      this.stream().set(response.stream_demos, { parse: true });
+      delete response.stream_demos;
+    }
+
+    return response;
   }
+
 });

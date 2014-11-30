@@ -1,7 +1,12 @@
 class Api::UsersController < ApplicationController
 
   def show
-    @user = User.includes(:artists, :artist_follows, :demos, :stream_demos).find(params[:id])
+    if params[:id] == current_user.id
+      @user = User.includes(
+            :artists, :artist_follows, :demos, :stream_demos).find(params[:id])
+    else
+      @user = User.includes(:demos).find(params[:id])
+    end
     render :show
   end
 
