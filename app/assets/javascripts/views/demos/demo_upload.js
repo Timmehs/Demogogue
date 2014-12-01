@@ -3,24 +3,74 @@ Demogogue.Views.DemoUploadView = Backbone.View.extend({
   className: "upload-view",
   events: {
     "click button#upload-button" : "uploadAudio",
-    "click li#image-form-link" : "showImageUpload",
+    "click li#image-form-link" : "showImageLink",
+    "click li#image-form-upload" : "showImageUpload",
+    "change input#image-link-field" : "setImageFromUrl",
+    "click button.update-image" : "updateImage",
+    "change input" : "checkCompleteData",
+    "keydown input" : "checkCompleteData"
   },
 
   initialize: function(options) {
-    this.demo = new Demogogue.Models.Demo();
+    this.model = new Demogogue.Models.Demo();
+    this.model.set("thumb_url", "assets/demo_default.png");
+  },
+
+  setImageFromUrl: function(event) {
+    var imgUrl = event.currentTarget.value;
+    if (imgUrl === "")  {
+      $('.demo-form-track-image.temp').css(
+        "background-image", "url('assets/demo_default.png')"
+      );
+    } else {
+      $(".demo-form-track-image.temp").css(
+        "background-image", "url(" + imgUrl+ ")"
+      );
+    }
+  },
+
+  checkCompleteData: function(event) {
+    var $title = $(demoTitle);
+    debugger
+  },
+
+  updateImage: function(event) {
+    event.preventDefault();
+    var newDemo = this.model;
+    var imgUrl = $('#image-link-field').val();
+    if (!(imgUrl === ""))  {
+      newDemo.set('thumb_url', imgUrl);
+      $(".demo-form-track-image").css(
+        "background-image", "url(" + imgUrl+ ")"
+      );
+    }
+
   },
 
   render: function() {
-    var content = this.template();
+    var content = this.template({ demo: this.model });
     this.$el.html(content);
     return this;
   },
 
-  showImageUpload: function(event) {
-    debugger
+  showImageLink: function (event) {
+    this.activateTab("#" + event.currentTarget.id);
   },
 
-  uploadAudio: function(event) {
+  showImageUpload: function (event) {
+    this.activateTab("#" + event.currentTarget.id);
+  },
+
+  activateTab: function(tabId) {
+    $(tabId).addClass("active");
+    var otherTab = "#image-form-upload";
+    if (tabId === "#image-form-upload") {
+      otherTab = "#image-form-link";
+    }
+    $(otherTab).removeClass("active");
+  },
+
+  uploadAudio: function (event) {
     event.preventDefault();
     var bucket = new AWS.S3({ params: { Bucket: "demogogue"}});
     var file = document.getElementById('file-chooser').files[0];
@@ -68,7 +118,7 @@ Demogogue.Views.DemoUploadView = Backbone.View.extend({
   },
 
   audioSuccessHandler: function(request) {
-    var newDemo = this.demo;
+    var newDemo = this.model;
     request.on('success', function (response) {
       $('.progress-bar').css('background-color', "#00CD00")
       .html('<div style="display:none;" id="complete">Upload Complete!</div>');

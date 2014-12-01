@@ -19,6 +19,10 @@ class Api::DemosController < ApplicationController
     end
   end
 
+  def create
+    fail
+  end
+
 
   def demo_params
     params.require(:demo).permit(:id, :title, :artist_id, :thumb_url, :audio_url, :track_info,

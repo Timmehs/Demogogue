@@ -18,9 +18,10 @@
 
   <div class="demo-form">
     <div class="demo-image-container">
-      <div class="demo-form-track-image">
+      <div class="demo-form-track-image"
+           style="background-image: url('<%= demo.escape('thumb_url') %>')">
         <button type="button"
-        class="btn btn-success navbar-btn"
+        class="btn btn-success"
         data-toggle="modal" data-target="#image-modal">
         Change Image
       </button>
@@ -47,6 +48,10 @@
             <option><%= string %></option>
           <% }); %>
         </select>
+
+        <button id="save-btn" type="button" class="btn btn-primary" disabled>
+          Save Demo
+        </button>
       </div>
     </div>
   </div>
@@ -64,26 +69,41 @@
       <div class="modal-body">
         <!-- IMAGE FORM -->
         <div class="demo-image-container">
-          <div class="demo-form-track-image"></div>
+          <div class="demo-form-track-image temp"></div>
         </div>
         <div class="image-form-container">
-          <ul class="nav nav-tabs">
-            <li id="image-form-link" role="presentation" class="active img-tab">
-              <a href="javascript:void(0)">Link an image</a>
-              </li>
-            <li id="image-form-upload" role="presentation">
-              <a href="javascript:void(0)">Upload a file</a>
-              </li>
-          </ul>
+          <div class="image-form-menu">
+            <ul class="nav nav-tabs">
+              <li id="image-form-link" role="presentation" class="active">
+                <a href="javascript:void(0)">Link an image</a>
+                </li>
+              <li id="image-form-upload" role="presentation">
+                <a href="javascript:void(0)">Upload a file</a>
+                </li>
+            </ul>
+          </div>
+
+          <form id="update-image-form">
+          <div class="image-form-link">
+            <form class="form-group">
+              <label for="image-link-field">Image Url</label>
+              <input name="img-url"
+                id="image-link-field"
+                value="<%= demo.escape('thumb_url')%>"
+                type="text" class="form-control">
+            </form>
+          </div>
+
+        </form>
+
+
         </div>
-
-
-
-
-
       </div>
       <div class="modal-footer">
-        <button type="submit" class="btn btn-primary">Update</button>
+        <button form="update-image-form"
+            type="submit"
+            data-dismiss="modal"
+            class="btn btn-primary update-image">Update</button>
         <button type="button" class="btn btn-link" data-dismiss="modal">Cancel</button>
       </div>
     </div>
