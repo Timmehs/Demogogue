@@ -69,8 +69,10 @@
 .upload-view {
   width: 600px;
   margin: 0 auto;
+
   .upload-form {
-    width: 200px;
+    margin: 0 auto;
+    width: 300px;
   }
   .progress {
     display: none;
@@ -83,6 +85,7 @@
   }
   .demo-form {
     margin-top: 15px;
+    display: none;
   }
 
   #cancel-upload {
@@ -93,21 +96,25 @@
     cursor: pointer;
   }
 
-  .demo-form-track-image {
-    width: 300px;
-    height: 300px;
+  .demo-image-container {
     float: left;
     text-align: center;
+    border: 1px solid gainsboro;
     padding: 10px;
-    background-image: url('../cassette.jpg');
     button {
       margin-top: 85%;
     }
   }
 
+  .demo-form-track-image {
+    width: 300px;
+    height: 300px;
+    background-image: url('../demo_default.png');
+  }
+
   .demo-form-info {
     float: left;
-    margin-left: 15px;
+    margin-left: 35px;
   }
 
 
