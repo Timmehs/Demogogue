@@ -65,3 +65,58 @@
     height: 140px;
   }
 }
+
+.upload-view {
+  width: 600px;
+  margin: 0 auto;
+  .upload-form {
+    width: 200px;
+  }
+  .progress {
+    display: none;
+    margin-top: 15px;
+    height: 33px;
+  }
+  .progress-bar {
+    font-size: 16px;
+    padding-top: 5px;
+  }
+  .demo-form {
+    margin-top: 15px;
+  }
+
+  #cancel-upload {
+    display: none;
+    position: absolute;
+    right: 50px;
+    top: 163px;
+    cursor: pointer;
+  }
+
+  .demo-form-track-image {
+    width: 300px;
+    height: 300px;
+    float: left;
+    text-align: center;
+    padding: 10px;
+    background-image: url('../cassette.jpg');
+    button {
+      margin-top: 85%;
+    }
+  }
+
+  .demo-form-info {
+    float: left;
+    margin-left: 15px;
+  }
+
+
+
+
+
+
+
+
+
+
+}

@@ -2,6 +2,7 @@ Demogogue.Routers.Router = Backbone.Router.extend({
   routes: {
     "" : "home",
     "explore" : "index",
+    "upload" : "uploadPage",
     "user/:id" : "userShow",
     "demo/:id" : "demoShow",
   },
@@ -12,6 +13,16 @@ Demogogue.Routers.Router = Backbone.Router.extend({
     this.user = new Demogogue.Models.User({ id: CURRENT_USER });
   },
 
+  home: function() {
+    var $homeLink = $('#home-stream-link')
+    if (CURRENT_USER === 0) {
+      $homeLink.text("Home");
+      this.splashPage();
+    } else {
+      $homeLink.text("Stream");
+      this.streamPage();
+    }
+  },
 
   index: function() {
     this.demos.fetch();
@@ -30,16 +41,15 @@ Demogogue.Routers.Router = Backbone.Router.extend({
     this._swapView(splashPage);
   },
 
-  home: function() {
-    var $homeLink = $('#home-stream-link')
+  uploadPage: function() {
     if (CURRENT_USER === 0) {
-      $homeLink.text("Home");
-      this.splashPage();
+      alert("Sign up or sign in to share your music!");
     } else {
-      $homeLink.text("Stream");
-      this.streamPage();
+      var uploadView = new Demogogue.Views.DemoUploadView();
+      this._swapView(uploadView);
     }
   },
+
 
   _swapView: function(view) {
     this._currentView && this._currentView.remove();

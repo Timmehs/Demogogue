@@ -17,6 +17,7 @@
 //= require underscore
 //= require backbone
 //= require demogogue
+//= require aws-sdk.min
 //= require_tree ../templates
 //= require_tree ./models
 //= require_tree ./collections
