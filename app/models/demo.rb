@@ -13,7 +13,7 @@
 #
 
 class Demo < ActiveRecord::Base
-  validate :artist_id, :title, presence: true
+  validate :artist_id, :title, :audio_url, presence: true
   after_validation :ensure_avatar
   attr_reader :created_at
   belongs_to(
@@ -24,9 +24,9 @@ class Demo < ActiveRecord::Base
   )
 
   def ensure_avatar
-    self.thumb_url = "assets/cassette.jpg" unless self.thumb_url
+    self.thumb_url = "assets/demo_default.png" unless self.thumb_url
   end
-  
+
   GENRES =
   "Alternative Rock
   Ambient

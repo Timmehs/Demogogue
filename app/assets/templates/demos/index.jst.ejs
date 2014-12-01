@@ -7,9 +7,9 @@
   </div>
 
   <div id="index-sidebar-list">
-    <% _(300).times(function(i) { %>
+    <% _.each(Demogogue.Models.Demo.GENRES, function(genre) { %>
       <div class="index-sidebar-list item">
-        <a href="#">Item <%= i %></a>
+        <a href="#"><%= genre %></a>
       </div>
     <% }); %>
   </div>

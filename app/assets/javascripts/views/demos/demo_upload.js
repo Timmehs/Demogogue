@@ -3,6 +3,7 @@ Demogogue.Views.DemoUploadView = Backbone.View.extend({
   className: "upload-view",
   events: {
     "click button#upload-button" : "uploadAudio",
+    "click li#image-form-link" : "showImageUpload",
   },
 
   initialize: function(options) {
@@ -13,6 +14,10 @@ Demogogue.Views.DemoUploadView = Backbone.View.extend({
     var content = this.template();
     this.$el.html(content);
     return this;
+  },
+
+  showImageUpload: function(event) {
+    debugger
   },
 
   uploadAudio: function(event) {
@@ -68,6 +73,7 @@ Demogogue.Views.DemoUploadView = Backbone.View.extend({
       $('.progress-bar').css('background-color', "#00CD00")
       .html('<div style="display:none;" id="complete">Upload Complete!</div>');
       var audioUrl = response.request.httpRequest.stream.responseURL;
+      console.log(audioUrl);
       newDemo.set("audio_url", audioUrl);
       $('.upload-form-form').slideUp();
       $('.demo-form').slideDown();
