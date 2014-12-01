@@ -8,12 +8,17 @@ Demogogue.Views.DemoUploadView = Backbone.View.extend({
     "change input#image-link-field" : "setImageFromUrl",
     "click button.update-image" : "updateImage",
     "change input" : "checkCompleteData",
-    "keydown input" : "checkCompleteData"
+    "keyup input" : "checkCompleteData"
   },
 
   initialize: function(options) {
     this.model = new Demogogue.Models.Demo();
-    this.model.set("thumb_url", "assets/demo_default.png");
+    this.initializeModel(this.model);
+  },
+
+  initializeModel: function(model) {
+    model.set("thumb_url", "assets/demo_default.png");
+    model.set("artist_id", CURRENT_USER);
   },
 
   setImageFromUrl: function(event) {
@@ -31,7 +36,9 @@ Demogogue.Views.DemoUploadView = Backbone.View.extend({
 
   checkCompleteData: function(event) {
     var $title = $(demoTitle);
-    debugger
+    console.log($title.val());
+    console.log(this.model.get('audio_url'));
+    console.log(this.model.get('thumb_url'));
   },
 
   updateImage: function(event) {
