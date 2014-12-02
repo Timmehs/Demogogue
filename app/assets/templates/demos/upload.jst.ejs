@@ -93,14 +93,17 @@
                   value="<%= demo.escape('thumb_url')%>"
                   type="text" class="form-control">
             </div>
-            <div class="image-form-file">
+            <div class="image-form-upload">
               <label for="image-upload-field">Upload an image</label>
               <input class="form-control" type="file" id="img-file-chooser"/>
+              <button id="upload-img" class="btn btn-primary">
+                Upload Image
+              </button>
             </div>
           </form>
-
         </div>
       </div>
+
       <div class="modal-footer">
         <button form="update-image-form"
             type="submit"

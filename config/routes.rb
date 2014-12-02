@@ -8,7 +8,7 @@ Rails.application.routes.draw do
 
   namespace :api, defaults: {format: :json } do
     resources :artist_follows, only: [:create, :destroy]
-    resources :demos, except: [:edit, :create, :update, :destroy]
+    resources :demos, except: [:edit, :update, :destroy]
     resources :users, only: [:show, :edit, :destroy]
   end
 end

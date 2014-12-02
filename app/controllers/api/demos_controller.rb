@@ -20,7 +20,9 @@ class Api::DemosController < ApplicationController
   end
 
   def create
-    fail
+    @demo = Demo.new(demo_params);
+    @demo.save
+    render json: @demo
   end
 
 

@@ -5,10 +5,12 @@ Demogogue.Views.DemoUploadView = Backbone.View.extend({
     "click button#upload-button" : "uploadAudio",
     "click li#image-form-link" : "showImageLink",
     "click li#image-form-upload" : "showImageUpload",
-    "change input#image-link-field" : "setImageFromUrl",
+    "change input#image-link-field" : "setTempImageFromUrl",
     "click button.update-image" : "updateImage",
+    "click button#upload-img" : "uploadImage",
     "change input" : "checkCompleteData",
-    "keyup input" : "checkCompleteData"
+    "keyup input" : "checkCompleteData",
+    "click button#save-btn" : "saveDemo",
   },
 
   initialize: function(options) {
@@ -21,8 +23,13 @@ Demogogue.Views.DemoUploadView = Backbone.View.extend({
     model.set("artist_id", CURRENT_USER);
   },
 
-  setImageFromUrl: function(event) {
-    var imgUrl = event.currentTarget.value;
+  setTempImageFromUrl: function(event, options) {
+    var imgUrl;
+    if (options && options.url) {
+      imgUrl = options.url;
+    } else {
+      imgUrl = event.currentTarget.value;
+    }
     if (imgUrl === "")  {
       $('.demo-form-track-image.temp').css(
         "background-image", "url('assets/demo_default.png')"
@@ -38,13 +45,18 @@ Demogogue.Views.DemoUploadView = Backbone.View.extend({
     var $title = $(demoTitle);
     console.log($title.val());
     console.log(this.model.get('audio_url'));
-    console.log(this.model.get('thumb_url'));
+    if ($title.val().length > 0 && this.model.get('audio_url')) {
+      $('#save-btn').attr("disabled", false);
+    } else {
+      $('#save-btn').attr("disabled", true);
+    }
   },
 
   updateImage: function(event) {
     event.preventDefault();
     var newDemo = this.model;
-    var imgUrl = $('#image-link-field').val();
+    var imgUrl = this.getTempImgUrl();
+    debugger
     if (!(imgUrl === ""))  {
       newDemo.set('thumb_url', imgUrl);
       $(".demo-form-track-image").css(
@@ -61,20 +73,22 @@ Demogogue.Views.DemoUploadView = Backbone.View.extend({
   },
 
   showImageLink: function (event) {
-    this.activateTab("#" + event.currentTarget.id);
+    this.activateTab(event.currentTarget.id);
   },
 
   showImageUpload: function (event) {
-    this.activateTab("#" + event.currentTarget.id);
+    this.activateTab(event.currentTarget.id);
   },
 
   activateTab: function(tabId) {
-    $(tabId).addClass("active");
-    var otherTab = "#image-form-upload";
-    if (tabId === "#image-form-upload") {
-      otherTab = "#image-form-link";
+    $('#' + tabId).addClass("active");
+    $('.' + tabId).show();
+    var otherTab = "image-form-upload";
+    if (tabId === "image-form-upload") {
+      otherTab = "image-form-link";
     }
-    $(otherTab).removeClass("active");
+    $('#' + otherTab).removeClass("active");
+    $('.' + otherTab).hide();
   },
 
   uploadAudio: function (event) {
@@ -124,13 +138,36 @@ Demogogue.Views.DemoUploadView = Backbone.View.extend({
     });
   },
 
+  uploadImage: function(event) {
+    event.preventDefault();
+    var bucket = new AWS.S3({ params: { Bucket: "demogogue"}});
+    var file = document.getElementById('img-file-chooser').files[0];
+    if (file) {
+      var req = bucket.putObject(this.parseFile(file), function(err, data) {
+        if (err) { console.log(err); };
+      });
+      this.imageSuccessHandler(req);
+    }
+  },
+
+  imageSuccessHandler: function(request) {
+    var thisView = this;
+    request.on('success', function(response) {
+      var imgUrl = response.request.httpRequest.stream.responseURL;
+      thisView.setTempImageFromUrl({}, {url: imgUrl});
+    });
+  },
+
+  getTempImgUrl: function() {
+    return $('.demo-form-track-image.temp').css('background-image').replace('url(','').replace(')','');
+  },
+
   audioSuccessHandler: function(request) {
     var newDemo = this.model;
     request.on('success', function (response) {
       $('.progress-bar').css('background-color', "#00CD00")
       .html('<div style="display:none;" id="complete">Upload Complete!</div>');
       var audioUrl = response.request.httpRequest.stream.responseURL;
-      console.log(audioUrl);
       newDemo.set("audio_url", audioUrl);
       $('.upload-form-form').slideUp();
       $('.demo-form').slideDown();
@@ -138,6 +175,15 @@ Demogogue.Views.DemoUploadView = Backbone.View.extend({
         $('#complete').fadeIn();
       }, 350);
     })
+  },
+
+  saveDemo: function(event) {
+    this.model.set('title', $(demoTitle).val());
+    this.model.save({
+      success: function() {
+        Backbone.history.navigate("/", true);
+      }
+    });
   }
 
 });
