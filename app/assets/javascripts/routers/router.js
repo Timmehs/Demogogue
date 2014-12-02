@@ -11,6 +11,7 @@ Demogogue.Routers.Router = Backbone.Router.extend({
     this.$rootEl = $("#main-container");
     this.demos = Demogogue.Collections.demos;
     this.user = new Demogogue.Models.User({ id: CURRENT_USER });
+    this.player = this.initializePlayer();
   },
 
   home: function() {
@@ -28,6 +29,12 @@ Demogogue.Routers.Router = Backbone.Router.extend({
     this.demos.fetch();
     var view = new Demogogue.Views.DemosIndex({ collection: this.demos });
     this._swapView(view);
+  },
+
+  initializePlayer: function() {
+    var playerView = new Demogogue.Views.Player();
+    $("html").append(playerView.render().$el);
+    return playerView;
   },
 
   streamPage: function() {

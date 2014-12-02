@@ -35,7 +35,7 @@
   left: 200px;
   top: 0px;
   height: 100%;
-  width: auto;
+  width: 80%;
   overflow: scroll;
   .idx-header {
     font-size: 25px;
@@ -48,8 +48,20 @@
 }
 
 .demos-index-item {
-  width: 680px;
+  border-bottom: 1px solid lightgray;
+  width: 100%;
+  table {
+    width: 100%;
+  }
+
+  .play-btn {
+    width: 20px;
+    cursor: pointer;
+    vertical-align: top;
+  }
+
   table td {
+    vertical-align: top;
     padding: 5px;
   }
   .artist_text {
@@ -58,6 +70,12 @@
   }
   .title_text {
     font-size: 20px;
+  }
+
+  .t-ago {
+    font-size: 12px;
+    float: right;
+    color: gray;
   }
 
   .artwork {

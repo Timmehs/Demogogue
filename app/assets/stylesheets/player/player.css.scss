@@ -1,0 +1,17 @@
+
+
+div.player-container {
+  width: 400px;
+  border: 1px solid gainsboro;
+  border-radius: 6px;
+  height: 150px;
+  position: absolute;
+  background: whitesmoke;
+  bottom: -100px;
+  left: 50%;
+  margin-left: -200px;
+  &:hover {
+    bottom: 0px;
+  }
+  transition: 0.4s;
+}

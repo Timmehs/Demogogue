@@ -8,7 +8,7 @@ Demogogue.Views.DemosIndex = Backbone.View.extend({
   },
 
   render: function() {
-    var content = this.template({demos: this.collection});
+    var content = this.template();
     this.$el.html(content);
     this.renderDemos();
     return this;

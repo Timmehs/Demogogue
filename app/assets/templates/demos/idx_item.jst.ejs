@@ -4,16 +4,20 @@
       <img style="float: left; display: inline-block;"
           src="<%= demo.escape('thumb_url') %>">
     </td>
-    <td rowspan="2">
-      <span class="artist_text"><%= demo.get('artist_name') %></span><br>
-      <b><span class="title_text"><%= demo.get('title') %></span></b>
+    <td rowspan=2 class="play-btn">
+      <span class="glyphicon glyphicon-play"></span>
     </td>
-  </tr>
+    <td>
+      <span class="artist_text"><%= demo.get('artist_name') %></span>
+      <span class="t-ago"><%= $.timeago(demo.get('updated_at')) %></span>
+      <br>
+      <b>
+        <span class="title_text"><%= demo.get('title') %></span>
+      </b>
+    </td>
 
-  <tr>
-    <td></td>
   </tr>
   <tr>
-    <td rowspan="2">Waveform View</td>
+    <td>(Waveform View)</td>
   </tr>
 </table>
