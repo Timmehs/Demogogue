@@ -10,5 +10,5 @@ window.Demogogue = {
 };
 
 $(function() {
-  window.AWS.config.region = 'us-west-1';
+  AWS.config.update({accessKeyId: KEY, secretAccessKey: SEC });
 });

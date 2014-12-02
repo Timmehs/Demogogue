@@ -42,6 +42,8 @@ end
 
 gem 'newrelic_rpm'
 
+gem 'figaro'
+
 # Use unicorn as the app server
 # gem 'unicorn'
 

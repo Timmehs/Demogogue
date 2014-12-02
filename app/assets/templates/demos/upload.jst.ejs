@@ -69,7 +69,8 @@
       <div class="modal-body">
         <!-- IMAGE FORM -->
         <div class="demo-image-container">
-          <div class="demo-form-track-image temp"></div>
+          <div class="demo-form-track-image temp"
+          style="background-image: url('<%= demo.escape('thumb_url') %>')"></div>
         </div>
         <div class="image-form-container">
           <div class="image-form-menu">
@@ -84,18 +85,19 @@
           </div>
 
           <form id="update-image-form">
-          <div class="image-form-link">
-            <form class="form-group">
-              <label for="image-link-field">Image Url</label>
-              <input name="img-url"
-                id="image-link-field"
-                value="<%= demo.escape('thumb_url')%>"
-                type="text" class="form-control">
-            </form>
-          </div>
-
-        </form>
-
+            <div class="image-form-link">
+              <form class="form-group">
+                <label for="image-link-field">Image Url</label>
+                <input name="img-url"
+                  id="image-link-field"
+                  value="<%= demo.escape('thumb_url')%>"
+                  type="text" class="form-control">
+            </div>
+            <div class="image-form-file">
+              <label for="image-upload-field">Upload an image</label>
+              <input class="form-control" type="file" id="img-file-chooser"/>
+            </div>
+          </form>
 
         </div>
       </div>

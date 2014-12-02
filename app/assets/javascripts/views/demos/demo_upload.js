@@ -85,7 +85,7 @@ Demogogue.Views.DemoUploadView = Backbone.View.extend({
     if (file) {
       var params = this.parseFile(file);
       var req = bucket.putObject(params, function (err, data) {
-        err ? console.log("Error") : console.log("Uploaded.");
+        err ? console.log(err) : console.log("Uploaded.");
       });
       // Progress Bar
       this.renderProgressBar(req);

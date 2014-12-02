@@ -10,5 +10,9 @@
 <body>
   <%= render "layouts/header"%>
   <%= yield %>
+  <script>
+    KEY = "<%= ENV['aws_key'] %>";
+    SEC = "<%= ENV['aws_secret'] %>";
+  </script>
 </body>
 </html>
