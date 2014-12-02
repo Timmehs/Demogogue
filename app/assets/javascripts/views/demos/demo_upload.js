@@ -56,7 +56,6 @@ Demogogue.Views.DemoUploadView = Backbone.View.extend({
     event.preventDefault();
     var newDemo = this.model;
     var imgUrl = this.getTempImgUrl();
-    debugger
     if (!(imgUrl === ""))  {
       newDemo.set('thumb_url', imgUrl);
       $(".demo-form-track-image").css(
@@ -106,7 +105,8 @@ Demogogue.Views.DemoUploadView = Backbone.View.extend({
       this.audioSuccessHandler(req);
       req.send();
       $('#demoTitle').val(file.name.replace(/\.[^/.]+$/, ""));
-
+      $('.upload-form-form').slideUp();
+      $('.demo-form').slideDown();
     } else {
       alert('No file selected');
     }
@@ -169,8 +169,6 @@ Demogogue.Views.DemoUploadView = Backbone.View.extend({
       .html('<div style="display:none;" id="complete">Upload Complete!</div>');
       var audioUrl = response.request.httpRequest.stream.responseURL;
       newDemo.set("audio_url", audioUrl);
-      $('.upload-form-form').slideUp();
-      $('.demo-form').slideDown();
       setTimeout(function() {
         $('#complete').fadeIn();
       }, 350);
@@ -181,9 +179,10 @@ Demogogue.Views.DemoUploadView = Backbone.View.extend({
     this.model.set('title', $(demoTitle).val());
     this.model.save({
       success: function() {
-        Backbone.history.navigate("/", true);
+        console.log(this.demo.get('title') + " saved");
       }
     });
+    Backbone.history.navigate("#explore", true);
   }
 
 });
