@@ -9,7 +9,7 @@ div.player-container {
   background: whitesmoke;
   bottom: -116px;
   left: 50%;
-  margin-left: -200px;
+  //margin-left: -200px;
   .active {
     bottom: 0px;
   }
@@ -58,6 +58,7 @@ div.player-container {
     #vol-popup {
       float:right;
       padding: 4px;
+      transition: height 0.5s;
     }
 
     #vol-popup.active {
@@ -72,6 +73,31 @@ div.player-container {
       top: -90px;
       left: 100px;
       background-color: lightgray;
+    }
+
+    #slider-vertical {
+      height: 75px;
+      background-color: white;
+      margin: 0 auto;
+    }
+
+    .ui-slider-vertical {
+      width:10px;
+    }
+
+    .ui-widget-header {
+      background-color: slategray;
+    }
+
+    .ui-slider-handle {
+      width: 20px;
+      margin-left: 1px;
+      height: 20px;
+      border-radius: 15px;
+      &:focus {
+        box-sizing: none;
+      }
+      outline: none;
     }
 
   }

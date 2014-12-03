@@ -43,6 +43,7 @@ end
 gem 'newrelic_rpm'
 
 gem 'figaro'
+gem 'jquery-ui-rails'
 
 # Use unicorn as the app server
 # gem 'unicorn'

@@ -11,6 +11,7 @@ Demogogue.Views.Player = Backbone.View.extend({
   initialize: function() {
     this.initializePlayer();
     this.currentSound = null;
+    this.volume = 50;
   },
 
 
@@ -27,7 +28,6 @@ Demogogue.Views.Player = Backbone.View.extend({
     soundManager.setup({
       url: '/swf',
       flashVersion: 9,
-
     });
   },
 
@@ -39,7 +39,7 @@ Demogogue.Views.Player = Backbone.View.extend({
     var newSound = soundManager.createSound({
       id: demo.get('title'),
       url: demo.get('audio_url'),
-      volume: 90,
+      volume: player.volume,
       autoLoad: true,
       autoPlay: true,
       useEQData: true,
@@ -62,7 +62,23 @@ Demogogue.Views.Player = Backbone.View.extend({
 
   toggleVolumeControl: function() {
     var thisView = this;
+
     this.$("#vol-popup").toggleClass("active");
+    this.$('#slider-vertical').slider({
+      orientation: "vertical",
+      range: "min",
+      min: 0,
+      max: 100,
+      value: player.volume,
+      slide: function(event, ui) {
+        console.log(ui.value);
+        player.volume = ui.value;
+        if (player.currentSound) {
+          player.currentSound.setVolume(ui.value);
+        }
+      }
+    });
+
   },
 
 
@@ -70,7 +86,6 @@ Demogogue.Views.Player = Backbone.View.extend({
     var seconds = Math.floor((milli / 1000) % 60);
     var minutes = Math.floor((milli / (60 * 1000)) % 60);
     seconds = seconds < 10 ? "0" + seconds : seconds;
-
     return minutes + ":" + seconds;
   }
 
