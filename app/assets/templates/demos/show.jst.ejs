@@ -1,4 +1,16 @@
  <!-- This is for the full-screen demo view with track info, etc -->
 
 
-json.extract!(@demo, :id, :created_at, :updated_at, :username, :avatar_url)
+
+<header>
+  <div class="demo-show-play-btn"></div>
+  <h4><%= demo.escape('artist_name') %></h4>
+  <h1><%= demo.escape('title') %> Page</h1>
+
+
+  </header>
+
+<div class="demo-show-comment-form"></div>
+<div class="button-row"></div>
+
+<div class="demo-show-comments"></div>

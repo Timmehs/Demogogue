@@ -15,6 +15,13 @@ Demogogue.Routers.Router = Backbone.Router.extend({
     window.player = this.player;
   },
 
+  demoShow: function(id) {
+    var demoView = new Demogogue.Views.DemoShow({
+      model: this.demos.getOrFetch(id)
+    });
+    this._swapView(demoView);
+  },
+
   home: function() {
     var $homeLink = $('#home-stream-link')
     if (CURRENT_USER === 0) {

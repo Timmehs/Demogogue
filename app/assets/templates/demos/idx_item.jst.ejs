@@ -14,7 +14,9 @@
       <span class="t-ago"><%= $.timeago(demo.get('updated_at')) %></span>
       <br>
       <b>
-        <span class="title_text"><%= demo.get('title') %></span>
+        <a class="title_text" href="#/demo/<%= demo.id %>">
+          <%= demo.get('title') %>
+        </a>
       </b>
     </td>
 
@@ -29,7 +31,7 @@
     <td colspan="2">
       <div class="comment-container">
         <div class="input-group input-group-sm">
-          <label class="sr-only" for="comment-field">Email address</label>
+          <label class="sr-only" for="comment-field">Comment Field</label>
           <div class="input-group-addon"
             style="background-image: url('<%= user.escape('avatar_url') %>')"></div>
           <form>

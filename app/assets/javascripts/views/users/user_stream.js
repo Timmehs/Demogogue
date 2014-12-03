@@ -4,15 +4,17 @@ Demogogue.Views.StreamView = Backbone.View.extend({
 
   initialize: function() {
     this.collection = this.model.following();
+    this.stream = this.model.stream();
+    this.listenTo(this.stream, "sync", this.refresh);
     this.listenTo(this.collection, "sync destroy", this.refresh);
     this.listenTo(this.model, "sync", this.render);
     this._demoViews = [];
   },
 
   render: function() {
+    debugger
     user = this.model;
     collection = this.collection;
-    // debugger
     console.log('render');
     var content = this.template({ user: this.model });
     this.$el.html(content);
