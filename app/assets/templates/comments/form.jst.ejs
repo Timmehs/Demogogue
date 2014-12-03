@@ -1,0 +1,12 @@
+<div class="comment-container">
+  <div class="input-group input-group-sm">
+    <label class="sr-only" for="comment-field">Comment Field</label>
+    <div class="input-group-addon"
+    style="background-image: url('<%= user.escape('avatar_url') %>')"></div>
+    <form>
+      <input type="text" name="body" class="form-control" id="comment-field"
+      placeholder="Write a comment ...">
+      <button type="submit" style="display: none;">
+      </form>
+    </div>
+  </div>

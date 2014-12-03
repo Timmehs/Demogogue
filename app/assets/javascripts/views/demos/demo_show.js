@@ -3,12 +3,15 @@ Demogogue.Views.DemoShow = Backbone.View.extend({
   className: "demo-show",
 
   events: {
-
+    "click button#show-play-btn" : "play"
   },
 
   initialize: function(options) {
     this.user = options.user;
     this.listenTo(this.model, "sync", this.render);
+    $( window ).load(function() {
+      // Run code
+    });
   },
 
   render: function() {

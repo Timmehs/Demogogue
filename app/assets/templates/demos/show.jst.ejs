@@ -2,15 +2,21 @@
 
 
 
-<header>
-  <div class="demo-show-play-btn"></div>
-  <h4><%= demo.escape('artist_name') %></h4>
-  <h1><%= demo.escape('title') %> Page</h1>
+<header style="background-image: url(<%= demo.escape('thumb_url') %>)">
+  <div class="bg artist">
+    <h4><%= demo.escape('artist_name') %></h4>
+  </div>
 
+  <div class="bg title">
+    <button id="show-play-btn" class="btn btn-primary">
+      <span id="play<%= demo.id %>" class="glyphicon glyphicon-play"></span>
+    </button>
+      <h1><%= demo.escape('title') %> Page</h1>
+  </div>
 
-  </header>
-
-<div class="demo-show-comment-form"></div>
+</header>
+<div class="demo-show-comment-form">
+</div>
 <div class="button-row"></div>
 
 <div class="demo-show-comments"></div>
