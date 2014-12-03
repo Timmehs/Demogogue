@@ -1,5 +1,6 @@
 div.player-container {
   width: 400px;
+  z-index: 500;
   border: 1px solid gainsboro;
   border-radius: 6px 6px 0 0;
   height: 180px;
@@ -59,6 +60,7 @@ div.player-container {
       position:absolute;
       left: 32px;
       width: 35px;
+
       transition: height 0.5s;
       #slider-vertical {
         display: none;

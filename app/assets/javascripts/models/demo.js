@@ -1,5 +1,14 @@
 Demogogue.Models.Demo = Backbone.Model.extend({
-  urlRoot: "api/demos"
+  urlRoot: "api/demos",
+
+  comments: function() {
+    if (!this._comments) {
+      this._comments = new Demogogue.Collections.Comments([], { demo: this });
+    }
+
+    return this._comments;
+  }
+
 });
 
 

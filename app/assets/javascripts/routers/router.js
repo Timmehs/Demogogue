@@ -28,7 +28,11 @@ Demogogue.Routers.Router = Backbone.Router.extend({
 
   index: function() {
     this.demos.fetch();
-    var view = new Demogogue.Views.DemosIndex({ collection: this.demos });
+    this.user.fetch();
+    var view = new Demogogue.Views.DemosIndex({
+      collection: this.demos,
+      model: this.user
+    });
     this._swapView(view);
   },
 

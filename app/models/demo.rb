@@ -10,12 +10,15 @@
 #  audio_url  :string(255)
 #  created_at :datetime
 #  updated_at :datetime
+#  genre      :string(255)
 #
 
 class Demo < ActiveRecord::Base
   validate :artist_id, :title, :audio_url, presence: true
   after_validation :ensure_avatar
   attr_reader :created_at
+  has_many :comments
+
   belongs_to(
     :artist,
     class_name: "User",

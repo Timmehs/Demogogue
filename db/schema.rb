@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141201185632) do
+ActiveRecord::Schema.define(version: 20141203200112) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -27,6 +27,17 @@ ActiveRecord::Schema.define(version: 20141201185632) do
   add_index "artist_follows", ["user_id", "artist_id"], name: "index_artist_follows_on_user_id_and_artist_id", unique: true, using: :btree
   add_index "artist_follows", ["user_id"], name: "index_artist_follows_on_user_id", using: :btree
 
+  create_table "comments", force: true do |t|
+    t.integer  "user_id",           null: false
+    t.integer  "demo_id",           null: false
+    t.string   "body",              null: false
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.integer  "parent_comment_id"
+  end
+
+  add_index "comments", ["demo_id"], name: "index_comments_on_demo_id", using: :btree
+
   create_table "demos", force: true do |t|
     t.integer  "artist_id",  null: false
     t.string   "title",      null: false
@@ -41,13 +52,13 @@ ActiveRecord::Schema.define(version: 20141201185632) do
   add_index "demos", ["artist_id"], name: "index_demos_on_artist_id", using: :btree
 
   create_table "users", force: true do |t|
-    t.string   "email",                                          null: false
-    t.string   "password_digest",                                null: false
-    t.string   "session_token",                                  null: false
+    t.string   "email",                                                 null: false
+    t.string   "password_digest",                                       null: false
+    t.string   "session_token",                                         null: false
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "username"
-    t.string   "avatar_url",      default: "default_avatar.png"
+    t.string   "avatar_url",      default: "assets/default_avatar.png"
   end
 
 end

@@ -7,6 +7,11 @@ class Api::UsersController < ApplicationController
     else
       @user = User.includes(:demos).find(params[:id])
     end
+
+    if @user.avatar_url == "default_avatar.png"
+      @user.avatar_url = "assets/default_avatar.png"
+      @user.save
+    end
     render :show
   end
 

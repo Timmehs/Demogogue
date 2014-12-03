@@ -1,3 +1,8 @@
+div.demoIndexView {
+  overflow: hidden;
+}
+
+
 #index-sidebar {
   width: 200px;
   height: 100%;
@@ -33,13 +38,12 @@
 #demo-list {
   display: inline-block;
   height: 690px;
-  // width: auto;
+  width: 100%;
   min-width: 610px;
   max-width: 689px;
-  margin-top: 0px;
-  padding-top: 0px;
-  float: left;
-  overflow: scroll;
+  // margin-top: 0px;
+  // padding-top: 0px;
+  overflow: auto;
   .idx-header {
     font-size: 25px;
     padding: 25px;
@@ -47,58 +51,5 @@
     color: darkgray;
     border-bottom: 2px solid gainsboro;
     width: 400px;
-  }
-}
-
-.demos-index-item {
-  border-bottom: 1px solid lightgray;
-  width: 100%;
-  table {
-    width: 100%;
-  }
-
-  .play-btn {
-    width: 30px;
-    cursor: pointer;
-    vertical-align: top;
-    outline: none;
-    button {
-      outline: none;
-      padding: 0px;
-      border-radius: 25px;
-      font-size: 16px;
-      height: 30px;
-      width: 30px;
-      &:active {
-        outline: none;
-      }
-    }
-  }
-
-  table td {
-    vertical-align: top;
-    padding: 5px;
-  }
-  .artist_text {
-    color: gray;
-    font-size: 14px;
-  }
-  .title_text {
-    font-size: 20px;
-  }
-
-  .t-ago {
-    font-size: 12px;
-    float: right;
-    color: gray;
-  }
-
-  .artwork {
-    width: 110px;
-    height: 110px;
-    img {
-      width: 100px;
-      height: 100px;
-    }
   }
 }

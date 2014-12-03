@@ -4,3 +4,4 @@
 
 json.merge! @demo.attributes
 json.artist @demo.artist, :id, :username, :avatar_url
+json.comments @demo.comments

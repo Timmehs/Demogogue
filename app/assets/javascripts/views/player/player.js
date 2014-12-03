@@ -42,8 +42,11 @@ Demogogue.Views.Player = Backbone.View.extend({
     } else {
       this.playing = false;
       $('#play' + this.demo.id).removeClass("glyphicon-pause").addClass("glyphicon-play");
-      this.currentSound && this.currentSound.stop();
-      this.currentSound && this.currentSound.destruct();
+      if (this.currentSound) {
+        this.currentSound.stop();
+        soundManager.unload(this.currentSound.id);
+        soundManager.destroySound(this.currentSound.id);
+      }
       var newSound = soundManager.createSound({
         id: demo.get('title'),
         url: demo.get('audio_url'),
@@ -122,7 +125,6 @@ Demogogue.Views.Player = Backbone.View.extend({
   showTrackInfo: function() {
     this.demo.id && this.$el.toggleClass("active");
   },
-
 
   millisecondsToTime: function (milli) {
     var seconds = Math.floor((milli / 1000) % 60);

@@ -1,10 +1,10 @@
 <table>
   <tr>
-    <td class="artwork" rowspan="4">
+    <td class="artwork" rowspan="2">
       <img style="float: left; display: inline-block;"
           src="<%= demo.escape('thumb_url') %>">
     </td>
-    <td rowspan=2 class="play-btn">
+    <td class="play-btn">
       <button class="btn btn-primary btn-sm play">
         <span id="play<%= demo.get('id')%>" class="glyphicon glyphicon-play"></span>
       </button>
@@ -20,6 +20,46 @@
 
   </tr>
   <tr>
-    <td>(Waveform View)</td>
+    <td colspan="2" class="waveform">
+      i||ii|iiii|iiiii|iii||iiiiiiiiiiIIIiiIIIIIIIiiIIIiIIiiI|||Iiii||iii|||||iiii||||iiii|||||||||iiii|||||||\\\\|IIIiiiiiIIII|||
+    </td>
   </tr>
+  <tr class="comment-row">
+    <td></td>
+    <td colspan="2">
+      <div class="comment-container">
+        <div class="input-group input-group-sm">
+          <label class="sr-only" for="comment-field">Email address</label>
+          <div class="input-group-addon"
+            style="background-image: url('<%= user.escape('avatar_url') %>')"></div>
+          <form>
+          <input type="text" name="body" class="form-control" id="comment-field"
+            placeholder="Write a comment ...">
+          <button type="submit" style="display: none;">
+          </form>
+        </div>
+      </div>
+
+    </td>
+  </tr>
+  <tr>
+    <td></td>
+    <td colspan="2">
+      <div class="btn-toolbar" role="toolbar">
+        <div class="btn-group-xs" role="group" aria-label="...">
+
+          <button type="button" class="btn btn-default">
+            <span class="glyphicon glyphicon-star-empty"></span>Follow Artist
+          </button>
+
+          <button type="button" class="btn btn-default">
+            <span class="glyphicon glyphicon-th-list"></span> Add to playlist
+          </button>
+
+          <button type="button" class="btn btn-default">
+            <span class="glyphicon glyphicon-share"></span> Share
+          </button>
+        </div>
+      </div>
+    </td>
 </table>

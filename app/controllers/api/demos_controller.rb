@@ -6,7 +6,7 @@ class Api::DemosController < ApplicationController
   end
 
   def show
-    @demo = Demo.includes(:artist).find(params[:id])
+    @demo = Demo.includes(:artist, :comments).find(params[:id])
     render :show
   end
 
