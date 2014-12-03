@@ -125,15 +125,16 @@ Demogogue.Views.DemoUploadView = Backbone.View.extend({
 
   renderProgressBar: function(request) {
     var lastPercentage = 0;
+    var thisView = this;
     request.on('httpUploadProgress', function(progress) {
-      $(".progress").show();
+      thisView.$(".progress").show();
       var percentage = Math.floor((progress.loaded / progress.total) * 100);
       if (percentage > lastPercentage) {
         lastPercentage = percentage;
         if (percentage > 10) {
-          $('.progress-bar').html(percentage + "%");
+          thisView.$('.progress-bar').html(percentage + "%");
         }
-        $('.progress-bar').css("width", percentage + "%").val(percentage + "%");
+        thisView.$('.progress-bar').css("width", percentage + "%").val(percentage + "%");
       }
     });
   },

@@ -3,15 +3,89 @@
 div.player-container {
   width: 400px;
   border: 1px solid gainsboro;
-  border-radius: 6px;
+  border-radius: 6px 6px 0 0;
   height: 150px;
   position: absolute;
   background: whitesmoke;
-  bottom: -100px;
+  bottom: -116px;
   left: 50%;
   margin-left: -200px;
-  &:hover {
+  .active {
     bottom: 0px;
   }
   transition: 0.4s;
+
+
+  .container-fluid {
+    padding: 0px;
+    height: 30px;
+    border-bottom: 1px solid gainsboro;
+    .row {
+      margin: 0px;
+    }
+    .control-container {
+      padding-right: 0px;
+      margin-right: 0px;
+    }
+
+    .control {
+      padding: 0px;
+      float:left;
+      height: 30px;
+      width: 20px;
+
+      .glyphicon-step-forward, .glyphicon-step-backward {
+        padding-left: 4px;
+        font-size: 16px;
+        padding-top: 5px;
+      }
+      .glyphicon-play {
+        font-size: 24px;
+      }
+    }
+
+    .title {
+      text-align: center;
+      font-size: 16px;
+      padding: 3px;
+    }
+
+    .volume {
+      font-size: 20px;
+      padding-right: 0;
+    }
+
+    #vol-popup {
+      float:right;
+      padding: 4px;
+    }
+
+    #vol-popup.active {
+      position: absolute;
+      font-size: 20px;
+      padding-top: 3px;
+      text-align: center;
+      border-radius: 6px 6px 0 0;
+      border: 1px solid gainsboro;
+      height: 120px;
+      width: 35px;
+      top: -90px;
+      left: 100px;
+      background-color: lightgray;
+    }
+
+  }
+
+  .progress {
+    border-radius: 0px;
+    margin-bottom: 0px;
+    height: 5px;
+    width: 100%;
+    padding: 0px;
+    .progress-bar {
+      width: 0%;
+      border-radius: 0px
+    }
+  }
+
 }

@@ -1,0 +1,43 @@
+<div class="container-fluid">
+  <div class="row">
+
+
+    <div class="col-md-4 control-container">
+
+      <div class='control'>
+        <span class="glyphicon glyphicon-step-backward"></span>
+      </div>
+
+      <div class='control'>
+        <span class="glyphicon glyphicon-play"></span>
+      </div>
+
+      <div class='control'>
+        <span class="glyphicon glyphicon-step-forward"></span>
+      </div>
+    </div>
+
+    <div class="col-md-4 title">
+      <%= demo.escape('title') %>
+    </div>
+
+
+    <div class="col-md-4 volume">
+
+      <div id="vol-popup">
+        <a href="javascript:void(0)" id="volume-btn">
+          <span class="glyphicon glyphicon-volume-up"></span>
+        </a>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<div class="progress" >
+
+  <div id="player-progress" class="progress-bar" role="progressbar"
+        aria-valuemin="0"
+        aria-valuemax="100">
+        </div>
+</div>

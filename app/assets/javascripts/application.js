@@ -13,6 +13,8 @@
 //= require jquery
 //= require jquery_ujs
 //= require jquery.timeago
+//= require soundmanager2
+//= require soundmanager2-nodebug
 //= require turbolinks
 //= require bootstrap
 //= require underscore

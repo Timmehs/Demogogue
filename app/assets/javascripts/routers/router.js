@@ -12,6 +12,7 @@ Demogogue.Routers.Router = Backbone.Router.extend({
     this.demos = Demogogue.Collections.demos;
     this.user = new Demogogue.Models.User({ id: CURRENT_USER });
     this.player = this.initializePlayer();
+    window.player = this.player;
   },
 
   home: function() {
