@@ -4,14 +4,17 @@ Demogogue.Views.Player = Backbone.View.extend({
 
 
   events: {
-    "click" : "loadPlayer",
+
     "click a#volume-btn" : "toggleVolumeControl",
+    "click div.title" : "showTrackInfo",
+    "click span#play-btn" : "togglePlay",
   },
 
   initialize: function() {
     this.initializePlayer();
     this.currentSound = null;
     this.volume = 50;
+    this.playing = false;
   },
 
 
@@ -19,7 +22,7 @@ Demogogue.Views.Player = Backbone.View.extend({
     if (!(this.demo)) {
       this.demo = new Demogogue.Models.Demo();
     }
-    var content = this.template({ demo: this.demo });
+    var content = this.template({ demo: this.demo, player: this });
     this.$el.html(content);
     return this;
   },
@@ -33,31 +36,58 @@ Demogogue.Views.Player = Backbone.View.extend({
 
   playDemo: function(demo) {
     console.log('play');
-    if (demo.get('title') == this.currentSound)
-    this.currentSound && this.currentSound.stop();
-    this.currentSound && this.currentSound.destruct();
-    var newSound = soundManager.createSound({
-      id: demo.get('title'),
-      url: demo.get('audio_url'),
-      volume: player.volume,
-      autoLoad: true,
-      autoPlay: true,
-      useEQData: true,
-      useWaveformData: true,
-      whileloading: function(response) {
-        var percentage = Math.floor(this.bytesLoaded * 100);
-        console.log("Buffering: " + percentage + "%");
-      },
-      whileplaying: function() {
-        var percentage = Math.floor(
-          (this.position / this.duration) * 100);
-        $("#player-progress").css("width", percentage);
-      }
+    if (demo == this.demo) {
+      console.log("abort! Same guy!");
+      this.togglePlay();
+    } else {
+      this.playing = false;
+      $('#play' + this.demo.id).removeClass("glyphicon-pause").addClass("glyphicon-play");
+      this.currentSound && this.currentSound.stop();
+      this.currentSound && this.currentSound.destruct();
+      var newSound = soundManager.createSound({
+        id: demo.get('title'),
+        url: demo.get('audio_url'),
+        volume: player.volume,
+        autoLoad: true,
+        autoPlay: false,
+        useEQData: true,
+        useWaveformData: true,
+        whileloading: function(response) {
+          var percentage = Math.floor(this.bytesLoaded * 100);
+          console.log("Buffering: " + percentage + "%");
+        },
+        whileplaying: function() {
+          player.playing = true;
+          var percentage = Math.floor(
+            (this.position / this.duration) * 100);
+          $("#player-progress").css("width", percentage + "%");
+        },
+        onfinish: function() {
+          player.togglePlay();
+          $("#player-progress").css("width", "0%");
+        }
+      });
+      this.demo = demo;
+      this.currentSound = newSound;
+      this.togglePlay();
+      this.render();
+    }
 
-    });
-    this.demo = demo;
-    this.render();
-    this.currentSound = newSound;
+  },
+
+  togglePlay: function() {
+    console.log("toggling");
+    var demoBtnId = "#play" + this.demo.id;
+    if (this.playing) {
+      this.currentSound.pause();
+      $(demoBtnId).removeClass("glyphicon-pause").addClass("glyphicon-play");
+      $('#play-btn').removeClass("glyphicon-pause").addClass("glyphicon-play");
+    } else {
+      this.currentSound.play();
+      $(demoBtnId).removeClass("glyphicon-play").addClass("glyphicon-pause");
+      $('#play-btn').removeClass("glyphicon-play").addClass("glyphicon-pause");
+    }
+    this.playing = !this.playing;
   },
 
   toggleVolumeControl: function() {
@@ -79,6 +109,18 @@ Demogogue.Views.Player = Backbone.View.extend({
       }
     });
 
+  },
+
+  pause: function() {
+    this.currentSound.pause();
+  },
+
+  play: function() {
+    this.currentSound.resume();
+  },
+
+  showTrackInfo: function() {
+    this.demo.id && this.$el.toggleClass("active");
   },
 
 

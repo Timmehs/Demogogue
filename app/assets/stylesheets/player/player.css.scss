@@ -1,25 +1,19 @@
-
-
 div.player-container {
   width: 400px;
   border: 1px solid gainsboro;
   border-radius: 6px 6px 0 0;
-  height: 150px;
+  height: 180px;
   position: absolute;
   background: whitesmoke;
-  bottom: -116px;
+  bottom: -139px;
   left: 50%;
-  //margin-left: -200px;
-  .active {
-    bottom: 0px;
-  }
+  margin-left: -200px;
   transition: 0.4s;
 
 
   .container-fluid {
     padding: 0px;
     height: 30px;
-    border-bottom: 1px solid gainsboro;
     .row {
       margin: 0px;
     }
@@ -33,13 +27,14 @@ div.player-container {
       float:left;
       height: 30px;
       width: 20px;
+      cursor: pointer;
 
       .glyphicon-step-forward, .glyphicon-step-backward {
         padding-left: 4px;
         font-size: 16px;
         padding-top: 5px;
       }
-      .glyphicon-play {
+      #play-btn {
         font-size: 24px;
       }
     }
@@ -47,7 +42,11 @@ div.player-container {
     .title {
       text-align: center;
       font-size: 16px;
-      padding: 3px;
+      padding: 7px;
+      height: 30px;
+      cursor: pointer;
+      white-space: nowrap;
+      overflow: hidden;
     }
 
     .volume {
@@ -56,9 +55,37 @@ div.player-container {
     }
 
     #vol-popup {
-      float:right;
       padding: 4px;
+      position:absolute;
+      left: 32px;
+      width: 35px;
       transition: height 0.5s;
+      #slider-vertical {
+        display: none;
+        height: 75px;
+        background-color: white;
+        margin: 0 auto;
+      }
+
+      .ui-slider-vertical {
+        width:10px;
+      }
+
+      .ui-widget-header {
+        background-color: slategray;
+      }
+
+      .ui-slider-handle {
+        width: 20px;
+        margin-left: 1px;
+        height: 20px;
+        border-radius: 15px;
+        &:focus {
+          box-sizing: none;
+        }
+         outline: none;
+      }
+
     }
 
     #vol-popup.active {
@@ -69,49 +96,60 @@ div.player-container {
       border-radius: 6px 6px 0 0;
       border: 1px solid gainsboro;
       height: 120px;
-      width: 35px;
       top: -90px;
-      left: 100px;
+      left: 32px;
       background-color: lightgray;
-    }
-
-    #slider-vertical {
-      height: 75px;
-      background-color: white;
-      margin: 0 auto;
-    }
-
-    .ui-slider-vertical {
-      width:10px;
-    }
-
-    .ui-widget-header {
-      background-color: slategray;
-    }
-
-    .ui-slider-handle {
-      width: 20px;
-      margin-left: 1px;
-      height: 20px;
-      border-radius: 15px;
-      &:focus {
-        box-sizing: none;
+      #slider-vertical {
+        display: block;
       }
-      outline: none;
+
     }
+
+
 
   }
 
   .progress {
     border-radius: 0px;
     margin-bottom: 0px;
-    height: 5px;
+    height: 8px;
     width: 100%;
     padding: 0px;
     .progress-bar {
       width: 0%;
-      border-radius: 0px
+      border-radius: 0px;
+      transition: none;
     }
   }
 
+
+  #player-track-box {
+    padding: 10px;
+    width: 100%;
+    height: 100%;
+    #track-artwork {
+      width: 120px;
+      height: 120px;
+      float: left;
+      background-size: 120px 120px;
+    }
+    #track-data {
+      padding: 10px;
+      line-height: 1.5;
+      padding-left: 25px;
+      font-size: 16px;
+      float:left;
+      a:hover {
+        text-decoration: none;
+      }
+    }
+
+    #track-title {
+      font-size: 30px;
+    }
+  }
+}
+
+div.player-container.active {
+  bottom: 0px;
 }
