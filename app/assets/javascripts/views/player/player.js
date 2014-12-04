@@ -17,7 +17,6 @@ Demogogue.Views.Player = Backbone.View.extend({
     this.playing = false;
   },
 
-
   render: function() {
     if (!(this.demo)) {
       this.demo = new Demogogue.Models.Demo();

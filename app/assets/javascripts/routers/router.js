@@ -11,6 +11,7 @@ Demogogue.Routers.Router = Backbone.Router.extend({
     this.$rootEl = $("#main-container");
     this.demos = Demogogue.Collections.demos;
     this.user = new Demogogue.Models.User({ id: CURRENT_USER });
+    window.currentUser = this.user;
     this.player = this.initializePlayer();
     window.player = this.player;
   },

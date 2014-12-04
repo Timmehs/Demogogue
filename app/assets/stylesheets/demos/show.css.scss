@@ -3,7 +3,7 @@ div.demo-show {
   width: 700px;
   height: 100%;
   padding: 0px;
-
+  overflow: scroll;
 
   .comment-container {
     padding: 10px;
@@ -12,9 +12,6 @@ div.demo-show {
     background-color: whitesmoke;
     &:hover {
       background-color: gainsboro;
-    }
-    &:focus {
-      background-color: darkgray;
     }
 
     div.input-group {

@@ -1,2 +1,40 @@
 
-<h5><%= comment.escape('body') %></h5>
+<section class="commentshow-container">
+  <section class="comment-left">
+    <img src="<%= comment.get('user_avatar') %>"></img><%= comment.escape('body') %>
+  </section>
+
+  <section class="comment-right">
+    <button class="btn btn-default btn-xs reply">
+      <span class="glyphicon glyphicon-reply"></span>Reply
+    </button>
+    <article class="comment-timeago">
+      <%= $.timeago(comment.get('created_at')) %>
+    </article>
+    <article class="comment-author">
+      <%= comment.escape('author') %>,
+    </article>
+  </section>
+</section>
+
+<section class="reply-container">
+
+
+</section>
+
+
+
+<div class="reply-row">
+  <div class="reply-container">
+    <div class="input-group input-group-sm">
+      <label class="sr-only" for="reply-field">Comment Field</label>
+      <div class="input-group-addon"
+        style="background-image: url('<%= user.escape('avatar_url') %>')"></div>
+      <form>
+        <input type="text" name="body" class="form-control" id="reply-field"
+        placeholder="Write a reply ...">
+        <button type="submit" style="display: none;">
+        </form>
+      </div>
+  </div>
+</div>

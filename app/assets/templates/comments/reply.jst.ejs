@@ -1,0 +1,17 @@
+<section class="commentshow-container reply">
+  <section class="comment-left">
+    <img src="<%= comment.get('user_avatar') %>"></img><%= comment.escape('body') %>
+  </section>
+
+  <section class="comment-right">
+    <button class="btn btn-default btn-xs reply">
+      <span class="glyphicon glyphicon-reply"></span>Reply
+    </button>
+    <article class="comment-timeago">
+      <%= $.timeago(comment.get('created_at')) %>
+    </article>
+    <article class="comment-author">
+      <%= comment.escape('author') %>,
+    </article>
+  </section>
+</section>

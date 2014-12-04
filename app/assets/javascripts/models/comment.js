@@ -9,9 +9,14 @@ Demogogue.Models.Comment = Backbone.Model.extend({
     return this._comments;
   },
 
-  parse: function (blob) {
-    console.log('parsing comment!');
-    return blob;
+  parse: function (response) {
+    if (response.replies) {
+      // parse: true
+      this.replies().set(response.replies, { parse: false });
+      delete response.replies;
+    }
+    return response;
   }
+
 
 });
