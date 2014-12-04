@@ -12,7 +12,6 @@ Demogogue.Views.StreamView = Backbone.View.extend({
   },
 
   render: function() {
-    debugger
     user = this.model;
     collection = this.collection;
     console.log('render');
@@ -23,7 +22,6 @@ Demogogue.Views.StreamView = Backbone.View.extend({
   },
 
   refresh: function() {
-    console.log('frefres');
     this.model.fetch();
   },
 
@@ -32,7 +30,11 @@ Demogogue.Views.StreamView = Backbone.View.extend({
     var thisIndex = this;
     this.clearDemoViews();
     this.model.stream().each(function(demo) {
-      var demoView = new Demogogue.Views.DemosIndexItem({ model: demo });
+      debugger
+      var demoView = new Demogogue.Views.DemosIndexItem({
+        model: demo,
+        user: thisIndex.model
+      });
       thisIndex._demoViews.push(demoView);
       thisIndex.$('#stream-list').append(demoView.render().$el);
     });

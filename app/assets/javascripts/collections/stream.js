@@ -1,7 +1,7 @@
 Demogogue.Collections.Stream = Backbone.Collection.extend({
   model: Demogogue.Models.Demo,
-  url: 'api/demos',
-  className: "stream-container",
+  url: 'api/stream',
+
   comparator: function(m) {
     return -Date.parse(m.get('updated_at'));
   },

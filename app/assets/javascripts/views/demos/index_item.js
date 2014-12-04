@@ -6,7 +6,10 @@ Demogogue.Views.DemosIndexItem = Backbone.View.extend({
     "click button.play" : "play",
     "click td.waveform" : "showCommentForm",
     "submit form" : "createComment",
+    "click button.fol-btn" : "toggleFollow"
   },
+
+
 
   initialize: function(options) {
     this.user = options.user;
@@ -15,6 +18,8 @@ Demogogue.Views.DemosIndexItem = Backbone.View.extend({
   render: function() {
     var content = this.template({ demo: this.model, user: this.user });
     this.$el.html(content);
+    var playSymbol = this.isPlaying() ? "glyphicon-pause" : "glyphicon-play";
+    this.$("button.play span").addClass(playSymbol);
     return this;
   },
 
@@ -40,5 +45,17 @@ Demogogue.Views.DemosIndexItem = Backbone.View.extend({
     this.$('#comment-field').val("");
     this.$('.waveform').append(newComment.get('body'));
   },
+
+  toggleFollow: function() {
+    console.log('follow');
+  },
+
+  isPlaying: function() {
+    if (player.playing) {
+      return player.currentSound.id === this.model.get('title');
+    }
+
+    return false;
+  }
 
 });

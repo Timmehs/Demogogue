@@ -1,5 +1,7 @@
 class Api::StreamController < ApplicationController
+
   def index
-    render json: current_user.stream
+    @demos = current_user.stream_demos
+    render :index
   end
 end

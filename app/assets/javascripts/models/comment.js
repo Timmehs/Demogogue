@@ -7,6 +7,11 @@ Demogogue.Models.Comment = Backbone.Model.extend({
     }
 
     return this._comments;
+  },
+
+  parse: function (blob) {
+    console.log('parsing comment!');
+    return blob;
   }
 
 });

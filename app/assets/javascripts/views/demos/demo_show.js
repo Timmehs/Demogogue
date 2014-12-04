@@ -9,16 +9,19 @@ Demogogue.Views.DemoShow = Backbone.View.extend({
 
   initialize: function(options) {
     this.user = options.user;
-    this.user.fetch();
     this.listenTo(this.model, "sync", this.render);
     this.listenTo(this.user, "sync", this.render);
+    window.demoView = this;
     this.model.fetch();
+    this.user.fetch();
   },
 
   render: function() {
     console.log(this.user);
     var content = this.template({ demo: this.model, user: this.user });
     this.$el.html(content);
+    var playSymbol = this.isPlaying() ? "glyphicon-pause" : "glyphicon-play";
+    this.$("#show-play-btn span").addClass(playSymbol);
     var commentsIndex = new Demogogue.Views.CommentsIndex({
       model: this.model
     });
@@ -48,5 +51,13 @@ Demogogue.Views.DemoShow = Backbone.View.extend({
       this.$('#comment-field').val("");
 
     },
+
+    isPlaying: function() {
+      if (player.playing) {
+        return player.currentSound.id === this.model.get('title');
+      }
+
+      return false;
+    }
 
   });

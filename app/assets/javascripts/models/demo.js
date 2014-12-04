@@ -5,8 +5,17 @@ Demogogue.Models.Demo = Backbone.Model.extend({
     if (!this._comments) {
       this._comments = new Demogogue.Collections.Comments([], { demo: this });
     }
-
     return this._comments;
+  },
+
+  parse: function (response) {
+    if (response.comments) {
+      // parse: true
+      this.comments().set(response.comments, { parse: true });
+      delete response.comments;
+    }
+
+    return response;
   }
 
 });

@@ -6,10 +6,9 @@ Rails.application.routes.draw do
 
   namespace :api, defaults: {format: :json } do
     resources :artist_follows, only: [:create, :destroy]
-    resources :demos, except: [:edit, :update, :destroy] do
-      resources :comments, only: [:index]
-    end
+    resources :demos, except: [:edit, :update, :destroy]
     resources :comments, only: [:create, :destroy]
     resources :users, only: [:show, :edit, :destroy]
+    resources :stream, only: [:index]
   end
 end
