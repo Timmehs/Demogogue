@@ -6,6 +6,10 @@ class Api::CommentsController < ApplicationController
     render json: @comment
   end
 
+  def index
+    @comments = Comment.includes(:user).where({demo_id: params[:demo_id] });
+    render :index
+  end
 
   def comment_params
     params.require(:comment).permit(

@@ -17,7 +17,8 @@ Demogogue.Routers.Router = Backbone.Router.extend({
 
   demoShow: function(id) {
     var demoView = new Demogogue.Views.DemoShow({
-      model: this.demos.getOrFetch(id)
+      model: this.demos.getOrFetch(id),
+      user: this.user
     });
     this._swapView(demoView);
   },

@@ -3,21 +3,26 @@ Demogogue.Views.DemoShow = Backbone.View.extend({
   className: "demo-show",
 
   events: {
-    "click button#show-play-btn" : "play"
+    "click button#show-play-btn" : "play",
+    "submit form.meme" : "createComment",
   },
 
   initialize: function(options) {
     this.user = options.user;
+    this.user.fetch();
     this.listenTo(this.model, "sync", this.render);
-    $( window ).load(function() {
-      // Run code
-    });
+    this.listenTo(this.user, "sync", this.render);
+    this.model.fetch();
   },
 
   render: function() {
-    console.log('render');
+    console.log(this.user);
     var content = this.template({ demo: this.model, user: this.user });
     this.$el.html(content);
+    var commentsIndex = new Demogogue.Views.CommentsIndex({
+      model: this.model
+    });
+    this.$el.append(commentsIndex.render().$el);
     return this;
   },
 
@@ -33,15 +38,15 @@ Demogogue.Views.DemoShow = Backbone.View.extend({
   createComment: function(event) {
     event.preventDefault();
     var text = this.$('#comment-field').val();
+
     if (text === "") { return; }
-      var newComment = new Demogogue.Models.Comment({
+      this.model.comments().create({
         demo_id: this.model.id,
         user_id: CURRENT_USER,
         body: $('#comment-field').val()
       });
-      newComment.save();
       this.$('#comment-field').val("");
-      this.$('.waveform').append(newComment.get('body'));
+
     },
 
   });

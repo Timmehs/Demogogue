@@ -16,6 +16,18 @@
 
 </header>
 <div class="demo-show-comment-form">
+  <div class="comment-container">
+    <div class="input-group input-group">
+      <label class="sr-only" for="comment-field">Comment Field</label>
+      <div class="input-group-addon"
+        style="background-image: url('<%= user.escape('avatar_url') %>')"></div>
+      <form class="meme">
+        <input type="text" name="body" class="form-control" id="comment-field"
+          placeholder="Write a comment ...">
+        <button type="submit" style="display: none;">
+      </form>
+    </div>
+  </div>
 </div>
 <div class="button-row"></div>
 
