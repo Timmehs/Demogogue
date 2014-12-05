@@ -16,7 +16,6 @@ Demogogue.Views.CommentShow = Backbone.View.extend({
   },
 
   render: function() {
-    console.log("comment render");
     this.clearSubviews();
     var content = this.template({
       comment: this.model,
@@ -29,6 +28,7 @@ Demogogue.Views.CommentShow = Backbone.View.extend({
 
   showForm: function() {
     this.$('div.reply-row').addClass("active");
+    this.$('#reply-field').focus();
   },
 
   renderReplies: function() {
@@ -85,7 +85,7 @@ Demogogue.Views.CommentShow = Backbone.View.extend({
       });
     }
 
-
+    this.demo.fetch();
   }
 
 })
