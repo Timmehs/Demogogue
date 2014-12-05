@@ -53,10 +53,28 @@
     }
   }
 
+//  magenta is ef3f8f and the orange is ff751b
 
 
   td.waveform {
     cursor: pointer;
+    text-align: right;
+    border-bottom: 1px solid white;
+    span {
+      font-weight: bold;
+      color: #ff751b;
+    }
+    span.mins {
+      font-size: 30px;
+    }
+    span.secs {
+      font-size: 28px;
+    }
+
+    &:hover {
+      border-bottom: 1px solid gainsboro;
+      cursor: pointer;
+    }
   }
 
   .play-btn {
@@ -107,6 +125,8 @@
       height: 100px;
     }
   }
+
+
 
   span {
     margin-right: 3px;

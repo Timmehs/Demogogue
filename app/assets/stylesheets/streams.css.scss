@@ -5,8 +5,18 @@
 .stream-container {
   position: relative;
   background-color: red;
+
 }
 
 #stream-list {
   overflow: scroll;
+}
+
+div.user-stream {
+  padding: 15px;
+}
+
+h2 {
+  color: dimgray; border-bottom: 1px solid gainsboro;
+  width: 60%;
 }

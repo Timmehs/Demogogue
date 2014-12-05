@@ -12,11 +12,28 @@ u2 = User.create(username: 'The Hay Babes', email: 'hb@hb.com', password: 'passw
 u3 = User.create(username: 'Tim Sandberg', email: 'ts@gmail.com', password: 'password', avatar_url: seedUrl + "tim.jpg")
 u4 = User.create(username: 'Murderface', email: 'thejwamaicandave@gmail.com', password: 'password', avatar_url: seedUrl + "murderface.jpg")
 u5 = User.create(username: 'Replicant', email: 'riped@gmail.com', password: 'password', avatar_url: seedUrl + "bladerunner.jpg")
-u6 = User.create(username: 'Midnight', email: 'thejndave@gmail.com', password: 'password', avatar_url: seedUrl + "cyberpunk.jpeg")
+u6 = User.create(username: 'Midnight', email: 'thejndave@gmail.com', password: 'password', avatar_url: seedUrl + "cyberpunk.jpg")
 u7 = User.create(username: 'Stank Williams', email: 'aq@gmail.com', password: 'password', avatar_url: seedUrl + "mountains.jpg")
 u8 = User.create(username: 'Nick Cave', email: 'cave@gmail.com', password: 'password', avatar_url: seedUrl + "nickcave.jpg")
 u9 = User.create(username: 'Blood On The Traxxxxssss', email: 'asdf@gmail.com', password: 'password', avatar_url: seedUrl + "metal2.jpg")
 u10 = User.create(username: 'The Fucking Buckaroos', email: 'tfb@gmail.com', password: 'password', avatar_url: seedUrl + "tfb.jpg")
+
+
+u1.artist_follows.create({artist_id: 5})
+u1.artist_follows.create({artist_id: 3})
+u1.artist_follows.create({artist_id: 7})
+u1.artist_follows.create({artist_id: 9})
+u1.artist_follows.create({artist_id: 4})
+
+u3.artist_follows.create({artist_id: 1})
+u3.artist_follows.create({artist_id: 2})
+u3.artist_follows.create({artist_id: 6})
+u3.artist_follows.create({artist_id: 5})
+u3.artist_follows.create({artist_id: 7})
+
+
+
+
 
 u1.demos.create({title: "Citizen's Arrest", thumb_url: u1.avatar_url, audio_url: seedUrl + "sj1.mp3"});
 u1.demos.create({title: "Question of Honor", thumb_url: u1.avatar_url, audio_url: seedUrl + "sj2.mp3"});

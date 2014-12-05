@@ -20,6 +20,7 @@ Demogogue.Views.DemosIndexItem = Backbone.View.extend({
     this.$el.html(content);
     var playSymbol = this.isPlaying() ? "glyphicon-pause" : "glyphicon-play";
     this.$("button.play span").addClass(playSymbol);
+    this.renderFollowBtn(!this.isFollowing(this.model.get('artist_id')));
     return this;
   },
 
@@ -47,15 +48,42 @@ Demogogue.Views.DemosIndexItem = Backbone.View.extend({
   },
 
   toggleFollow: function() {
-    console.log('follow');
+    var artistId = this.model.get('artist_id');
+    var thisView = this;
+    thisView.renderFollowBtn(this.isFollowing(artistId));
+
+    if (this.isFollowing(artistId)) {
+      currentUser.following().where({ artist_id: artistId })[0].destroy();
+    } else {
+      currentUser.following().create({artist_id: artistId});
+    }
+  },
+
+  renderFollowBtn: function(unfollow) {
+    if(unfollow) {
+      this.$('.fol-btn').html(
+        "<span class='glyphicon glyphicon-star-empty'></span>Follow Artist"
+      );
+    } else {
+      this.$('.fol-btn').html(
+        "<span class='glyphicon glyphicon-star'></span><b>Following</b>"
+      )
+    }
   },
 
   isPlaying: function() {
     if (player.playing) {
       return player.currentSound.id === this.model.get('title');
     }
-
     return false;
+  },
+
+  isFollowing: function (artistId) {
+    if (currentUser.following().where({artist_id: artistId}).length > 0) {
+      return true;
+    } else {
+      return false;
+    }
   }
 
 });

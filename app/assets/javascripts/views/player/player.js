@@ -15,6 +15,7 @@ Demogogue.Views.Player = Backbone.View.extend({
     this.currentSound = null;
     this.volume = 50;
     this.playing = false;
+    this.queue = [];
   },
 
   render: function() {
@@ -45,6 +46,8 @@ Demogogue.Views.Player = Backbone.View.extend({
       $('#play' + this.demo.id).removeClass("glyphicon-pause").addClass("glyphicon-play");
       if (this.currentSound) {
         this.currentSound.stop();
+        var timeShowId = "#timeShow" + player.demo.id;
+        $(timeShowId).empty();
         soundManager.unload(this.currentSound.id);
         soundManager.destroySound(this.currentSound.id);
       }
@@ -58,13 +61,16 @@ Demogogue.Views.Player = Backbone.View.extend({
         },
         whileplaying: function() {
           player.playing = true;
+          var duration = player.millisecondsToTime(player.currentSound.duration);
+          player.renderTime(player.currentSound.position, duration);
           var percentage = Math.floor(
             (this.position / this.duration) * 100);
-
           $("#player-progress").css("width", percentage + "%");
         },
         onfinish: function() {
           player.togglePlay();
+          var timeShowId = "#timeShow" + player.demo.id;
+          $(timeShowId).empty();
           $("#player-progress").css("width", "0%");
         },
 
@@ -72,6 +78,8 @@ Demogogue.Views.Player = Backbone.View.extend({
       });
       this.demo = demo;
       this.currentSound = newSound;
+      var duration = player.millisecondsToTime(player.currentSound.duration);
+      player.renderTime(player.currentSound.position, duration);
       this.togglePlay();
       this.render();
     }
@@ -131,6 +139,11 @@ Demogogue.Views.Player = Backbone.View.extend({
     var minutes = Math.floor((milli / (60 * 1000)) % 60);
     seconds = seconds < 10 ? "0" + seconds : seconds;
     return minutes + ":" + seconds;
+  },
+
+  renderTime: function (milli, duration) {
+    var timeShowId = "#timeShow" + player.demo.id;
+    $(timeShowId).html("<span class='secs'>"+ this.millisecondsToTime(milli) + "</span>/ " + duration );
   }
 
 
