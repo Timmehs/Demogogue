@@ -26,11 +26,7 @@ Demogogue.Views.Player = Backbone.View.extend({
     }
     var content = this.template({ demo: this.demo, player: this });
     this.$el.html(content);
-    if (this.currentSound == null && this.queue.length > 0) {
-      console.log('loading');
-      player.playDemo(queue[0]);
-      player.pause();
-    }
+
     return this;
   },
 
@@ -98,8 +94,13 @@ Demogogue.Views.Player = Backbone.View.extend({
   },
 
   togglePlay: function() {
-    console.log("toggling");
+
     var demoBtnId = "#play" + this.demo.id;
+    if (!this.currentSound) {
+      this.playDemo(this.queue[0]);
+      return;
+    }
+
     if (this.playing) {
       this.currentSound.pause();
       $(demoBtnId).removeClass("glyphicon-pause").addClass("glyphicon-play");

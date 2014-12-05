@@ -13,7 +13,7 @@ Demogogue.Views.DemosIndex = Backbone.View.extend({
     var content = this.template();
     this.$el.html(content);
     this.renderDemos();
-    player.queue = Demogogue.Collections.demos;
+    player.queue = Demogogue.Collections.demos.toArray();
     return this;
   },
 

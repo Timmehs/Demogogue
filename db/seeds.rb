@@ -38,24 +38,25 @@ u3.artist_follows.create({artist_id: 7})
 u1.demos.create({title: "Citizen's Arrest", thumb_url: u1.avatar_url, audio_url: seedUrl + "sj1.mp3"});
 u1.demos.create({title: "Question of Honor", thumb_url: u1.avatar_url, audio_url: seedUrl + "sj2.mp3"});
 u1.demos.create({title: "Conan", thumb_url: u1.avatar_url, audio_url: seedUrl + "sj3.mp3"});
-u4.demos.create({title: "DOOOOM!", thumb_url: u4.avatar_url, audio_url: seedUrl + "metal.mp3"});
+
 u1.demos.create({title: "My Crusade", thumb_url: u1.avatar_url, audio_url: seedUrl + "sj4.mp3"});
 
 u3.demos.create({title: "Rocky Top", thumb_url: u3.avatar_url, audio_url: seedUrl + "rockytop.mp3"});
 u1.demos.create({title: "Home Invasion", thumb_url: u1.avatar_url, audio_url: seedUrl + "sj6.mp3"});
-u1.demos.create({title: "Zen Swamp", thumb_url: u1.avatar_url, audio_url: seedUrl + "sj7.mp3"});
+
+u4.demos.create({title: "DOOOOM!", thumb_url: u4.avatar_url, audio_url: seedUrl + "metal.mp3"});
 u1.demos.create({title: "Overlord", thumb_url: u1.avatar_url, audio_url: seedUrl + "sj8.mp3"});
 u3.demos.create({title: "Loose Talk", thumb_url: u3.avatar_url, audio_url: seedUrl + "loostalk.mp3"});
 
-
 u2.demos.create({title: "Good Ol' Appalachia", thumb_url: u2.avatar_url, audio_url: seedUrl + "hb1.mp3"});
+u1.demos.create({title: "Zen Swamp", thumb_url: u1.avatar_url, audio_url: seedUrl + "sj7.mp3"});
 u2.demos.create({title: "I Never Will Marry (lol both married)", thumb_url: u2.avatar_url, audio_url: seedUrl + "hb2.mp3"});
 u4.demos.create({title: "BOOOOOM!", thumb_url: u4.avatar_url, audio_url: seedUrl + "dooom.mp3"});
 
 
 u2.demos.create({title: "", thumb_url: u2.avatar_url, audio_url: seedUrl + "hb4.mp3"});
 
-u2.demos.create({title: "Wayfaring Stranger", thumb_url: u2.avatar_url, audio_url: seedUrl + "hb6.mp3"});
+
 
 u6.demos.create({title: "Night Rider", thumb_url: u6.avatar_url, audio_url: seedUrl + "superdeath1.mp3"});
 
@@ -67,6 +68,7 @@ u7.demos.create({title: "How We Did", thumb_url: u7.avatar_url, audio_url: seedU
 u8.demos.create({title: "I live in Brighton bla bla bla", thumb_url: u8.avatar_url, audio_url: seedUrl + "murdersquad3.mp3"});
 
 u10.demos.create({title: "Demo 1", thumb_url: u10.avatar_url, audio_url: seedUrl + "tfb1.mp3"});
+u2.demos.create({title: "Wayfaring Stranger", thumb_url: u2.avatar_url, audio_url: seedUrl + "hb6.mp3"});
 u10.demos.create({title: "Demo 2", thumb_url: u10.avatar_url, audio_url: seedUrl + "tfb2.mp3"});
 u2.demos.create({title: "Tear My Stillhouse Down", thumb_url: u2.avatar_url, audio_url: seedUrl + "hb3.mp3"});
 u9.demos.create({title: "No, Tear MY Stillhouse Down", thumb_url: u9.avatar_url, audio_url: seedUrl + "blues.mp3"});

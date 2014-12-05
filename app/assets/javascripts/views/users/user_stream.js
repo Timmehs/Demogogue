@@ -26,7 +26,6 @@ Demogogue.Views.StreamView = Backbone.View.extend({
   },
 
   renderDemos: function() {
-    console.log("render demos");
     var thisIndex = this;
     this.clearDemoViews();
     this.model.stream().each(function(demo) {
