@@ -41,15 +41,17 @@ Demogogue.Views.CommentShow = Backbone.View.extend({
 
   addReply: function(event) {
     event.preventDefault();
-    console.log('add reply');
+
     var text = this.$('#reply-field').val();
     if (text === "") { return; }
     this.model.replies().create({
       user_id: CURRENT_USER,
-      demo_id: this.model.get('demo_ id'),
+      demo_id: this.model.get('demo_id'),
       body: text,
       parent_comment_id: this.model.id,
-    })
+      user_avatar: currentUser.get('avatar_url'),
+      author: currentUser.get('username')
+    }, {wait: true});
   },
 
   clearSubviews: function() {

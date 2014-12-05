@@ -5,7 +5,7 @@ Demogogue.Views.CommentsIndex = Backbone.View.extend({
   initialize: function() {
     this.comments = this.model.comments();
     this.listenTo(this.model, "sync", this.render);
-    this.listenTo(this.model.comments(), "reset", this.render);
+    this.listenTo(this.model.comments(), "add remove reset", this.render);
     this._subviews = [];
     window.comments = this.comments;
   },

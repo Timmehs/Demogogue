@@ -50,7 +50,7 @@ Demogogue.Views.DemoShow = Backbone.View.extend({
       user_id: CURRENT_USER,
       body: $('#comment-field').val(),
       user_avatar: currentUser.get('avatar_url')
-    });
+    }, {wait: true });
 
     this.$('#comment-field').val("");
   },
