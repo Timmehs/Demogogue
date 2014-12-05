@@ -30,10 +30,11 @@ Demogogue.Routers.Router = Backbone.Router.extend({
     var $homeLink = $('#home-stream-link')
     if (CURRENT_USER === 0) {
       $homeLink.text("Home");
+      player.$el.hide();
       this.splashPage();
     } else {
       $homeLink.text("Stream");
-
+      !player.$el.is(":visible") && player.$el.fadeIn('slow');
       this.streamPage();
     }
   },
