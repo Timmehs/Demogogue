@@ -30,7 +30,6 @@ Demogogue.Views.StreamView = Backbone.View.extend({
     var thisIndex = this;
     this.clearDemoViews();
     this.model.stream().each(function(demo) {
-      debugger
       var demoView = new Demogogue.Views.DemosIndexItem({
         model: demo,
         user: thisIndex.model

@@ -66,7 +66,7 @@ function SoundManager(smURL, smID) {
   this.setupOptions = {
 
     'url': (smURL || null),             // path (directory) where SoundManager 2 SWFs exist, eg., /path/to/swfs/
-    'flashVersion': 8,                  // flash build to use (8 or 9.) Some API features require 9.
+    'flashVersion': 9,                  // flash build to use (8 or 9.) Some API features require 9.
     'debugMode': true,                  // enable debugging output (console.log() with HTML fallback)
     'debugFlash': false,                // enable debugging output inside SWF, troubleshoot Flash/browser issues
     'useConsole': true,                 // use console.log() if available (otherwise, writes to #soundmanager-debug element)
@@ -82,7 +82,7 @@ function SoundManager(smURL, smID) {
     'useFlashBlock': false,             // *requires flashblock.css, see demos* - allow recovery from flash blockers. Wait indefinitely and apply timeout CSS to SWF, if applicable.
     'useHTML5Audio': true,              // use HTML5 Audio() where API is supported (most Safari, Chrome versions), Firefox (no MP3/MP4.) Ideally, transparent vs. Flash API where possible.
     'html5Test': /^(probably|maybe)$/i, // HTML5 Audio() format support test. Use /^probably$/i; if you want to be more conservative.
-    'preferFlash': false,               // overrides useHTML5audio, will use Flash for MP3/MP4/AAC if present. Potential option if HTML5 playback with these formats is quirky.
+    'preferFlash': true,               // overrides useHTML5audio, will use Flash for MP3/MP4/AAC if present. Potential option if HTML5 playback with these formats is quirky.
     'noSWFCache': false,                // if true, appends ?ts={date} to break aggressive SWF caching.
     'idPrefix': 'sound'                 // if an id is not provided to createSound(), this prefix is used for generated IDs - 'sound0', 'sound1' etc.
 
@@ -117,7 +117,7 @@ function SoundManager(smURL, smID) {
     'stream': true,           // allows playing before entire file has loaded (recommended)
     'to': null,               // position to end playback within a sound (msec), default = end
     'type': null,             // MIME-like hint for file pattern / canPlay() tests, eg. audio/mp3
-    'usePolicyFile': false,   // enable crossdomain.xml request for audio on remote domains (for ID3/waveform access)
+    'usePolicyFile': true,   // enable crossdomain.xml request for audio on remote domains (for ID3/waveform access)
     'volume': 100             // self-explanatory. 0-100, the latter being the max.
 
   };
@@ -224,8 +224,8 @@ function SoundManager(smURL, smID) {
 
     'buffering': false,
     'peakData': false,
-    'waveformData': false,
-    'eqData': false,
+    'waveformData': true,
+    'eqData': true,
     'movieStar': false
 
   };

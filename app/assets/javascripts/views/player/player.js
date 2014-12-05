@@ -28,8 +28,10 @@ Demogogue.Views.Player = Backbone.View.extend({
 
   initializePlayer: function() {
     soundManager.setup({
-      url: '/swf',
+      url: 'assets/swf',
       flashVersion: 9,
+      useHighPerformance: true,
+      preferFlash: true
     });
   },
 
@@ -52,8 +54,9 @@ Demogogue.Views.Player = Backbone.View.extend({
         volume: player.volume,
         autoLoad: true,
         autoPlay: false,
+        usePeakData: false,
+        useWaveformData: false,
         useEQData: true,
-        useWaveformData: true,
         whileloading: function(response) {
           var percentage = Math.floor(this.bytesLoaded * 100);
           console.log("Buffering: " + percentage + "%");
