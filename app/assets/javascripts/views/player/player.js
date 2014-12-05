@@ -28,13 +28,7 @@ Demogogue.Views.Player = Backbone.View.extend({
 
   initializePlayer: function() {
     soundManager.setup({
-
-      flashVersion: 9, // optional: shiny features (default = 8)
-      // optional: ignore Flash where possible, use 100% HTML5 mode
-      flashPollingInterval          : 75,
-      flashLoadTimeout              : 3000,
-      debugMode                     : true,
-      preferFlash: true,
+      preferFlash: false,
       url: "/assets/soundmanager2"
     });
     soundManager.flash9Options.useEQData       = true;
@@ -59,18 +53,14 @@ Demogogue.Views.Player = Backbone.View.extend({
         url: demo.get('audio_url'),
         volume: player.volume,
         autoLoad: true,
-        autoPlay: false,
-        usePeakData: false,
-        useWaveformData: true,
         whileloading: function(response) {
           var percentage = Math.floor(this.bytesLoaded * 100);
-          console.log("Buffering: " + percentage + "%");
         },
         whileplaying: function() {
           player.playing = true;
           var percentage = Math.floor(
             (this.position / this.duration) * 100);
-          
+
           $("#player-progress").css("width", percentage + "%");
         },
         onfinish: function() {
