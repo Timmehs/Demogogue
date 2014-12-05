@@ -70,7 +70,7 @@ u8.demos.create({title: "I live in Brighton bla bla bla", thumb_url: u8.avatar_u
 u10.demos.create({title: "Demo 1", thumb_url: u10.avatar_url, audio_url: seedUrl + "tfb1.mp3"});
 u2.demos.create({title: "Wayfaring Stranger", thumb_url: u2.avatar_url, audio_url: seedUrl + "hb6.mp3"});
 u10.demos.create({title: "Demo 2", thumb_url: u10.avatar_url, audio_url: seedUrl + "tfb2.mp3"});
-u3.demos.create({title: "Wendy's Song", thumb_url: u3.avatar_url, audio_url: seedUrl + "rockytop.mp3"});
+u3.demos.create({title: "Wendy's Song", thumb_url: u3.avatar_url, audio_url: seedUrl + "wendy.mp3"});
 
 u2.demos.create({title: "Tear My Stillhouse Down", thumb_url: u2.avatar_url, audio_url: seedUrl + "hb3.mp3"});
 u9.demos.create({title: "No, Tear MY Stillhouse Down", thumb_url: u9.avatar_url, audio_url: seedUrl + "blues.mp3"});
