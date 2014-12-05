@@ -13,6 +13,7 @@
     .comment-container {
       height: 0px;
       overflow: hidden;
+      z-index: 0;
       background-color: whitesmoke;
       &:hover {
         background-color: gainsboro;
@@ -87,10 +88,11 @@
       outline: none;
       padding: 0px;
       border-radius: 25px;
-      font-size: 16px;
-      height: 30px;
+      font-size: 18px;
+      height: 40px;
+      width: 40px;
+      box-shadow: 1px 1px 1px rgba(0,0,0,0.5);
       padding-left: 4px;
-      width: 30px;
       &:active {
         outline: none;
       }

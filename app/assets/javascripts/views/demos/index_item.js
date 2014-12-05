@@ -37,14 +37,12 @@ Demogogue.Views.DemosIndexItem = Backbone.View.extend({
     event.preventDefault();
     var text = this.$('#comment-field').val();
     if (text === "") { return; }
-    var newComment = new Demogogue.Models.Comment({
-      demo_id: this.model.id,
+    this.model.comments().create({
       user_id: CURRENT_USER,
       body: $('#comment-field').val()
-    });
-    newComment.save();
+    }, { wait: true });
     this.$('#comment-field').val("");
-    this.$('.waveform').append(newComment.get('body'));
+
   },
 
   toggleFollow: function() {
@@ -60,12 +58,14 @@ Demogogue.Views.DemosIndexItem = Backbone.View.extend({
   },
 
   renderFollowBtn: function(unfollow) {
+    var artistFollowBtn = ".fol-btn" + this.model.get('artist_id');
     if(unfollow) {
-      this.$('.fol-btn').html(
+
+      $('.fol-btn' + this.model.get('artist_id')).html(
         "<span class='glyphicon glyphicon-star-empty'></span>Follow Artist"
       );
     } else {
-      this.$('.fol-btn').html(
+      $('.fol-btn' + this.model.get('artist_id')).html(
         "<span class='glyphicon glyphicon-star'></span><b>Following</b>"
       )
     }

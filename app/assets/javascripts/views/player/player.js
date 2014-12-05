@@ -8,6 +8,8 @@ Demogogue.Views.Player = Backbone.View.extend({
     "click a#volume-btn" : "toggleVolumeControl",
     "click div.title" : "showTrackInfo",
     "click span#play-btn" : "togglePlay",
+    "click div#back-btn" : "playPrev",
+    "click div#forward-btn" : "playNext"
   },
 
   initialize: function() {
@@ -24,6 +26,11 @@ Demogogue.Views.Player = Backbone.View.extend({
     }
     var content = this.template({ demo: this.demo, player: this });
     this.$el.html(content);
+    if (this.currentSound == null && this.queue.length > 0) {
+      console.log('loading');
+      player.playDemo(queue[0]);
+      player.pause();
+    }
     return this;
   },
 
@@ -38,6 +45,7 @@ Demogogue.Views.Player = Backbone.View.extend({
 
   playDemo: function(demo) {
     console.log('play');
+    this._pos = player.qPosition(demo);
     if (demo == this.demo) {
       console.log("abort! Same guy!");
       this.togglePlay();
@@ -59,6 +67,8 @@ Demogogue.Views.Player = Backbone.View.extend({
         whileloading: function(response) {
           var percentage = Math.floor(this.bytesLoaded * 100);
         },
+
+
         whileplaying: function() {
           player.playing = true;
           var duration = player.millisecondsToTime(player.currentSound.duration);
@@ -72,6 +82,7 @@ Demogogue.Views.Player = Backbone.View.extend({
           var timeShowId = "#timeShow" + player.demo.id;
           $(timeShowId).empty();
           $("#player-progress").css("width", "0%");
+          player.playNext();
         },
 
         useEQData: true,
@@ -144,11 +155,36 @@ Demogogue.Views.Player = Backbone.View.extend({
   renderTime: function (milli, duration) {
     var timeShowId = "#timeShow" + player.demo.id;
     $(timeShowId).html("<span class='secs'>"+ this.millisecondsToTime(milli) + "</span>/ " + duration );
+  },
+
+
+  // Queue Functions
+  qPosition: function(demo) {
+
+    for (var i = 0; i < player.queue.length; i++) {
+      if (player.queue[i].id === demo.id) {
+        return i;
+      }
+    }
+
+    return -1;
+  },
+
+  playNext: function() {
+    if (player._pos > player.queue.length - 1) {
+      return;
+    } else {
+      player.playDemo(player.queue[player._pos + 1]);
+    }
+  },
+
+  playPrev: function() {
+    if (player._pos === 0) {
+      player.playDemo(player.queue[0]);
+    } else {
+      player.playDemo(player.queue[player._pos - 1]);
+    }
   }
-
-
-
-
 
 
 

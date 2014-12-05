@@ -49,11 +49,11 @@ u3.demos.create({title: "Loose Talk", thumb_url: u3.avatar_url, audio_url: seedU
 
 
 u2.demos.create({title: "Good Ol' Appalachia", thumb_url: u2.avatar_url, audio_url: seedUrl + "hb1.mp3"});
-u2.demos.create({title: "Bowling Green", thumb_url: u2.avatar_url, audio_url: seedUrl + "hb2.mp3"});
+u2.demos.create({title: "I Never Will Marry (lol both married)", thumb_url: u2.avatar_url, audio_url: seedUrl + "hb2.mp3"});
 u4.demos.create({title: "BOOOOOM!", thumb_url: u4.avatar_url, audio_url: seedUrl + "dooom.mp3"});
 
 
-u2.demos.create({title: "I Never Will Marry (lol both married)", thumb_url: u2.avatar_url, audio_url: seedUrl + "hb4.mp3"});
+u2.demos.create({title: "", thumb_url: u2.avatar_url, audio_url: seedUrl + "hb4.mp3"});
 
 u2.demos.create({title: "Wayfaring Stranger", thumb_url: u2.avatar_url, audio_url: seedUrl + "hb6.mp3"});
 
@@ -72,4 +72,4 @@ u2.demos.create({title: "Tear My Stillhouse Down", thumb_url: u2.avatar_url, aud
 u9.demos.create({title: "No, Tear MY Stillhouse Down", thumb_url: u9.avatar_url, audio_url: seedUrl + "blues.mp3"});
 u10.demos.create({title: "Demo 3", thumb_url: u10.avatar_url, audio_url: seedUrl + "tfb3.mp3"});
 u1.demos.create({title: "Personal Property", thumb_url: u1.avatar_url, audio_url: seedUrl + "sj5.mp3"});
-u5.demos.create({title: "He Rides At Night", thumb_url: u5.avatar_url, audio_url: seedUrl + "superdeath4.mp3"});
+u5.demos.create({title: "He Rides By Night", thumb_url: u5.avatar_url, audio_url: seedUrl + "superdeath4.mp3"});
