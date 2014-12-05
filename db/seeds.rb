@@ -11,10 +11,10 @@ u1 = User.create(username: 'Street Justice', email: 'sj@gmail.com', password: 'p
 u2 = User.create(username: 'The Hay Babes', email: 'hb@hb.com', password: 'password', avatar_url: seedUrl + "hb.jpg")
 u3 = User.create(username: 'Tim Sandberg', email: 'ts@gmail.com', password: 'password', avatar_url: seedUrl + "tim.jpg")
 u4 = User.create(username: 'Murderface', email: 'thejwamaicandave@gmail.com', password: 'password', avatar_url: seedUrl + "murderface.jpg")
-u5 = User.create(username: 'Replicant', email: 'riped@gmail.com', password: 'password', avatar_url: seedUrl + "bladerunner.jpg")
+u5 = User.create(username: 'Replicant', email: 'riped@gmail.com', password: 'password', avatar_url: seedUrl + "piano.jpg")
 u6 = User.create(username: 'Midnight', email: 'thejndave@gmail.com', password: 'password', avatar_url: seedUrl + "cyberpunk.jpg")
-u7 = User.create(username: 'Stank Williams', email: 'aq@gmail.com', password: 'password', avatar_url: seedUrl + "mountains.jpg")
-u8 = User.create(username: 'Nick Cave', email: 'cave@gmail.com', password: 'password', avatar_url: seedUrl + "nickcave.jpg")
+u7 = User.create(username: 'Wings Hauser', email: 'aq@gmail.com', password: 'password', avatar_url: seedUrl + "wings.jpg")
+u8 = User.create(username: 'Hot Beer', email: 'cave@gmail.com', password: 'password', avatar_url: seedUrl + "weirdo.jpg")
 u9 = User.create(username: 'Blood On The Traxxxxssss', email: 'asdf@gmail.com', password: 'password', avatar_url: seedUrl + "metal2.jpg")
 u10 = User.create(username: 'The Fucking Buckaroos', email: 'tfb@gmail.com', password: 'password', avatar_url: seedUrl + "tfb.jpg")
 
@@ -70,8 +70,11 @@ u8.demos.create({title: "I live in Brighton bla bla bla", thumb_url: u8.avatar_u
 u10.demos.create({title: "Demo 1", thumb_url: u10.avatar_url, audio_url: seedUrl + "tfb1.mp3"});
 u2.demos.create({title: "Wayfaring Stranger", thumb_url: u2.avatar_url, audio_url: seedUrl + "hb6.mp3"});
 u10.demos.create({title: "Demo 2", thumb_url: u10.avatar_url, audio_url: seedUrl + "tfb2.mp3"});
+u3.demos.create({title: "Wendy's Song", thumb_url: u3.avatar_url, audio_url: seedUrl + "rockytop.mp3"});
+
 u2.demos.create({title: "Tear My Stillhouse Down", thumb_url: u2.avatar_url, audio_url: seedUrl + "hb3.mp3"});
 u9.demos.create({title: "No, Tear MY Stillhouse Down", thumb_url: u9.avatar_url, audio_url: seedUrl + "blues.mp3"});
 u10.demos.create({title: "Demo 3", thumb_url: u10.avatar_url, audio_url: seedUrl + "tfb3.mp3"});
 u1.demos.create({title: "Personal Property", thumb_url: u1.avatar_url, audio_url: seedUrl + "sj5.mp3"});
-u5.demos.create({title: "He Rides By Night", thumb_url: u5.avatar_url, audio_url: seedUrl + "superdeath4.mp3"});
+u5.demos.create({title: "He Rides By Night", thumb_url: seedUrl + "weirdo.jpg", audio_url: seedUrl + "superdeath4.mp3"});
+u3.demos.create({title: "Murder Squad Theme", thumb_url: u3.avatar_url, audio_url: seedUrl + "murdersquadtheme.mp3"});
