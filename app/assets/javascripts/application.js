@@ -14,8 +14,6 @@
 //= require jquery_ujs
 //= require jquery-ui
 //= require jquery.timeago
-//= require soundmanager2
-//= require soundmanager2-nodebug
 //= require turbolinks
 //= require bootstrap
 //= require underscore
@@ -28,3 +26,4 @@
 //= require_tree ./views
 //= require_tree ./routers
 //= require_tree .
+//= require soundmanager2/soundmanager2

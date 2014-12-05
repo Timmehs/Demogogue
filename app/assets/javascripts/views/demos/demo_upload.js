@@ -178,6 +178,7 @@ Demogogue.Views.DemoUploadView = Backbone.View.extend({
 
   saveDemo: function(event) {
     this.model.set('title', $(demoTitle).val());
+    this.model.set('genre', $(demoGenre).val());
     this.model.save({
       success: function() {
         console.log(this.demo.get('title') + " saved");

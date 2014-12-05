@@ -66,15 +66,15 @@ function SoundManager(smURL, smID) {
   this.setupOptions = {
 
     'url': (smURL || null),             // path (directory) where SoundManager 2 SWFs exist, eg., /path/to/swfs/
-    'flashVersion': 9,                  // flash build to use (8 or 9.) Some API features require 9.
+    'flashVersion': 8,                  // flash build to use (8 or 9.) Some API features require 9.
     'debugMode': true,                  // enable debugging output (console.log() with HTML fallback)
     'debugFlash': false,                // enable debugging output inside SWF, troubleshoot Flash/browser issues
     'useConsole': true,                 // use console.log() if available (otherwise, writes to #soundmanager-debug element)
     'consoleOnly': true,                // if console is being used, do not create/write to #soundmanager-debug
     'waitForWindowLoad': false,         // force SM2 to wait for window.onload() before trying to call soundManager.onload()
     'bgColor': '#ffffff',               // SWF background color. N/A when wmode = 'transparent'
-    'useHighPerformance': false,        // position:fixed flash movie can help increase js/flash speed, minimize lag
-    'flashPollingInterval': null,       // msec affecting whileplaying/loading callback frequency. If null, default of 50 msec is used.
+    'useHighPerformance': true,        // position:fixed flash movie can help increase js/flash speed, minimize lag
+    'flashPollingInterval': 75,       // msec affecting whileplaying/loading callback frequency. If null, default of 50 msec is used.
     'html5PollingInterval': null,       // msec affecting whileplaying() for HTML5 audio, excluding mobile devices. If null, native HTML5 update events are used.
     'flashLoadTimeout': 1000,           // msec to wait for flash movie to load before failing (0 = infinity)
     'wmode': null,                      // flash rendering mode - null, 'transparent', or 'opaque' (last two allow z-index to work)
@@ -82,7 +82,7 @@ function SoundManager(smURL, smID) {
     'useFlashBlock': false,             // *requires flashblock.css, see demos* - allow recovery from flash blockers. Wait indefinitely and apply timeout CSS to SWF, if applicable.
     'useHTML5Audio': true,              // use HTML5 Audio() where API is supported (most Safari, Chrome versions), Firefox (no MP3/MP4.) Ideally, transparent vs. Flash API where possible.
     'html5Test': /^(probably|maybe)$/i, // HTML5 Audio() format support test. Use /^probably$/i; if you want to be more conservative.
-    'preferFlash': true,               // overrides useHTML5audio, will use Flash for MP3/MP4/AAC if present. Potential option if HTML5 playback with these formats is quirky.
+    'preferFlash': false,               // overrides useHTML5audio, will use Flash for MP3/MP4/AAC if present. Potential option if HTML5 playback with these formats is quirky.
     'noSWFCache': false,                // if true, appends ?ts={date} to break aggressive SWF caching.
     'idPrefix': 'sound'                 // if an id is not provided to createSound(), this prefix is used for generated IDs - 'sound0', 'sound1' etc.
 
@@ -224,8 +224,8 @@ function SoundManager(smURL, smID) {
 
     'buffering': false,
     'peakData': false,
-    'waveformData': true,
-    'eqData': true,
+    'waveformData': false,
+    'eqData': false,
     'movieStar': false
 
   };

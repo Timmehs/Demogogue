@@ -28,11 +28,17 @@ Demogogue.Views.Player = Backbone.View.extend({
 
   initializePlayer: function() {
     soundManager.setup({
-      url: 'assets/swf',
-      flashVersion: 9,
-      useHighPerformance: true,
-      preferFlash: true
+
+      flashVersion: 9, // optional: shiny features (default = 8)
+      // optional: ignore Flash where possible, use 100% HTML5 mode
+      flashPollingInterval          : 75,
+      flashLoadTimeout              : 3000,
+      debugMode                     : true,
+      preferFlash: true,
+      url: "/assets/soundmanager2"
     });
+    soundManager.flash9Options.useEQData       = true;
+    soundManager.flash9Options.useWaveformData = true;
   },
 
   playDemo: function(demo) {
@@ -55,8 +61,7 @@ Demogogue.Views.Player = Backbone.View.extend({
         autoLoad: true,
         autoPlay: false,
         usePeakData: false,
-        useWaveformData: false,
-        useEQData: true,
+        useWaveformData: true,
         whileloading: function(response) {
           var percentage = Math.floor(this.bytesLoaded * 100);
           console.log("Buffering: " + percentage + "%");
@@ -65,12 +70,15 @@ Demogogue.Views.Player = Backbone.View.extend({
           player.playing = true;
           var percentage = Math.floor(
             (this.position / this.duration) * 100);
+          
           $("#player-progress").css("width", percentage + "%");
         },
         onfinish: function() {
           player.togglePlay();
           $("#player-progress").css("width", "0%");
-        }
+        },
+
+        useEQData: true,
       });
       this.demo = demo;
       this.currentSound = newSound;
