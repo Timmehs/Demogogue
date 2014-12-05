@@ -5,13 +5,13 @@ Demogogue.Views.CommentShow = Backbone.View.extend({
   events: {
     "click button.reply" : "showForm",
     "submit form" : "addReply",
+    "click button.delete" : "deleteComment"
   },
 
   initialize: function() {
     this._subviews = [];
     this.listenTo(this.model, "sync", this.render);
     this.listenTo(this.model.replies(), "add remove", this.render);
-    // this.model.fetch();
   },
 
   render: function() {
@@ -46,7 +46,7 @@ Demogogue.Views.CommentShow = Backbone.View.extend({
     if (text === "") { return; }
     this.model.replies().create({
       user_id: CURRENT_USER,
-      demo_id: this.model.get('demo_id'),
+      demo_id: this.model.get('demo_ id'),
       body: text,
       parent_comment_id: this.model.id,
     })
@@ -61,8 +61,26 @@ Demogogue.Views.CommentShow = Backbone.View.extend({
     this._subviews = [];
   },
 
-  renderDelete: function() {
-    $('')
+  deleteComment: function(event) {
+    event.preventDefault();
+    var thisView = this;
+    var commentId = $(event.currentTarget).data('id');
+
+    if (commentId === this.model.id) {
+      this.model.destroy({
+        success: function() {
+          thisView.remove();
+        }
+      });
+    } else {
+      var comment = this.model.replies().get(commentId);
+      comment.destroy({
+        success: function() {
+          thisView.replies().remove(comment.id);
+        }
+      });
+    }
+
 
   }
 

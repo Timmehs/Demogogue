@@ -17,7 +17,7 @@
     <br>
     <div class='buttons'>
       <% if (user.id === comment.get('user_id')) { %>
-        <button class="btn btn-default btn-xs delete">
+        <button data-id="<%= comment.id %>"  class="btn btn-default btn-xs delete">
           <span class="glyphicon glyphicon-trash"></span>
         </button>
       <% } %>

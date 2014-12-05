@@ -10,6 +10,12 @@ class Api::CommentsController < ApplicationController
 
   end
 
+  def destroy
+    comment = Comment.find(params[:id])
+    comment.destroy() if comment
+    render json: {}
+  end
+
   def show
     @comment = Comment.includes(:replies).find(params[:id])
     render :show
