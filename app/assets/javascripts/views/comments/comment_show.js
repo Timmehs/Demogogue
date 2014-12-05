@@ -8,8 +8,9 @@ Demogogue.Views.CommentShow = Backbone.View.extend({
     "click button.delete" : "deleteComment"
   },
 
-  initialize: function() {
+  initialize: function(options) {
     this._subviews = [];
+    this.parentIndex = options.parentIndex;
     this.demo = Demogogue.Collections.demos.get(this.model.get('demo_id'));
     this.listenTo(this.model, "sync", this.render);
     this.listenTo(this.model.replies(), "add remove", this.render);
@@ -23,6 +24,7 @@ Demogogue.Views.CommentShow = Backbone.View.extend({
     });
     this.$el.html(content);
     this.renderReplies();
+
     return this;
   },
 
@@ -53,7 +55,6 @@ Demogogue.Views.CommentShow = Backbone.View.extend({
       user_avatar: currentUser.get('avatar_url'),
       author: currentUser.get('username')
     }, {wait: true});
-    this.demo.fetch();
   },
 
   clearSubviews: function() {
@@ -85,7 +86,7 @@ Demogogue.Views.CommentShow = Backbone.View.extend({
       });
     }
 
-    this.demo.fetch();
+    this.parentIndex.render();
   }
 
 })

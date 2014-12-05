@@ -11,16 +11,17 @@ Demogogue.Views.CommentsIndex = Backbone.View.extend({
   },
 
   render: function() {
-    console.log('comments index render');
     this.clearSubviews();
     var thisIndex = this;
+    this.commentCount();
     var header = this.template({
       comments: this.comments,
-      commentCount: this.model.get('comments_count')
+      commentCount: this.commentCount()
     });
     this.$el.html(header);
     this.model.comments().each(function(comment) {
-      var commentView = new Demogogue.Views.CommentShow({ model: comment });
+      var commentView = new Demogogue.Views.CommentShow({ model: comment,
+        parentIndex: thisIndex });
       thisIndex.$el.append(commentView.render().$el);
       thisIndex._subviews.push(commentView);
     })
@@ -34,6 +35,15 @@ Demogogue.Views.CommentsIndex = Backbone.View.extend({
     });
 
     this._subviews = [];
+  },
+
+  commentCount: function() {
+    var count = 0;
+    this.comments.each(function(comment){
+      count += comment.replies().length + 1;
+    });
+    console.log("Comment count: " + count);
+    return count;
   }
 
 })
