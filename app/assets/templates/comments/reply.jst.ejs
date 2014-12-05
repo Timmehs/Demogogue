@@ -1,17 +1,30 @@
 <section class="commentshow-container reply">
   <section class="comment-left">
-    <img src="<%= comment.get('user_avatar') %>"></img><%= comment.escape('body') %>
+    <img src="<%= comment.get('user_avatar') %>"></img>
+    <article class="comment-author">
+      <%= comment.escape('author') %>
+    </article>
+    <br>
+    <article class="comment-body">
+      <%= comment.escape('body') %>
+    </article>
   </section>
 
   <section class="comment-right">
-    <button class="btn btn-default btn-xs reply">
-      <span class="glyphicon glyphicon-reply"></span>Reply
-    </button>
     <article class="comment-timeago">
       <%= $.timeago(comment.get('created_at')) %>
     </article>
-    <article class="comment-author">
-      <%= comment.escape('author') %>,
-    </article>
+    <br>
+    <div class='buttons'>
+      <% if (user.id === comment.get('user_id')) { %>
+        <button class="btn btn-default btn-xs delete">
+          <span class="glyphicon glyphicon-trash"></span>
+        </button>
+      <% } %>
+      <button class="btn btn-default btn-xs reply">
+        Reply
+      </button>
+    </div>
+
   </section>
 </section>

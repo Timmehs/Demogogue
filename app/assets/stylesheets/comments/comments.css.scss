@@ -1,7 +1,6 @@
 .comment-show {
 
   .comments-index {
-    overflow: auto;
     h4 {
       color: dimgray;
       border-bottom: 1px solid gainsboro;
@@ -9,45 +8,73 @@
     }
   }
 
+  button.delete {
+    padding: 3px;
+  }
+
   .commentshow-container {
     padding: 10px;
     overflow: hidden;
     width: 100%;
-    background-color: lightgray;
+    background-color: whitesmoke;
   }
 
   .commentshow-container.reply {
-    background-color: whitesmoke;
-    margin-left: 20px;
-    margin-right: 20px;
+    background-color: white;
+    padding-left: 40px;
     margin-top: 3px;
   }
 
-  .comment-container:hover {
-    background-color: whitesmoke;
+  .commentshow-container:hover .comment-right {
+    .buttons {
+      display:block;
+      visibility: visible;
+    }
   }
 
   .comment-left {
     float:left;
+    * {
+      float: left;
+    }
+    width: 500px;
+
+    .comment-author {
+      font-size: 10px;
+    }
+
+    .comment-body {
+      padding: 0px;
+      margin:0px;
+      line-height: 0.5;
+    }
+
     img {
-      height: 25px;
-      width: 25px;
+      height: 40px;
+      width: 40px;
       margin-right: 10px;
     }
-    font-size: 14px;
+    font-size: 16px;
     color: dimgray;
 
   }
+
   .comment-right {
     float: right;
-    height: 25px;
+    height: 40px;
     * {
       float:right;
-      margin-left: 5px;
-      margin-right: 5px;
     }
-    article {
-      padding-top: 4px;
+
+    .buttons {
+      display: none;
+      visibility: invisible;
+    }
+
+    .delete {
+      height: 22px;
+      padding-right: 3px;
+      margin-left: 5px;
     }
     font-size: 12px;
     color: gray;
