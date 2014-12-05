@@ -14,7 +14,10 @@ Demogogue.Views.CommentsIndex = Backbone.View.extend({
     console.log('comments index render');
     this.clearSubviews();
     var thisIndex = this;
-    var header = this.template({comments: this.comments });
+    var header = this.template({
+      comments: this.comments,
+      commentCount: this.model.get('comments_count')
+    });
     this.$el.html(header);
     this.model.comments().each(function(comment) {
       var commentView = new Demogogue.Views.CommentShow({ model: comment });

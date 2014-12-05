@@ -10,6 +10,7 @@ Demogogue.Views.CommentShow = Backbone.View.extend({
 
   initialize: function() {
     this._subviews = [];
+    this.demo = Demogogue.Collections.demos.get(this.model.get('demo_id'));
     this.listenTo(this.model, "sync", this.render);
     this.listenTo(this.model.replies(), "add remove", this.render);
   },
@@ -52,6 +53,7 @@ Demogogue.Views.CommentShow = Backbone.View.extend({
       user_avatar: currentUser.get('avatar_url'),
       author: currentUser.get('username')
     }, {wait: true});
+    this.demo.fetch();
   },
 
   clearSubviews: function() {

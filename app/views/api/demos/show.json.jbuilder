@@ -5,6 +5,7 @@
 json.merge! @demo.attributes
 json.artist_name @demo.artist.username
 json.artist @demo.artist, :id, :username, :avatar_url
+json.comments_count @demo.comments.length
 json.comments @demo.comments.each do |comment|
   next if comment.parent_comment_id
   json.merge! comment.attributes
