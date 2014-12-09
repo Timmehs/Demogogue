@@ -15,6 +15,7 @@ Demogogue.Routers.Router = Backbone.Router.extend({
     if (!window.player) {
       this.player = this.initializePlayer();
       window.player = this.player;
+      this.hidePlayer();
     }
   },
 
@@ -30,16 +31,16 @@ Demogogue.Routers.Router = Backbone.Router.extend({
     var $homeLink = $('#home-stream-link')
     if (CURRENT_USER === 0) {
       $homeLink.text("Home");
-      player.$el.hide();
+      this.hidePlayer();
       this.splashPage();
     } else {
       $homeLink.text("Stream");
-      !player.$el.is(":visible") && player.$el.fadeIn('slow');
       this.streamPage();
     }
   },
 
   index: function() {
+    this.showPlayer();
     this.demos.fetch();
     this.user.fetch();
     var view = new Demogogue.Views.DemosIndex({
@@ -76,10 +77,18 @@ Demogogue.Routers.Router = Backbone.Router.extend({
     }
   },
 
-
   _swapView: function(view) {
     this._currentView && this._currentView.remove();
     this.$rootEl.html(view.render().$el);
     this._currentView = view;
+  },
+
+  hidePlayer: function() {
+    player.$el.removeClass("active");
+    player.$el.addClass("hidden");
+  },
+
+  showPlayer: function() {
+    player.$el.removeClass("hidden");
   }
 });
