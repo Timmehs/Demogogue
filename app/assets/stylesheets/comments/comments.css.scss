@@ -1,12 +1,17 @@
-.comment-show {
+.comments-index {
+  padding-bottom: 150px;
 
-  .comments-index {
-    h4 {
-      color: dimgray;
-      border-bottom: 1px solid gainsboro;
-      padding: 15px
-    }
+  h4 {
+    color: dimgray;
+    border-bottom: 1px solid gainsboro;
+    padding: 15px
   }
+}
+
+
+
+
+.comment-show {
 
   button.delete {
     padding: 3px;
