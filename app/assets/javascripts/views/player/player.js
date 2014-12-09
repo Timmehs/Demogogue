@@ -186,8 +186,4 @@ Demogogue.Views.Player = Backbone.View.extend({
       player.playDemo(player.queue[player._pos - 1]);
     }
   }
-
-
-
-
 })

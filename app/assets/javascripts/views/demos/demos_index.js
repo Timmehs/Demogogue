@@ -13,14 +13,14 @@ Demogogue.Views.DemosIndex = Backbone.View.extend({
     var content = this.template();
     this.$el.html(content);
     this.renderDemos();
-    player.queue = Demogogue.Collections.demos.toArray();
     return this;
   },
 
   renderDemos: function() {
     var thisIndex = this;
     this.clearDemoViews();
-    console.log("rendadema");
+    console.log("Demos rendered (sync?)");
+    player.queue = Demogogue.Collections.demos.toArray();
     this.$("#demo-list").html("<div class='idx-header'>Explore local sounds</div>");
     this.collection.each(function(demo) {
       var demoView = new Demogogue.Views.DemosIndexItem({

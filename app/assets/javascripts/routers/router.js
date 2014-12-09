@@ -84,7 +84,6 @@ Demogogue.Routers.Router = Backbone.Router.extend({
   },
 
   hidePlayer: function() {
-    player.$el.removeClass("active");
     player.$el.addClass("hidden");
   },
 
