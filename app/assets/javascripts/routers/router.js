@@ -42,7 +42,7 @@ Demogogue.Routers.Router = Backbone.Router.extend({
   index: function() {
     this.showPlayer();
     this.demos.fetch();
-    this.user.fetch();
+    this.user.id !== 0 && this.user.fetch();
     var view = new Demogogue.Views.DemosIndex({
       collection: this.demos,
       model: this.user

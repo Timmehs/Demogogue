@@ -9,7 +9,7 @@ div.player-container {
   bottom: -139px;
   left: 50%;
   margin-left: -200px;
-  transition: 0.4s;
+  transition: 0.5s;
 
 
   .container-fluid {
@@ -163,5 +163,5 @@ div.player-container.active {
 
 div.player-container.hidden {
   bottom: -200px;
-  transition: 0.5s;
+  transition: 1s;
 }
