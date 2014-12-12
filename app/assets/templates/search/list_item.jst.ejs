@@ -1,0 +1,8 @@
+<p>
+  <span id="search-item-text">
+  <%= title.replace(
+    new RegExp("(" + $("form#autocomplete-list input[name=search]").val()
+      + ")", "i") ,"<b>$1</b>") %>
+
+  </span>
+</p>

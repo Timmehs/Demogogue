@@ -30,3 +30,19 @@ nav[role=navigation] {
   padding: 15px;
   margin: 0 auto;
 }
+
+
+.autocomplete-results {
+  position: absolute;
+  background: rgba(0,0,0,0.8);
+  color: whitesmoke;
+  width: 100%;
+  text-align: left;
+  padding-bottom: 0px;
+
+  p.selected {
+    background: white;
+    color: gray;
+  }
+
+}

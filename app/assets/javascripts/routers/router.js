@@ -10,6 +10,8 @@ Demogogue.Routers.Router = Backbone.Router.extend({
   initialize: function() {
     this.$rootEl = $("#main-container");
     this.demos = Demogogue.Collections.demos;
+    this.demos.fetch();
+    this.listenTo(this.demos, "sync", this.updateSearch);
     this.user = new Demogogue.Models.User({ id: CURRENT_USER });
     window.currentUser = this.user;
     if (!window.player) {
@@ -17,6 +19,7 @@ Demogogue.Routers.Router = Backbone.Router.extend({
       window.player = this.player;
       this.hidePlayer();
     }
+
   },
 
   demoShow: function(id) {
@@ -25,6 +28,11 @@ Demogogue.Routers.Router = Backbone.Router.extend({
       user: this.user
     });
     this._swapView(demoView);
+  },
+
+  findDemo: function(event) {
+    event.preventDefault();
+    console.log("straight up fuck you");
   },
 
   home: function() {
@@ -90,5 +98,12 @@ Demogogue.Routers.Router = Backbone.Router.extend({
 
   showPlayer: function() {
     player.$el.removeClass("hidden");
+  },
+
+  updateSearch: function() {
+    console.log('update search');
+    Demogogue.PrepSearch();
   }
+
+
 });

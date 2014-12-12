@@ -13,9 +13,11 @@
         <li><a href="#explore">Explore</a></li>
         <li>
           <div id="navsearch">
-            <form class="navbar-form navbar-left" role="search">
-              <div class="form-group">
-                <input type="text" class="form-control" placeholder="Search">
+            <form id="searchForm" class="navbar-form navbar-left" role="search">
+              <div id="typeahead-div" class="form-group">
+                <input type="text" autocomplete="off" name="search" class="form-control typeahead" placeholder="Search">
+                <button type="submit" style="display: none;">
+                <div class="autocomplete-results"></div>
               </div>
             </form>
           </div>

@@ -122,7 +122,7 @@
     $selected: function() {
       return this.resultsView.$('.selected');
     },
-    
+
     keyup: function() {
       var resultsView = this.resultsView;
       if (this.term != this.$el.val()) {
