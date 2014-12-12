@@ -4,30 +4,38 @@ div.demoIndexView {
 
 
 #index-sidebar {
+  margin-top: 50px;
   width: 200px;
   height: 100%;
   display: inline-block;
   float: left;
   padding: 10px;
-}
-
-#index-sidebar-header {
-  padding: 10px;
-  border-bottom: 1px solid gainsboro;
+  #genre-header {
+    color: #337ab7;
+    font-size: 18px;
+  }
 }
 
 
 #index-sidebar-list {
   padding: 10px;
-  margin-top: 10px;
   float: left;
   .item {
     margin-left: 10px;
     padding: 3px;
-    font-size: 25;
+    font-size: 16px;
     font-style: bold;
     color: darkgray;
   }
+}
+
+.idx-header {
+  font-size: 25px;
+  padding: 25px;
+  padding-bottom: 5px;
+  color: darkgray;
+  border-bottom: 2px solid gainsboro;
+  width: 400px;
 }
 
 
@@ -36,12 +44,5 @@ div.demoIndexView {
   height: 690px;
   overflow: auto;
   padding-right: 20px;
-  .idx-header {
-    font-size: 25px;
-    padding: 25px;
-    padding-bottom: 5px;
-    color: darkgray;
-    border-bottom: 2px solid gainsboro;
-    width: 400px;
-  }
+
 }

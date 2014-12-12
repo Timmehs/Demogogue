@@ -18,6 +18,7 @@
 //= require bootstrap
 //= require underscore
 //= require backbone
+//= require backbone-autocomplete
 //= require demogogue
 //= require aws-sdk.min
 //= require_tree ../templates
