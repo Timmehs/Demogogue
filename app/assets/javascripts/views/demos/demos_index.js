@@ -2,6 +2,10 @@ Demogogue.Views.DemosIndex = Backbone.View.extend({
   template: JST['demos/index'],
   className: "demoIndexView",
 
+  events: {
+    "click .filter-link" : "filter"
+  },
+
   initialize: function(models, options) {
     this.$demoList = this.$('#demo-list');
     this.demoViews = [];
@@ -39,6 +43,17 @@ Demogogue.Views.DemosIndex = Backbone.View.extend({
     });
 
     this.demoViews = [];
+  },
+
+  filter: function(event) {
+    var filter = $(event.currentTarget).data('genre');
+    this.filterIndex(filter);
+  },
+
+  filterIndex: function(newFilter) {
+    var filterResult = Demogogue.Collections.demos.where({ genre: newFilter });
+    this.collection = new Backbone.Collection(filterResult);
+    this.render();
   }
 
 

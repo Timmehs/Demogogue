@@ -47,6 +47,7 @@ Demogogue.Routers.Router = Backbone.Router.extend({
       collection: this.demos,
       model: this.user
     });
+    window.demogogueIndex = view;
     this._swapView(view);
   },
 

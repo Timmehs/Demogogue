@@ -9,7 +9,7 @@
   <div id="index-sidebar-list">
     <% _.each(Demogogue.Models.Demo.GENRES, function(genre) { %>
       <div class="index-sidebar-list item">
-        <a href="#"><%= genre %></a>
+        <a class="filter-link" data-genre="<%= genre %>" href="javascript:void(0)"><%= genre %></a>
       </div>
     <% }); %>
   </div>

@@ -13,6 +13,7 @@
       <span class="artist_text"><%= demo.get('artist_name') %></span>
       <span class="t-ago"><%= $.timeago(demo.get('updated_at')) %></span>
       <br>
+      <span class="idx-genre"><%= demo.get('genre') %></span>
       <b>
         <a class="title_text" href="#/demo/<%= demo.id %>">
           <%= demo.get('title') %>
@@ -26,6 +27,7 @@
       <article id="timeShow<%= demo.id %>" class="timeshow"></article>
     </td>
   </tr>
+  <% if (CURRENT_USER !== 0) { %>
   <tr class="comment-row">
     <td></td>
     <td colspan="2">
@@ -64,4 +66,5 @@
         </div>
       </div>
     </td>
+    <% }; %>
 </table>
