@@ -42,7 +42,6 @@ Demogogue.Views.CommentsIndex = Backbone.View.extend({
     this.comments.each(function(comment){
       count += comment.replies().length + 1;
     });
-    console.log("Comment count: " + count);
     return count;
   }
 

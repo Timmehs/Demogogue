@@ -27,7 +27,7 @@ Demogogue.PrepSearch = function() {
 
   var demos = Demogogue.Collections.demos.pluck('title');
 
-  $('#typeahead-div .typeahead').typeahead({
+  $('#typeahead').typeahead({
     hint: true,
     highlight: true,
     minLength: 1
@@ -37,5 +37,18 @@ Demogogue.PrepSearch = function() {
     displayKey: 'value',
     source: substringMatcher(demos)
   });
+
+  $('form#searchForm').on("submit", function(event) {
+    event.preventDefault();
+    console.log('form submitted');
+    var demoTitle = $('#typeahead').val();
+    var foundDemo = Demogogue.Collections.demos.where({title: demoTitle});
+    if (foundDemo) {
+      var url= "#/demo/" + foundDemo[0].id;
+      Backbone.history.navigate(url, true);
+    } else {
+      console.log("Search result empty");
+    }
+  })
 
 }
