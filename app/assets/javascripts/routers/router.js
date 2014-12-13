@@ -20,6 +20,8 @@ Demogogue.Routers.Router = Backbone.Router.extend({
       this.hidePlayer();
     }
 
+    CURRENT_USER !== 0 && $('#home-stream-link').text("Stream");
+
   },
 
   demoShow: function(id) {
@@ -30,19 +32,12 @@ Demogogue.Routers.Router = Backbone.Router.extend({
     this._swapView(demoView);
   },
 
-  findDemo: function(event) {
-    event.preventDefault();
-    console.log("straight up fuck you");
-  },
-
   home: function() {
     var $homeLink = $('#home-stream-link')
     if (CURRENT_USER === 0) {
-      $homeLink.text("Home");
       this.hidePlayer();
       this.splashPage();
     } else {
-      $homeLink.text("Stream");
       this.showPlayer();
       this.streamPage();
     }

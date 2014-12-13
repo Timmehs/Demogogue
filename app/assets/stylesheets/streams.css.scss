@@ -2,17 +2,49 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
-.stream-container {
-  position: relative;
-  background-color: red;
 
-}
 
 div.user-stream {
-  padding: 15px;
+  position: relative;
+  width:100%;
+  height: 100%;
+  overflow: scroll;
 }
 
 h2.stream-header {
-  color: dimgray; border-bottom: 1px solid gainsboro;
+  color: dimgray;
+  border-bottom: 1px solid gainsboro;
   width: 60%;
+}
+
+div#list-container {
+  overflow: hidden;
+  padding: 12px;
+  margin-right: 276px;
+}
+
+#stream-list {
+  overflow: scroll;
+}
+
+div#stream-sidebar {
+  top: 0px;
+  right: 0px;
+  bottom: 0px;
+  width: 276px;
+  overflow: hidden;
+  position: absolute;
+
+  height: 100%;
+}
+
+div#playlist-container {
+  min-height: 700px;
+  position: fixed;
+  top: 52px;
+  padding: 20px;
+  overflow: hidden;
+  width: 276px;
+  height: 700px;
+  border-left: 1px solid gainsboro;
 }

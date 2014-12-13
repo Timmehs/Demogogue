@@ -54,7 +54,7 @@ u2.demos.create({title: "I Never Will Marry (lol both married)", genre: "Bluegra
 u4.demos.create({title: "BOOOOOM!", thumb_url: u4.avatar_url, genre: "Metal", audio_url: seedUrl + "dooom.mp3"});
 
 u2.demos.create({title: "Words to Sing", genre: "Folk", thumb_url: u2.avatar_url, audio_url: seedUrl + "hb4.mp3"});
-u6.demos.create({title: "Night Rider", thumb_url: u6.avatar_url, audio_url: seedUrl + "superdeath1.mp3"});
+u6.demos.create({title: "Night Rider", thumb_url: u6.avatar_url, genre: "Electronic", audio_url: seedUrl + "superdeath1.mp3"});
 u6.demos.create({title: "Guess What Time I'm Thinking About", genre: "Electronic",thumb_url: u6.avatar_url, audio_url: seedUrl + "superdeath5.mp3"});
 
 u7.demos.create({title: "How We Do", genre: "Rock",thumb_url: u7.avatar_url, audio_url: seedUrl + "murdersquad1.mp3"});
