@@ -53,11 +53,15 @@
         <div class="btn-group-xs" role="group" aria-label="...">
 
           <button type="button" class="btn btn-default fol-btn fol-btn<%= demo.get('artist_id') %>">
-            <span class="glyphicon glyphicon-star-empty"></span>Follow Artist
+            <% if (following) { %>
+              <span class="glyphicon glyphicon-star"></span>Following
+            <% } else { %>
+              <span class="glyphicon glyphicon-star-empty"></span>Follow Artist
+            <% } %>
           </button>
 
           <button type="button" class="btn btn-default">
-            <span class="glyphicon glyphicon-th-list"></span> Add to playlist
+            <span alt="Feature coming soon" class="glyphicon glyphicon-th-list"></span> Add to playlist
           </button>
 
           <button type="button" class="btn btn-default">

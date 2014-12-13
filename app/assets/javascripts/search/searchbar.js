@@ -51,4 +51,9 @@ Demogogue.PrepSearch = function() {
     }
   })
 
+  $('#typeahead').on('typeahead:selected', function(event, selection) {
+    $('#form#searchForm').submit();
+    $('#typeahead').typeahead('setQuery', '');
+  });
+
 }

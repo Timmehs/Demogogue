@@ -23,7 +23,6 @@ Demogogue.Views.DemosIndex = Backbone.View.extend({
   renderDemos: function() {
     var thisIndex = this;
     this.clearDemoViews();
-    console.log("Demos rendered (sync?)");
     player.queue = Demogogue.Collections.demos.toArray();
     this.$("#demo-list").html("<div class='idx-header'>Explore local sounds</div>");
     this.collection.each(function(demo) {
@@ -34,6 +33,9 @@ Demogogue.Views.DemosIndex = Backbone.View.extend({
       thisIndex.demoViews.push(demoView);
       thisIndex.$('#demo-list').append(demoView.render().$el);
     });
+    if (this.collection.length === 0) {
+      this.$('#demo-list').append("<h3 class='no-result'>No matches found :(</h3>");
+    }
   },
 
   clearDemoViews: function() {

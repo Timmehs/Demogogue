@@ -22,6 +22,6 @@ Demogogue.Models.Demo = Backbone.Model.extend({
 
 
 Demogogue.Models.Demo.GENRES = [
-    "Classical", "House", "Electronic", "Blues", "Rock", "Country", "Ambient",
-    "Metal", "Hardcore", "Hiphop", "Punk", "Folk", "Bluegrass",
-    "Jazz", "Darkwave", "Grindcore", "Pop"];
+    "Classical", "Electronic", "Blues", "Rock", "Country", "Ambient",
+    "Metal", "Hardcore", "Hiphop", "Folk", "Bluegrass",
+    "Jazz", "Grindcore", "Pop"];

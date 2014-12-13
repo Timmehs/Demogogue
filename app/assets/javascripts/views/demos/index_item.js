@@ -16,11 +16,15 @@ Demogogue.Views.DemosIndexItem = Backbone.View.extend({
   },
 
   render: function() {
-    var content = this.template({ demo: this.model, user: this.user });
+    console.log('render');
+    var content = this.template({
+      following: this.isFollowing(),
+      demo: this.model,
+      user: this.user
+    });
     this.$el.html(content);
     var playSymbol = this.isPlaying() ? "glyphicon-pause" : "glyphicon-play";
     this.$("button.play span").addClass(playSymbol);
-    this.renderFollowBtn(!this.isFollowing(this.model.get('artist_id')));
     return this;
   },
 
@@ -60,14 +64,13 @@ Demogogue.Views.DemosIndexItem = Backbone.View.extend({
   renderFollowBtn: function(unfollow) {
     var artistFollowBtn = ".fol-btn" + this.model.get('artist_id');
     if(unfollow) {
-
       $('.fol-btn' + this.model.get('artist_id')).html(
         "<span class='glyphicon glyphicon-star-empty'></span>Follow Artist"
       );
     } else {
       $('.fol-btn' + this.model.get('artist_id')).html(
-        "<span class='glyphicon glyphicon-star'></span><b>Following</b>"
-      )
+        "<span class='glyphicon glyphicon-star'></span>Following"
+      );
     }
   },
 
@@ -78,7 +81,8 @@ Demogogue.Views.DemosIndexItem = Backbone.View.extend({
     return false;
   },
 
-  isFollowing: function (artistId) {
+  isFollowing: function () {
+    var artistId = this.model.get('artist_id');
     if (currentUser.following().where({artist_id: artistId}).length > 0) {
       return true;
     } else {

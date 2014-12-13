@@ -43,6 +43,7 @@ Demogogue.Routers.Router = Backbone.Router.extend({
       this.splashPage();
     } else {
       $homeLink.text("Stream");
+      this.showPlayer();
       this.streamPage();
     }
   },
