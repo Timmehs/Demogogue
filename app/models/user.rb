@@ -26,6 +26,7 @@ class User < ActiveRecord::Base
     primary_key: :id
   )
 
+  has_many :playlists
   has_many :artist_follows
   has_many :artists, through: :artist_follows, source: :artist
   has_many :stream_demos, through: :artists, source: :demos

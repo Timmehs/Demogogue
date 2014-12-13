@@ -9,6 +9,7 @@ Rails.application.routes.draw do
     resources :demos, except: [:edit, :update, :destroy]
     resources :comments, only: [:create, :destroy, :show]
     resources :users, only: [:show, :edit, :destroy]
+    resources :playlists, only: [:show, :create, :destroy]
     resources :stream, only: [:index]
   end
 end

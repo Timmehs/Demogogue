@@ -18,6 +18,8 @@ class Demo < ActiveRecord::Base
   after_validation :ensure_avatar
   attr_reader :created_at
   has_many :comments
+  has_many :playlist_links
+  has_many :playlists, through: :playlist_links
 
   belongs_to(
     :artist,

@@ -17,6 +17,7 @@ Demogogue.Views.StreamView = Backbone.View.extend({
     var content = this.template({ user: this.model });
     this.$el.html(content);
     this.renderDemos();
+    this.renderPlaylists();
     player.queue = currentUser.stream().toArray();
     return this;
   },
