@@ -36,7 +36,7 @@ Demogogue.Models.User = Backbone.Model.extend({
     }
 
     if (response.playlists) {
-      this.playlists().set(resonse.playlists, { parse: true });
+      this.playlists().set(response.playlists, { parse: true });
       delete response.playlists;
     }
 

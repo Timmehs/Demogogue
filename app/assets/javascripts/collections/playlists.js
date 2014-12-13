@@ -1,5 +1,9 @@
 Demogogue.Collections.Playlists = Backbone.Collection.extend({
+  model: Demogogue.Models.Playlist,
+  url: 'api/playlists',
 
-  model: Demogogue.Models.Playlist
+  initialize: function(models, options) {
+    this.user = options.user;
+  }
 
 });

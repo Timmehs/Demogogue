@@ -1,4 +1,4 @@
-Demogogue.Collections.PlaylistLink = Backbone.Collection.extend({
+Demogogue.Collections.PlaylistLinks = Backbone.Collection.extend({
   model: Demogogue.Models.PlaylistLink,
   url: 'api/playlist_links',
 
