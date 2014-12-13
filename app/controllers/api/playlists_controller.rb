@@ -2,8 +2,7 @@ class Api::PlaylistsController < ApplicationController
 
 
   def create
-    playlist = Player.new(playlist_params);
-    playlist.save
+    playlist = current_user.playlists.create({title: params[:title]})
     render json: playlist
   end
 

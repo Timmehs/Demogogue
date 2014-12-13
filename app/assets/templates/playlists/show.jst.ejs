@@ -1,0 +1,17 @@
+
+<div class="accordion-group">
+  <div class="accordion-heading">
+    <a class="accordion-toggle collapsed" data-toggle="collapse"
+        data-parent=".playlist-index" href="#collapse<%= playlist.id %>">
+      <%= playlist.escape('title') %>
+    </a>
+  </div>
+  <div id="collapse<%= playlist.id %>" class="accordion-body collapse">
+    <div class="accordion-inner">
+      <% demos.each(function(demo) { %>
+          <B><%= demo.escape('title') + "</B> - " + demo.escape('artist_name') %>
+      <% }); %>
+    </div>
+  </div>
+  </div>
+</div>

@@ -10,7 +10,8 @@
 <body>
   <%= render "layouts/header"%>
   <%= yield %>
-  
+  <%= render "layouts/playlist_modal"%>
+
   <script>
     KEY = "<%= ENV['aws_key'] %>";
     SEC = "<%= ENV['aws_secret'] %>";
