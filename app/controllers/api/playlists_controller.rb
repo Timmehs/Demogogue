@@ -6,6 +6,11 @@ class Api::PlaylistsController < ApplicationController
     render json: playlist
   end
 
+  def index
+    @playlists = current_user.playlists
+    render :index
+  end
+
   def show
     @playlist = Playlist.find(params[:id])
     render :show
