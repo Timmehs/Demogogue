@@ -6,7 +6,8 @@ Demogogue.Views.DemosIndexItem = Backbone.View.extend({
     "click button.play" : "play",
     "click td.waveform" : "showCommentForm",
     "submit form" : "createComment",
-    "click button.fol-btn" : "toggleFollow"
+    "click button.fol-btn" : "toggleFollow",
+    "click button#playlist-btn" : "renderPlaylistModal"
   },
 
 
@@ -88,6 +89,7 @@ Demogogue.Views.DemosIndexItem = Backbone.View.extend({
     } else {
       return false;
     }
-  }
+  },
+
 
 });

@@ -1,0 +1,46 @@
+div.playlist-demo {
+  display: block;
+  width: 100%;
+  padding: 10px;
+  height: 75px;
+  position:relative;
+  border-bottom: 1px solid gainsboro;
+  * {
+    color: gray;
+    font-size: 14px;
+  }
+  .demo-image {
+    height: 30px;
+    display: inline-block;
+    float: left;
+    height: 100%;
+    width: 30px;
+    background-size:30px 30px;
+    background-repeat: no-repeat;
+    margin: 5px;
+  }
+
+  .title {
+    font-weight: bold;
+    display:block;
+  }
+
+  .right-btn {
+    right: 0px;
+    top: 17px;
+    position: absolute;
+    visibility: hidden;
+    opacity: 0;
+    transition: 0.3s;
+    span {
+      cursor: pointer;
+    }
+  }
+
+  &:hover .right-btn {
+    visibility: visible;
+    opacity: 1;
+  }
+
+
+}

@@ -19,8 +19,8 @@ Demogogue.Views.PlaylistShow = Backbone.View.extend({
   renderPlaylistDemos: function() {
     var thisView = this;
     this.clearSubviews();
-    _.each(this.model.demos(), function(demo) {
-      var view = new Demogogue.Views.PlaylistDemo({ model: demo });
+    this.playlistLinks.each(function(link) {
+      var view = new Demogogue.Views.PlaylistDemo({ model: link });
       thisView._subviews.push(view);
       thisView.$('#playlist-demos').append(view.render().$el);
     });

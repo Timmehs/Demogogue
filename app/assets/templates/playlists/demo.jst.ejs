@@ -1,1 +1,15 @@
-<%= demo.escape('title') %> - <%= demo.escape('artist_name') %>
+<div class="demo-image"
+  style="background-image: url(<%= demo.get('thumb_url') %>)"></div>
+
+
+<span class="title">
+  <%= demo.escape('title') %>
+</span>
+
+<span class="artist">
+  by <%= demo.escape('artist_name') %>
+</span>
+
+<div class="right-btn">
+  <span id="link-delete" class="glyphicon glyphicon-minus"></span>
+</div>
