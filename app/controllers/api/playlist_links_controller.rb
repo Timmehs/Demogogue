@@ -7,8 +7,7 @@ class Api::PlaylistLinksController < ApplicationController
   end
 
   def destroy
-    playlist = current_user.playlists.find(params[:playlist_id])
-    @playlist_link = playlist.playlist_links.find(params[:id])
+    @playlist_link = PlaylistLink.find(params[:id])
     @playlist_link.try(:destroy)
     render json: {}
   end

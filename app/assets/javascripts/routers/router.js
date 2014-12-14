@@ -11,6 +11,8 @@ Demogogue.Routers.Router = Backbone.Router.extend({
     this.$rootEl = $("#main-container");
     this.demos = Demogogue.Collections.demos;
     this.demos.fetch();
+    this.playlists = Demogogue.Collections.playlists;
+    this.playlists.fetch();
     this.listenTo(this.demos, "sync", this.updateSearch);
     this.user = new Demogogue.Models.User({ id: CURRENT_USER });
     window.currentUser = this.user;
@@ -65,7 +67,6 @@ Demogogue.Routers.Router = Backbone.Router.extend({
     this.user.fetch();
     var streamView = new Demogogue.Views.StreamView({ model: this.user });
     this._swapView(streamView);
-
   },
 
   splashPage: function() {

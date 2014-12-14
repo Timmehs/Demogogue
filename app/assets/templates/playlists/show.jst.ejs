@@ -7,10 +7,8 @@
     </a>
   </div>
   <div id="collapse<%= playlist.id %>" class="accordion-body collapse">
-    <div class="accordion-inner">
-      <% demos.each(function(demo) { %>
-          <B><%= demo.escape('title') + "</B> - " + demo.escape('artist_name') %>
-      <% }); %>
+    <div class="accordion-inner" id="playlist-demos">
+      
     </div>
   </div>
   </div>

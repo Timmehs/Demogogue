@@ -24,7 +24,7 @@ Demogogue.Views.StreamView = Backbone.View.extend({
 
   renderPlaylists: function() {
     var playlistView = new Demogogue.Views.PlaylistIndex({
-      collection: currentUser.playlists()
+      collection: Demogogue.Collections.playlists
     });
     this.$('#playlist-container').html(playlistView.render().$el);
   },

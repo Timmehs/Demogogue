@@ -11,9 +11,12 @@ Demogogue.Models.Playlist = Backbone.Model.extend({
   },
 
   demos: function() {
-    if (!this._demos) {
-      this._demos = new Demogogue.Collections.Demos([], {playlist: this});
-    };
+    if(!this._demos || this._demos.length < this._links.length) {
+      var demos = this._demos = [];
+      this.links().each(function(link) {
+        demos.push(Demogogue.Collections.demos.get(link.get('demo_id')));
+      });
+    }
 
     return this._demos;
   },
@@ -22,11 +25,6 @@ Demogogue.Models.Playlist = Backbone.Model.extend({
     if (response.playlist_links) {
       this.links().set(response.playlist_links, { parse: false });
       delete response.playlist_links;
-    };
-
-    if (response.demos) {
-      this.demos().set(response.demos, { parse: false });
-      delete response.demos;
     };
 
     return response;
