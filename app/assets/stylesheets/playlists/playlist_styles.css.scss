@@ -2,16 +2,22 @@
 div.playlist-index {
   div.accordion-heading {
     font-size: 18px;
+    text-align: center;
+    border: 1px solid gainsboro;
+    margin-top: 5px;
+    padding: 6px;
     span.glyphicon-play {
-      font-size: 7px;
-      padding: 6px;
-      background-color: gray;
-      color: white;
-      margin-top: 1px;
-      border-radius: 20px;
-      margin-left: 10px;
+      font-size:14px;
+      cursor: pointer;
     }
   }
+
+  div.accordion-inner {
+    background-color: whitesmoke;
+    width: 98%;
+    margin: 0 auto;
+  }
+
   div.playlist-loading {
     position: absolute;
     top: 0px;

@@ -2,9 +2,17 @@ Demogogue.Views.PlaylistShow = Backbone.View.extend({
   template: JST['playlists/show'],
   className: "playlist-show",
 
+  events: {
+    "click #playlist-play" : "playThis"
+  },
+
   initialize: function() {
     this.playlistLinks = this.model.links();
     this.listenTo(this.playlistLinks, "sync add remove", this.renderPlaylistDemos);
+  },
+
+  playThis: function() {
+    console.log("teehee");
   },
 
   render: function() {
@@ -20,7 +28,8 @@ Demogogue.Views.PlaylistShow = Backbone.View.extend({
     var thisView = this;
     this.clearSubviews();
     this.playlistLinks.each(function(link) {
-      var view = new Demogogue.Views.PlaylistDemo({ model: link });
+      var demo = Demogogue.Collections.demos.get(link.get('demo_id'));
+      var view = new Demogogue.Views.PlaylistDemo({ model: demo });
       thisView._subviews.push(view);
       thisView.$('#playlist-demos').append(view.render().$el);
     });

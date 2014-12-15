@@ -26,7 +26,6 @@ $(document).ready(function () {
         var newList = Demogogue.Collections.playlists.create({
             title: playlistTitle
         }, {
-          wait: true,
           success: function() {
             newList.links().create({ demo_id: demoId, playlist_id: newList.id });
           }

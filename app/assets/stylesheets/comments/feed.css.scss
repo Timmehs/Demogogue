@@ -5,9 +5,15 @@ div#comments-feed {
   width: 200px;
   padding: 10px;
   margin: 20px;
-  margin-top: 50px;
+  margin-top: 18px;
   border: 1px solid gainsboro;
-  border-radius: 10px;
+  box-shadow: 1px 1px 1px rgba(0,0,0,0.2);
+
+  h4 {
+    padding-bottom: 8px;
+    text-align: center;
+    font-size: 20px;
+  }
 
   .comment-feed-item {
     display: block;

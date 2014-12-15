@@ -9,7 +9,6 @@ Demogogue.Views.PlaylistIndex = Backbone.View.extend({
 
 
   render: function() {
-    this.clearSubviews();
     var content = this.template();
     this.$el.html(content);
     this.renderPlaylists();
@@ -18,6 +17,7 @@ Demogogue.Views.PlaylistIndex = Backbone.View.extend({
 
   renderPlaylists: function() {
     var thisIndex = this;
+    this.clearSubviews();
     this.collection.each(function(playlist) {
       var view = new Demogogue.Views.PlaylistShow({ model: playlist});
       thisIndex._subviews.push(view);

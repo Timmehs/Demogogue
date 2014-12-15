@@ -4,7 +4,7 @@ div.playlist-demo {
   padding: 10px;
   height: 75px;
   position:relative;
-  border-bottom: 1px solid gainsboro;
+  border-top: 1px solid gainsboro;
   * {
     color: gray;
     font-size: 14px;
@@ -23,10 +23,11 @@ div.playlist-demo {
   .title {
     font-weight: bold;
     display:block;
+    width: 85%;
   }
 
   .right-btn {
-    right: 0px;
+    right: 10px;
     top: 17px;
     position: absolute;
     visibility: hidden;

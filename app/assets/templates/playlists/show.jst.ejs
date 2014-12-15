@@ -4,8 +4,8 @@
     <a class="accordion-toggle collapsed" data-toggle="collapse"
         data-parent=".playlist-index" href="#collapse<%= playlist.id %>">
       <%= playlist.escape('title') %>
-      <span class="glyphicon glyphicon-play"></span>
     </a>
+    <span id="playlist-play" class="glyphicon glyphicon-play"></span>
   </div>
   <div id="collapse<%= playlist.id %>" class="accordion-body collapse">
     <div class="accordion-inner" id="playlist-demos">

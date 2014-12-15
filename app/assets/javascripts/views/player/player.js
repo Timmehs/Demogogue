@@ -48,6 +48,9 @@ Demogogue.Views.Player = Backbone.View.extend({
     } else {
       this.playing = false;
       $('#play' + this.demo.id).removeClass("glyphicon-pause").addClass("glyphicon-play");
+      $('.pl-demo' + this.demo.id + '  span.title').append(
+        '<span class="glyphicon glyphicon-volume-up"></span>'
+      );
       if (this.currentSound) {
         this.currentSound.stop();
         var timeShowId = "#timeShow" + player.demo.id;
@@ -78,6 +81,7 @@ Demogogue.Views.Player = Backbone.View.extend({
           var timeShowId = "#timeShow" + player.demo.id;
           $(timeShowId).empty();
           $("#player-progress").css("width", "0%");
+          $('.pl-demo' + player.demo.id + ' span.glyphicon-volume-up').remove();
           player.playNext();
         },
 

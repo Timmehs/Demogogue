@@ -14,7 +14,13 @@ div.user-stream {
 h2.stream-header {
   color: dimgray;
   border-bottom: 1px solid gainsboro;
-  width: 60%;
+  width: 50%;
+  position: fixed;
+  top: 31px;
+  background: white;
+  z-index: 10;
+  height: 71px;
+  padding: 20px;
 }
 
 div#list-container {
@@ -24,7 +30,8 @@ div#list-container {
 }
 
 #stream-list {
-  overflow: scroll;
+  overflow-y: scroll;
+  margin-top: 51px;
   position:relative;
 }
 
@@ -43,7 +50,7 @@ div#playlist-container {
   position: fixed;
   top: 52px;
   padding: 20px;
-  overflow: scroll;
+  overflow-y: scroll;
   width: 320px;
-  height: 700px;
+  height: 846px;
 }

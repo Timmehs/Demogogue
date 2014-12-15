@@ -9,7 +9,7 @@
 
 #main-container {
   position: relative;
-  min-width: 900px;
+  min-width: 972px;
   padding: 0px;
 
 }
@@ -25,18 +25,24 @@
   height: 100%;
   #splash1 {
     display:none;
+    margin-top: 400px;
+    h1 {
+      font-weight: normal;
+      font-size: 120px;
+      color: #363636;
+      font-family: georgia;
+    }
   }
 
   #splash2 {
     display: none;
+    h2 {
+      color: #363636;
+      margin-top: -6px;
+      font-family: georgia;
+    }
   }
-  h1 {
-    font-weight: normal;
-    margin-top: 400px;
-    font-size: 120px;
-    font-family: georgia;
-  }
-  h2 {
-    font-family: georgia;
-  }
+
+
+
 }

@@ -17,11 +17,12 @@ Demogogue.Views.DemosIndex = Backbone.View.extend({
   },
 
   render: function() {
+    console.log('index render');
     var content = this.template();
     this.$el.html(content);
     this.renderDemos();
     this.renderComments();
-
+    this.$('#All').addClass('active');
     return this;
   },
 
@@ -71,13 +72,20 @@ Demogogue.Views.DemosIndex = Backbone.View.extend({
 
   filter: function(event) {
     var filter = $(event.currentTarget).data('genre');
+    $(".index-sidebar-list.item.active").removeClass("active");
+    $("#" + filter).addClass("active");
     this.filterIndex(filter);
   },
 
   filterIndex: function(newFilter) {
-    var filterResult = Demogogue.Collections.demos.where({ genre: newFilter });
-    this.collection = new Backbone.Collection(filterResult);
-    this.render();
+    if (newFilter == "All") {
+      this.collection = Demogogue.Collections.demos;
+    } else {
+      var filterResult = Demogogue.Collections.demos.where({ genre: newFilter });
+      this.collection = new Backbone.Collection(filterResult);
+    }
+
+    this.renderDemos();
   }
 
 
