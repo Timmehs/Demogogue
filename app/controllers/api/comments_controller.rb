@@ -7,7 +7,8 @@ class Api::CommentsController < ApplicationController
   end
 
   def index
-
+    @comments = Comment.includes(:user, :demo).all
+    render :index
   end
 
   def destroy

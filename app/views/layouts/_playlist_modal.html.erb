@@ -13,21 +13,20 @@
           <!-- Tab panes -->
           <div class="tab-content">
             <div role="tabpanel" class="tab-pane active" id="add-to-playlist">
-              <% current_user.playlists.each do |playlist| %>
-                <a href=""><%= playlist.title %></a>
-              <% end %>
+              <!-- Playlists populated by index_item.js -->
             </div>
             <div role="tabpanel" class="tab-pane" id="create-playlist">
-              <form class="form-inline" role="form">
+
                 <div class="form-group">
-                  <label for="playlist-title-field" class="sr-only">Playlist Title</label>
-                  <input type="text" class="form-control input-lg" id="playlist-title-field" placeholder="Playlist title">
-                </div>
-                <button type="submit" class="btn btn-default"><span class="glyphicon glyphicon-plus"></button>
-                </form>
+                    <div class="input-group">
+                      <label for="playlist-title-field" class="sr-only">Playlist Title</label>
+                      <div class="input-group-addon"><span class="glyphicon glyphicon-plus"></div>
+                      <input type="text" class="form-control" id="playlist-title-field" placeholder="Playlist title">
+                    </div>
+                    <div id="warning-box" style="color: red;"></div>
+                  </div>
               </div>
             </div>
-
           </div>
         </div>
       </div><!-- /.modal-content -->

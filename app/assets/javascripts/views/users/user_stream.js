@@ -26,6 +26,8 @@ Demogogue.Views.StreamView = Backbone.View.extend({
     var playlistView = new Demogogue.Views.PlaylistIndex({
       collection: Demogogue.Collections.playlists
     });
+
+    Demogogue.Collections.playlists.fetch();
     this.$('#playlist-container').html(playlistView.render().$el);
   },
 
@@ -36,6 +38,9 @@ Demogogue.Views.StreamView = Backbone.View.extend({
   renderDemos: function() {
     var thisIndex = this;
     this.clearDemoViews();
+    this.$("#stream-list").append(
+      "<div id='demo-cover'><img src='assets/loader.gif'></div>"
+    );
     this.model.stream().each(function(demo) {
       var demoView = new Demogogue.Views.DemosIndexItem({
         model: demo,
@@ -43,6 +48,9 @@ Demogogue.Views.StreamView = Backbone.View.extend({
       });
       thisIndex._demoViews.push(demoView);
       thisIndex.$('#stream-list').append(demoView.render().$el);
+    });
+    this.$("#stream-list").waitForImages(function(){
+      $("#demo-cover").fadeOut('slow');
     });
   },
 

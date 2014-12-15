@@ -6,19 +6,29 @@ Demogogue.Views.SplashPage = Backbone.View.extend({
     "click a.guest" : "guestLogin"
   },
 
+  initialize: function(options) {
+    this._loaded = options.fastload;
+  },
+
   render: function() {
     var content = this.template({demos: this.collection});
     this.$el.html(content);
-    this.renderDemos();
+    if(!this._loaded) {
+      this.$el.ready(function() {
+        setTimeout(function() {
+          $("#splash1").fadeIn(1000, function() {
+            $('#splash2').fadeIn(1000);
+          });
+        }, 500);
+      });
+    } else {
+      $("#splash1").fadeIn('fast');
+      $("#splash2").fadeIn('fast');
+    }
+
     return this;
   },
 
-  renderDemos: function() {
-    _.each(this.collection, function(demo) {
-      var content = new Demogogue.Views.DemoShow({ model: demo });
-    });
-
-  },
 
   guestLogin: function() {
     this.$el.css("cursor", "wait");

@@ -1,7 +1,8 @@
 <table>
   <tr>
     <td class="artwork" rowspan="2">
-      <img style="float: left; display: inline-block;"
+      <img id="loader" src="assets/demo_default.png">
+      <img id="trackArt" style="float: left; display: none;"
           src="<%= demo.escape('thumb_url') %>">
     </td>
     <td class="play-btn">
@@ -24,51 +25,45 @@
   </tr>
   <tr>
     <td colspan="2" data-id="<%= demo.id %>" class="waveform">
-      <article id="timeShow<%= demo.id %>" class="timeshow"></article>
-    </td>
-  </tr>
-  <% if (CURRENT_USER !== 0) { %>
-  <tr class="comment-row">
-    <td></td>
-    <td colspan="2">
-      <div class="comment-container">
-        <div class="input-group input-group-sm">
-          <label class="sr-only" for="comment-field">Comment Field</label>
-          <div class="input-group-addon"
-            style="background-image: url('<%= user.escape('avatar_url') %>')"></div>
-          <form>
-          <input type="text" name="body" class="form-control" id="comment-field"
-            placeholder="Write a comment ...">
-          <button type="submit" style="display: none;">
-          </form>
-        </div>
-      </div>
-
-    </td>
-  </tr>
-  <tr>
-    <td></td>
-    <td colspan="2">
+      <% if (CURRENT_USER !== 0) { %>
       <div class="btn-toolbar" role="toolbar">
         <div class="btn-group-xs" role="group" aria-label="...">
 
           <button type="button" class="btn btn-default fol-btn fol-btn<%= demo.get('artist_id') %>">
             <% if (following) { %>
               <span class="glyphicon glyphicon-star"></span>Following
-            <% } else { %>
-              <span class="glyphicon glyphicon-star-empty"></span>Follow Artist
-            <% } %>
-          </button>
-
-          <button id="#playlist-btn" data-toggle="modal" data-target="#playlistModal" type="button" class="btn btn-default">
-            <span alt="Feature coming soon" class="glyphicon glyphicon-th-list"></span> Add to playlist
-          </button>
-
-          <button type="button" class="btn btn-default">
-            <span class="glyphicon glyphicon-share"></span> Share
-          </button>
-        </div>
-      </div>
+              <% } else { %>
+                <span class="glyphicon glyphicon-star-empty"></span>Follow Artist
+                <% } %>
+              </button>
+              <button id="playlist-btn" data-toggle="modal" data-target="#playlistModal" type="button" class="btn btn-default">
+                <span alt="Feature coming soon" class="glyphicon glyphicon-th-list"></span> Add to playlist
+              </button>
+              <button type="button" class="btn btn-default comment-btn">
+                <span class="glyphicon glyphicon-comment"></span>Comment
+              </button>
+            </div>
+          </div>
+      <% }; %>
+      <article id="timeShow<%= demo.id %>" class="timeshow"></article>
     </td>
-    <% }; %>
+  </tr>
+  <tr class="comment-row">
+    <td colspan="3">
+      <div class="comment-container">
+        <div class="input-group input-group-sm">
+          <label class="sr-only" for="comment-field">Comment Field</label>
+          <div class="input-group-addon"
+          style="background-image: url('<%= user.escape('avatar_url') %>')"></div>
+          <form>
+            <input type="text" name="body" class="form-control" id="comment-field"
+            placeholder="Write a comment ...">
+            <button type="submit" style="display: none;">
+            </form>
+          </div>
+        </div>
+
+      </td>
+    </tr>
+
 </table>

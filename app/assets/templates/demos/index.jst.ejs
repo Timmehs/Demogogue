@@ -1,13 +1,19 @@
+<div id="comments-feed">
+  <h4>Latest Comments</h4>
+  <div id="comments-list">
+
+  </div>
+</div>
+
+
 <div id="index-sidebar">
   <div id="index-sidebar-list">
-    <span id="genre-header">Genres</span>
     <% _.each(Demogogue.Models.Demo.GENRES, function(genre) { %>
       <div class="index-sidebar-list item">
         <a class="filter-link" data-genre="<%= genre %>" href="javascript:void(0)"><%= genre %></a>
       </div>
     <% }); %>
   </div>
-
 </div>
 
 <div id="demo-list">

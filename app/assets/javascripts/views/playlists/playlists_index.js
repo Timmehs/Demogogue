@@ -4,7 +4,7 @@ Demogogue.Views.PlaylistIndex = Backbone.View.extend({
   className: "playlist-index",
 
   initialize: function() {
-    this.listenTo(this.collection, "sync add remove", this.refresh);
+    this.listenTo(this.collection, "sync add remove", this.render);
   },
 
 

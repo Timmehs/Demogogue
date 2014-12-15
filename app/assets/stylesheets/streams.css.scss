@@ -25,6 +25,7 @@ div#list-container {
 
 #stream-list {
   overflow: scroll;
+  position:relative;
 }
 
 div#stream-sidebar {
@@ -42,8 +43,7 @@ div#playlist-container {
   position: fixed;
   top: 52px;
   padding: 20px;
-  overflow: hidden;
-  width: 276px;
+  overflow: scroll;
+  width: 320px;
   height: 700px;
-  border-left: 1px solid gainsboro;
 }

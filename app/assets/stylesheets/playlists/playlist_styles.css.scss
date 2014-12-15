@@ -1,24 +1,98 @@
+// Loading Box
+div.playlist-index {
+  div.playlist-loading {
+    position: absolute;
+    top: 0px;
+    bottom: 2px;
+    right: 0px;
+    left: 0px;
+    background-color: white;
+
+    img {
+      margin-left: 130px;
+      margin-top: 300px;
+    }
+  }
+
+
+}
+
+
+
+
 
 // Modal
 
 #playlistModal {
 
+  .modal-body {
+    min-height: 200px;
+  }
+
+  .tab-content {
+    padding: 15px;
+    padding-bottom: 40px;
+  }
+
   .modal-dialog {
     top: 300px;
     width: 400px;
-  .modal-body {
-    height: 220px;
-  }
+    min-height: 300px;
+
     .nav-tabs li {
       font-size: 20px;
       width: 180px;
     }
 
+    #create-playlist {
+      padding: 20px;
+    }
+
+    .input-group-addon {
+      border-radius: 5px 0px 0px 5px;
+      border-right: none;
+    }
     form {
       height: 200px;
       padding: 30px;
       text-align: center;
       width: 100%;
+
+      input.title-field {
+        width: 280px;
+        border-radius: 5px 0px 0px 5px;
+        border-right:none;
+      }
+
+    }
+
+
+    .playlist-modal-playlist {
+      padding: 3px;
+      margin:3px;
+      font-size: 16px;
+      color: gray;
+      height: 30px;
+      cursor: pointer;
+      transition: 0.3s;
+
+      .glyphicon-plus {
+          opacity: 0;
+          margin-left: 10px;
+          color: #ff751b;
+      }
+
+      .title {
+          float: left;
+      }
+
+      &:hover {
+        .glyphicon-plus {
+            opacity: 0.5;
+        }
+          color: black;
+          transition: 0.3s;
+      }
     }
   }
 }

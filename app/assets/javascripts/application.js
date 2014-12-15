@@ -14,6 +14,7 @@
 //= require jquery_ujs
 //= require jquery-ui
 //= require jquery.timeago
+//= require jquery.waitforimages
 //= require turbolinks
 //= require bootstrap
 //= require underscore

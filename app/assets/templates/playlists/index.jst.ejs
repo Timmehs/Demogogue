@@ -1,1 +1,7 @@
-Playlists
+<% if (currentUser.get('username')) { %>
+  <h3><%= currentUser.get('username') %>'s Playlists</h3>
+<% } else { %>
+  <div class="playlist-loading">
+    <img src="assets/loader.gif">
+  </div>
+<% } %>

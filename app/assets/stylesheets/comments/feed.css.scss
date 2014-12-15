@@ -1,0 +1,32 @@
+div#comments-feed {
+  float: right;
+  height: 560px;
+  overflow: hidden;
+  width: 200px;
+  padding: 10px;
+  margin: 20px;
+  margin-top: 50px;
+  border: 1px solid gainsboro;
+  border-radius: 10px;
+
+  .comment-feed-item {
+    display: block;
+    text-align: left;
+    margin-top: 5px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    border-top: 1px solid gainsboro;
+
+    span.comment-body{
+      font-size: 12px;
+      font-weight: bold;
+      font-style: italic;
+    }
+
+    span.comment-info {
+      color: darkgray;
+      font-size: 10px;
+    }
+
+  }
+}

@@ -7,8 +7,10 @@ Demogogue.Collections.Comments = Backbone.Collection.extend({
   },
 
   initialize: function(models, options) {
-    this.demo = options.user,
-    this.comment = options.comment
+    if (options) {
+      this.demo = options.user,
+      this.comment = options.comment
+    }
   },
 
   getOrFetch: function(id) {
@@ -26,5 +28,12 @@ Demogogue.Collections.Comments = Backbone.Collection.extend({
     }
 
     return comment;
+  },
+
+  reverse: function() {
+    return newCollect;
   }
 });
+
+
+Demogogue.Collections.comments = new Demogogue.Collections.Comments();

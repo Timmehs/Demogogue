@@ -1,0 +1,10 @@
+<div class="comment-feed-item">
+  <span class="comment-body">
+    <%= comment.escape('body') %>
+  </span>
+  <span class="comment-info">
+    posted by <%= comment.escape('username') %> to
+    <a href="#/demo/<%= comment.get('demo_id') %>"><%= comment.get('demo_title') %></a>
+    ~ <%= ($.timeago(comment.get('created_at'))).replace("ago", "").replace("about", "") %>
+  </span>
+</div>

@@ -77,6 +77,20 @@
     }
   }
 
+  div.btn-toolbar {
+    float: left;
+    margin-top: 20px;
+    margin-left: 0px;
+    display: inline-block;
+    span {
+      color: dimgray;
+    }
+  }
+
+  article.timeshow {
+    display: inline-block;
+  }
+
   .play-btn {
     width: 30px;
     cursor: pointer;

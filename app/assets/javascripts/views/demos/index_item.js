@@ -4,10 +4,10 @@ Demogogue.Views.DemosIndexItem = Backbone.View.extend({
 
   events: {
     "click button.play" : "play",
-    "click td.waveform" : "showCommentForm",
+    "click button.comment-btn" : "showCommentForm",
     "submit form" : "createComment",
     "click button.fol-btn" : "toggleFollow",
-    "click button#playlist-btn" : "renderPlaylistModal"
+    "click button#playlist-btn" : "renderPlaylistModal",
   },
 
 
@@ -17,7 +17,6 @@ Demogogue.Views.DemosIndexItem = Backbone.View.extend({
   },
 
   render: function() {
-    console.log('render');
     var content = this.template({
       following: this.isFollowing(),
       demo: this.model,
@@ -26,7 +25,26 @@ Demogogue.Views.DemosIndexItem = Backbone.View.extend({
     this.$el.html(content);
     var playSymbol = this.isPlaying() ? "glyphicon-pause" : "glyphicon-play";
     this.$("button.play span").addClass(playSymbol);
+    var thisView = this;
+    this.$('td.artwork').waitForImages(function() {
+      thisView.$("#loader").hide();
+      thisView.$('#trackArt').show();
+    });
     return this;
+  },
+
+  renderPlaylistModal: function() {
+    var thisView = this;
+    var modalPlaylistsTemplate = JST['playlists/show_modal'];
+    $('#add-to-playlist').empty();
+    Demogogue.Collections.playlists.each(function(list) {
+      var content = modalPlaylistsTemplate({
+        playlist: list,
+        demo: thisView.model
+      });
+      $('#add-to-playlist').append(content);
+    });
+    $('#playlist-title-field').attr('data-demo-id', this.model.id);
   },
 
   play: function() {
@@ -42,9 +60,12 @@ Demogogue.Views.DemosIndexItem = Backbone.View.extend({
     event.preventDefault();
     var text = this.$('#comment-field').val();
     if (text === "") { return; }
-    this.model.comments().create({
+    Demogogue.Collections.comments.create({
       user_id: CURRENT_USER,
-      body: $('#comment-field').val()
+      username: currentUser.get('username'),
+      demo_title: this.model.get('title'),
+      body: text,
+      demo_id: this.model.id
     }, { wait: true });
     this.$('#comment-field').val("");
 

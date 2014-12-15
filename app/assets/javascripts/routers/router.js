@@ -21,7 +21,7 @@ Demogogue.Routers.Router = Backbone.Router.extend({
       window.player = this.player;
       this.hidePlayer();
     }
-
+    this.firstload = true;
     CURRENT_USER !== 0 && $('#home-stream-link').text("Stream");
 
   },
@@ -39,6 +39,7 @@ Demogogue.Routers.Router = Backbone.Router.extend({
     if (CURRENT_USER === 0) {
       this.hidePlayer();
       this.splashPage();
+      this._firstLoad = false;
     } else {
       this.showPlayer();
       this.streamPage();
@@ -70,7 +71,7 @@ Demogogue.Routers.Router = Backbone.Router.extend({
   },
 
   splashPage: function() {
-    var splashPage = new Demogogue.Views.SplashPage();
+    var splashPage = new Demogogue.Views.SplashPage({}, { fastload: !this._firstload});
     this._swapView(splashPage);
   },
 

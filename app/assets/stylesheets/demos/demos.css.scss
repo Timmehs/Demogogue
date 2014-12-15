@@ -1,7 +1,8 @@
 div.demoIndexView {
   overflow: hidden;
-}
+  height: 100%;
 
+}
 
 #index-sidebar {
   margin-top: 50px;
@@ -10,39 +11,47 @@ div.demoIndexView {
   display: inline-block;
   float: left;
   padding: 10px;
-  #genre-header {
-    color: #337ab7;
-    font-size: 18px;
-  }
 }
 
+#demo-cover {
+  position: absolute;
+  z-index: 444;
+  background-color: white;
+  top: 0px;
+  right: 0px;
+  bottom: 0px;
+  left: 0px;
+  img {
+    margin-left: 50%;
+    margin-top: 50%;
+  }
+}
 
 #index-sidebar-list {
+  width: 100%;
   padding: 10px;
-  float: left;
+  font-size: 14px;
   .item {
-    margin-left: 10px;
-    padding: 3px;
-    font-size: 16px;
-    font-style: bold;
-    color: darkgray;
-  }
-}
+    padding: 5px 15px 5px 15px;
 
-.idx-header {
-  font-size: 25px;
-  padding: 25px;
-  padding-bottom: 5px;
-  color: darkgray;
-  border-bottom: 2px solid gainsboro;
-  width: 400px;
+    a {
+      transition: 0.5s;
+    }
+    a:hover {
+      text-decoration: none;
+      color: #ef3f8f;
+    }
+  }
+
 }
 
 
 
 #demo-list {
-  height: 690px;
-  overflow: auto;
+  height: 100%;
+  overflow: scroll;
   padding-right: 20px;
+  position: relative;
+  padding-bottom: 200px;
 
 }
