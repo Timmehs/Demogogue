@@ -31,7 +31,7 @@ gem 'bootstrap-sass'
 
 # Use ActiveModel has_secure_password
 gem 'bcrypt', '~> 3.1.7'
-
+gem 'alertify-rails'
 gem 'aws-s3', git: 'https://github.com/bartoszkopinski/aws-s3'
 
 group :development do

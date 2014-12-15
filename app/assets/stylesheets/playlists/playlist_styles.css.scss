@@ -1,15 +1,32 @@
-// Loading Box
 div.playlist-index {
+
+  header {
+    color: dimgray;
+  }
+
   div.accordion-heading {
     font-size: 18px;
     text-align: center;
     border: 1px solid gainsboro;
     margin-top: 5px;
     padding: 6px;
-    span.glyphicon-play {
+
+
+    span#playlist-play {
       font-size:14px;
       cursor: pointer;
+      color: lightgray;
+      &:hover {
+        color: #333333;
+      }
     }
+
+    span#playlist-play {
+      float:left;
+      margin-top: 4px;
+      margin-left: 4px;
+    }
+
   }
 
   div.accordion-inner {
@@ -31,82 +48,22 @@ div.playlist-index {
       margin-top: 300px;
     }
   }
-}
 
-
-
-// Modal
-
-#playlistModal {
-
-  .modal-body {
-    min-height: 200px;
-  }
-
-  .tab-content {
-    padding: 15px;
-    padding-bottom: 40px;
-  }
-
-  .modal-dialog {
-    top: 300px;
-    width: 400px;
-    min-height: 300px;
-
-    .nav-tabs li {
-      font-size: 20px;
-      width: 180px;
+  div.delete-row {
+    height: 30px;
+    padding: 0px;
+    text-align: right;
+    font-size: 12px;
+    cursor: pointer;
+    span#playlist-destroy {
+      margin-top: 4px;
+      margin-right: 4px;
     }
 
-    #create-playlist {
-      padding: 20px;
-    }
-
-    .input-group-addon {
-      border-radius: 5px 0px 0px 5px;
-      border-right: none;
-    }
-    form {
-      height: 200px;
-      padding: 30px;
-      text-align: center;
-      width: 100%;
-
-      input.title-field {
-        width: 280px;
-        border-radius: 5px 0px 0px 5px;
-        border-right:none;
-      }
-
-    }
-
-
-    .playlist-modal-playlist {
-      padding: 3px;
-      margin:3px;
-      font-size: 16px;
-      color: gray;
-      height: 30px;
-      cursor: pointer;
-      transition: 0.3s;
-
-      .glyphicon-plus {
-          opacity: 0;
-          margin-left: 10px;
-          color: #ff751b;
-      }
-
-      .title {
-          float: left;
-      }
-
-      &:hover {
-        .glyphicon-plus {
-            opacity: 0.5;
-        }
-          color: black;
-          transition: 0.3s;
-      }
+    &:hover {
+      background-color: lightgray;
     }
   }
+
+
 }

@@ -33,6 +33,11 @@ Demogogue.Views.PlaylistShow = Backbone.View.extend({
       thisView._subviews.push(view);
       thisView.$('#playlist-demos').append(view.render().$el);
     });
+    this.$('#playlist-demos').append(
+      "<div data-id='" + this.model.id + "' class='playlist-demo delete-row'>" +
+      "Delete Playlist <span id='playlist-destroy' class='glyphicon glyphicon-trash'>" +
+      "</span></div>"
+    );
   },
 
   clearSubviews: function() {
