@@ -25,9 +25,13 @@ $(document).ready(function () {
       if (playlistTitle !== "") {
         var newList = Demogogue.Collections.playlists.create({
             title: playlistTitle
-          }, { wait: true }
-        );
-        newList.links().create({ demo_id: demoId, playlist_id: newList.id });
+        }, {
+          wait: true,
+          success: function() {
+            newList.links().create({ demo_id: demoId, playlist_id: newList.id });
+          }
+        });
+
         $(playlistModal).attr('aria-hidden', 'true').removeClass('in');
       } else {
         $('#warning-box').html("Playlist name can't be blank!");

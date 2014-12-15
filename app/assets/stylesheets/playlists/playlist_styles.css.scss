@@ -1,5 +1,17 @@
 // Loading Box
 div.playlist-index {
+  div.accordion-heading {
+    font-size: 18px;
+    span.glyphicon-play {
+      font-size: 7px;
+      padding: 6px;
+      background-color: gray;
+      color: white;
+      margin-top: 1px;
+      border-radius: 20px;
+      margin-left: 10px;
+    }
+  }
   div.playlist-loading {
     position: absolute;
     top: 0px;
@@ -13,11 +25,7 @@ div.playlist-index {
       margin-top: 300px;
     }
   }
-
-
 }
-
-
 
 
 
