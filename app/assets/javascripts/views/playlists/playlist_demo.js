@@ -7,8 +7,9 @@ Demogogue.Views.PlaylistDemo = Backbone.View.extend({
   },
 
   render: function() {
-    this.$el.addClass("pl-demo" + this.model.id);
-    var content = this.template({ demo: this.model });
+    var thisDemo = Demogogue.Collections.demos.get(this.model.get('demo_id'));
+    this.$el.addClass("pl-demo" + thisDemo.id);
+    var content = this.template({ demo: thisDemo });
     this.$el.html(content);
     return this;
   },
