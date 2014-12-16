@@ -39,7 +39,8 @@ Demogogue.Views.StreamView = Backbone.View.extend({
     var thisIndex = this;
     this.clearDemoViews();
     this.$("#stream-list").append(
-      "<div id='demo-cover'><img src='assets/loader.gif'></div>"
+      "<div id='demo-cover'><img src='assets/loader.gif'></div>" +
+      "<div class='stream-header'><h2>My Stream</h2></div>"
     );
     this.model.stream().each(function(demo) {
       var demoView = new Demogogue.Views.DemosIndexItem({
