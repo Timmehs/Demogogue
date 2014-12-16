@@ -35,15 +35,14 @@ body {
 #main-container {
   top: 52px;
   position: relative;
-  padding: 10px;
   padding: 0px;
   width: 80%;
-  min-width: 900 px;
+  min-width: 972px;
   max-width: 1300px;
   height: 850px;
   background-color: white;
   margin: 0 auto;
-  overflow: auto;
+  overflow: hidden;
   border-left: 1px solid gainsboro;
   border-right: 1px solid gainsboro;
   border-bottom: 1px solid gainsboro;

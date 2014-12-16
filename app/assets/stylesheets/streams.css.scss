@@ -8,16 +8,14 @@ div.user-stream {
   position: relative;
   width:100%;
   height: 100%;
-  overflow-y: scroll;
+  overflow: auto;
 
 }
 div.stream-header {
   height: 70px;
   min-width: 666px;
-  background:white;
   border-bottom: 1px solid gainsboro;
   padding:10px;
-  z-index: 9999;
 
   h2 {
     color: dimgray;
@@ -27,6 +25,15 @@ div.stream-header {
 
 }
 
+.ui-dialog {
+  z-index: 9999;
+}
+
+.ui-dialog-titlebar-close {
+  &:hover {
+    background-color: dimgray;
+  }
+}
 
 div#list-container {
   overflow: hidden;
@@ -36,11 +43,8 @@ div#list-container {
 }
 
 #stream-list {
-  overflow-y: scroll;
+  overflow: auto;
   position:relative;
-  div:nth-child(3) {
-    margin-top: 30px;
-  }
 }
 
 div#stream-sidebar {
