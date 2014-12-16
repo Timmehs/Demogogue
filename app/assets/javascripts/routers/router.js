@@ -66,6 +66,7 @@ Demogogue.Routers.Router = Backbone.Router.extend({
 
   streamPage: function() {
     this.user.fetch();
+    this.playlists.fetch();
     var streamView = new Demogogue.Views.StreamView({ model: this.user });
     this._swapView(streamView);
   },

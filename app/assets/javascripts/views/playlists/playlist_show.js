@@ -13,6 +13,8 @@ Demogogue.Views.PlaylistShow = Backbone.View.extend({
 
   playThis: function() {
     console.log("teehee");
+    player.queue = this.model.demos();
+    player.playDemo(player.queue[0]);
   },
 
   render: function() {

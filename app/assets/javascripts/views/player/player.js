@@ -163,14 +163,7 @@ Demogogue.Views.Player = Backbone.View.extend({
 
   // Queue Functions
   qPosition: function(demo) {
-
-    for (var i = 0; i < player.queue.length; i++) {
-      if (player.queue[i].id === demo.id) {
-        return i;
-      }
-    }
-
-    return -1;
+    return player.queue.indexOf(demo);
   },
 
   playNext: function() {
