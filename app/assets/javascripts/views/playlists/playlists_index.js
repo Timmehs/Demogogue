@@ -12,15 +12,25 @@ Demogogue.Views.PlaylistIndex = Backbone.View.extend({
   },
 
   removePlaylist: function(id) {
-    this.collection.get(playlistId).destroy();
+    this.collection.get(id).destroy();
   },
 
   confirmRemovePlaylist: function(event) {
     var playlistId = $(event.target).data('id');
     var thisView = this;
-    alertify.confirm('Delete playlist?', function(e) {
-      if (e) {
-        thisView.removePlaylist(playlistId);
+    $("#delete-dialog").dialog({
+      resizable: false,
+      height: 150,
+      modal: true,
+      closeText: 'hide',
+      buttons: {
+        "Delete playlist": function() {
+          thisView.removePlaylist(playlistId);
+          $(this).dialog( "close" );
+        },
+        Cancel: function() {
+          $(this).dialog("close");
+        }
       }
     });
   },

@@ -18,6 +18,7 @@ gem 'coffee-rails', '~> 4.0.0'
 
 # Use jquery as the JavaScript library
 gem 'jquery-rails'
+gem 'jquery-ui-rails', '5.0.3'
 # Turbolinks makes following links in your web application faster. Read more: https://github.com/rails/turbolinks
 gem 'turbolinks'
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
@@ -31,7 +32,6 @@ gem 'bootstrap-sass'
 
 # Use ActiveModel has_secure_password
 gem 'bcrypt', '~> 3.1.7'
-gem 'alertify-rails'
 gem 'aws-s3', git: 'https://github.com/bartoszkopinski/aws-s3'
 
 group :development do
@@ -43,7 +43,6 @@ end
 gem 'newrelic_rpm'
 
 gem 'figaro'
-gem 'jquery-ui-rails'
 
 # Use unicorn as the app server
 # gem 'unicorn'
