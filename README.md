@@ -5,4 +5,4 @@
 - Custom upload form with custom avatar picker that accepts a file or link to image.
 - JavaScript/CSS/SoundManager2 “sticky” music player - streams and buffers audio from AWS servers while user browses the website.
 
-![alt text]()
+![alt text](https://raw.githubusercontent.com/Timmehs/Demogogue/master/app/assets/images/demoscreen.png)
