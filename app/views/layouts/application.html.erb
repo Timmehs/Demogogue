@@ -6,7 +6,6 @@
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
 </head>
-<script>CURRENT_USER = <%= current_user ? current_user.id : 0 %></script>
 <body>
   <%= render "layouts/header"%>
   <%= yield %>
@@ -15,6 +14,7 @@
   <script>
     KEY = "<%= ENV['aws_key'] %>";
     SEC = "<%= ENV['aws_secret'] %>";
+    CURRENT_USER = <%= current_user ? current_user.id : 0 %>;
   </script>
 </body>
 </html>
