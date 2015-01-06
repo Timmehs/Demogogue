@@ -7,7 +7,7 @@ $(document).ready(function () {
   });
 
 
-  $("#signup-form").on("click", function(e) {
+  $("#signup-form-form").on("submit", function(e) {
     console.log('yup');
   });
 
@@ -27,6 +27,7 @@ $(document).ready(function () {
     $(playlistModal).attr('aria-hidden', 'true').removeClass('in');
   });
 
+  /* Creates the playlist from the entered title, and on success adds demo */
   $("#playlist-title-field").keyup(function(e) {
     e.preventDefault();
     if (e.keyCode == 13) {
