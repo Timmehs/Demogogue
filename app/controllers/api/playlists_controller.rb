@@ -7,7 +7,7 @@ class Api::PlaylistsController < ApplicationController
   end
 
   def index
-    @playlists = current_user.playlists
+    @playlists = current_user.playlists if current_user
     render :index
   end
 

@@ -6,6 +6,16 @@ $(document).ready(function () {
     $('#signin-dropdown').removeClass('open');
   });
 
+
+  $("#signup-form").on("click", function(e) {
+    console.log('yup');
+  });
+
+
+
+
+
+
   $('div#add-to-playlist').on("click", function(event) {
     var id = $(event.target).data('id');
     var demoId = $(event.target).data('demo-id');

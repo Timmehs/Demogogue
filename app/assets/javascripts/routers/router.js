@@ -100,7 +100,6 @@ Demogogue.Routers.Router = Backbone.Router.extend({
   },
 
   updateSearch: function() {
-    console.log('update search');
     Demogogue.PrepSearch();
   }
 

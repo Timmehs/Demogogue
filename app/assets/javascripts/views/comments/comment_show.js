@@ -4,7 +4,7 @@ Demogogue.Views.CommentShow = Backbone.View.extend({
   className: "comment-show",
   events: {
     "click button.reply" : "showForm",
-    "submit form" : "addReply",
+    "submit form.comment-form" : "addReply",
     "click button.delete" : "deleteComment"
   },
 
@@ -43,7 +43,9 @@ Demogogue.Views.CommentShow = Backbone.View.extend({
   },
 
   addReply: function(event) {
+    console.log("cock sucker!");
     event.preventDefault();
+
 
     var text = this.$('#reply-field').val();
     if (text === "") { return; }

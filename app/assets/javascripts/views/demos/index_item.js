@@ -5,7 +5,7 @@ Demogogue.Views.DemosIndexItem = Backbone.View.extend({
   events: {
     "click button.play" : "play",
     "click button.comment-btn" : "showCommentForm",
-    "submit form" : "createComment",
+    "submit form.item-comment" : "createComment",
     "click button.fol-btn" : "toggleFollow",
     "click button#playlist-btn" : "renderPlaylistModal",
   },
