@@ -35,7 +35,7 @@ Demogogue.Routers.Router = Backbone.Router.extend({
   },
 
   home: function() {
-    var $homeLink = $('#home-stream-link')
+    var $homeLink = $('#home-stream-link');
     if (CURRENT_USER === 0) {
       this.hidePlayer();
       this.splashPage();
@@ -102,6 +102,4 @@ Demogogue.Routers.Router = Backbone.Router.extend({
   updateSearch: function() {
     Demogogue.PrepSearch();
   }
-
-
 });
