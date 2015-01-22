@@ -5,6 +5,7 @@ Demogogue.Routers.Router = Backbone.Router.extend({
     "upload" : "uploadPage",
     "user/:id" : "userShow",
     "demo/:id" : "demoShow",
+    "stream" : "streamPage"
   },
 
   initialize: function() {
@@ -41,8 +42,7 @@ Demogogue.Routers.Router = Backbone.Router.extend({
       this.splashPage();
       this._firstLoad = false;
     } else {
-      this.showPlayer();
-      this.streamPage();
+      this.index();
     }
   },
 
