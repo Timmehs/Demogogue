@@ -10,5 +10,5 @@ window.Demogogue = {
 };
 
 $(function() {
-  AWS.config.update({accessKeyId: KEY, secretAccessKey: SEC });
+  // AWS.config.update({accessKeyId: KEY, secretAccessKey: SEC });
 });
