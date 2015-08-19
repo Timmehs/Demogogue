@@ -24,7 +24,7 @@ Demogogue.Views.CommentsIndex = Backbone.View.extend({
         parentIndex: thisIndex });
       thisIndex.$el.append(commentView.render().$el);
       thisIndex._subviews.push(commentView);
-    })
+    });
     return this;
   },
 
@@ -45,4 +45,4 @@ Demogogue.Views.CommentsIndex = Backbone.View.extend({
     return count;
   }
 
-})
+});

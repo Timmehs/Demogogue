@@ -24,7 +24,6 @@ Demogogue.Routers.Router = Backbone.Router.extend({
     }
     this.firstload = true;
     CURRENT_USER !== 0 && $('#home-stream-link').text("Stream");
-
   },
 
   demoShow: function(id) {

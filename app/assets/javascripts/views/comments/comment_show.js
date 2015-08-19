@@ -43,7 +43,6 @@ Demogogue.Views.CommentShow = Backbone.View.extend({
   },
 
   addReply: function(event) {
-    console.log("cock sucker!");
     event.preventDefault();
 
 
